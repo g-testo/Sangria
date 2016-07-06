@@ -1,0 +1,18 @@
+<h1>Recipes#index</h1>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Author</th>
+        <th>Instructions</th>
+    </thead>
+    <tbody>
+<% @recipes.each do |recipe| %>
+    <tr>
+        <td><%= recipe.id %></td>
+        <td><%= recipe.author %></td>
+        <td><%= recipe.instructions %></td>
+    </tr>
+<% end %>
+    </tbody>
+</table>
