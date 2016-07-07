@@ -1,3 +1,9 @@
-<h1>Recipes#show</h1>
+<h1><%= @recipe.name %></h1>
 
-<%= @recipe.author %>, <%= @recipe.instructions %>
+<%= @recipe.author %><br>
+<p>Servings: <%= @recipe.servings %></p> <br>
+<%= @recipe.instructions %><br>
+
+
+<%= link_to "edit", edit_recipe_path(@recipe)%>
+<%= link_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' }%>

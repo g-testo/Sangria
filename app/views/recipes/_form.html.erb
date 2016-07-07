@@ -1,0 +1,20 @@
+<div class="form_wrapper">
+    <div class="form_content">
+        <%= form_for(@recipe) do |f| %>
+            <%= f.label :name, 'Your Name' %>
+            <%= f.text_field :name %><br>
+            
+            <%= f.label :author %>
+            <%= f.text_field :author %><br>
+            
+            <%= f.label :instructions %>
+            <%= f.text_field :instructions %><br>
+            
+            <%= f.label :servings %>
+            <%= f.text_field :servings %><br>
+            
+            <%= f.submit %>
+            
+        <% end %>
+    </div>
+</div>
