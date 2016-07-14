@@ -3,9 +3,125 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Recipe Form
+
+.sangria_title{
+ font-size: 80px;
+  text-align: center;
+  font-family: cursive;
+	font-weight: 500;
+}
+.full_wrapper{
+  width:90%;
+  padding:0px;
+  margin:0px;
+  position:relative;
+  background-color: white;
+}
+.featured_recipes{
+  display: inline-block;
+  width: 100%;
+  height: 250px;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;
+  padding:0px;
+  margin:0px;
+
+  
+  .featured_recipe_left{
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  height:100%;
+  float:left;
+  list-style-type: none;
+  }
+
+  .featured_recipe_middle{
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  height:100%;
+  display: inline-block;
+  }
+  
+  .featured_recipe_right {
+  border-style: solid;
+  border-width: 1px;
+  width: 30%;
+  height:100%;
+  float:right;
+  list-style-type: none;
+  }
+}
+
+.sangria_gallery{
+  text-align: center;
+  }
+
 .new_recipe {
-    input{
-        margin: 5px;
-        padding: 5px;
+  input{
+      margin: 5px;
+      padding: 5px;
+  }
+}
+
+.body_wrapper{
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  
+  .body_sections{
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    height:450px;
+    padding:0px;
+    margin:0px;
+
+    .body_left_column{
+      border-style: solid;
+      border-width: 1px;
+      width:40%;
+      height:400px;
+      float:left;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
+  
+    .body_bottom_row{
+      border-style: solid;
+      border-width: 1px;
+      width:58%;
+      height:200px;
+      float:right;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .body_top_left{
+      border-style: solid;
+      border-width: 1px;
+      width:29%;
+      height:200px;
+      float:right;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .body_top_right{
+      border-style: solid;
+      border-width: 1px;
+      width:29%;
+      height:200px;
+      float:right;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+  }
 }
