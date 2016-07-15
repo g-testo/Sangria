@@ -1,20 +1,13 @@
-<h1>Recipes#index</h1>
+<div class="recipe_list_wrapper">
 
-<table>
-    <thead>
-        <th>ID</th>
-        <th>Author</th>
-        <th>Instructions</th>
-    </thead>
-    <tbody>
-<% @recipes.each do |recipe| %>
-    <tr>
-        <td><%= recipe.id %></td>
-        <td><%= recipe.author %></td>
-        <td><%= recipe.instructions %></td>
-        <td><%= link_to "edit", edit_recipe_path(recipe)%></td>
-        <td><%= link_to "delete", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }%></td>
-    </tr>
-<% end %>
-    </tbody>
-</table>
+<h1>Recipe List</h1>
+
+    <% @recipes.each do |recipe| %>
+        <ul>
+            <li><%= recipe.name %></li>
+            <li><%= recipe.author %></li>
+            <li><%= image_tag(recipe.recipe_image, width: "300") %></li>
+        </ul>
+    <% end %>
+    
+</div>
