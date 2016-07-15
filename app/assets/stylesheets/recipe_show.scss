@@ -1,0 +1,135 @@
+.wrapper {
+  margin-top: 150px !important;
+  margin: 0 5%;
+}
+.article_container{
+  width: 66%;
+  display: inline-block;
+}
+.article_title{
+  font-size: 3.5rem;
+  font-family:  'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  text-align: center;
+}
+.article_author_date{
+  background-color: #fff;
+  box-shadow: 2px 2px 1px #ddd;
+  border-radius: 10px;
+  margin: 30px 25% 0 25%;
+  /*margin-right: 25%;*/
+  padding: 5px 0 5px 15px;
+  width: 400px;
+  height: auto;
+  min-width: 300px;
+  max-width: 400px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.article_author_date a{
+  text-decoration: none;
+  font-family:  'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+a:hover .article_author_name {
+  color: #111;
+}
+
+a .article_author_name {
+  padding-left: 5px;
+  color: #2793C7;
+
+}
+
+.article_publish_date {
+  color: #999;
+  font-weight: 600;
+  font-family:  'Source Sans Pro', sans-serif;
+}
+.article_body{
+  background-color: #fff;
+  box-shadow: 2px 2px 1px #ddd;
+  border-radius: 10px;
+  padding: 5%;
+  margin-top: 50px;
+  font-family:  'Source Sans Pro', sans-serif;
+  overflow: auto;
+}
+
+.article_body img {
+  float: right;
+  margin: 0 0 10px 15px;
+}
+.article_subtitle{
+  font-family:  'Source Sans Pro', sans-serif;
+  font-size: 2em;
+  font-weight: 600;
+  
+}
+
+.side_bar {
+  width: 28%;
+  margin-left: 3%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.job_board, .advertisement {
+  background-color: #fff;
+  box-shadow: 2px 2px 1px #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 30px;
+
+}
+
+.job_listing a {
+  text-decoration: none;
+  color: #111;
+}
+
+.job_listing a:hover {
+  text-decoration: underline;
+  /*text-decoration-color: blue;*/
+}
+
+.btn {
+  padding: 8px;
+  background-color: #eee;
+  display: inline-block;
+  border: solid 1px #666;
+  border-radius: 2px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn:hover {
+  background-color: #bbb;
+}
+
+.advertisement img{
+  width: 100%;
+  height: auto;
+}
+
+.advertisement .blurb {
+  color: #333;
+}
+
+#coupon_code {
+  color: orange;
+}
+
+.advertisement.btn {
+  background-color: #111;
+  color: #fff;
+  width: 90%;
+  text-transform: uppercase;
+  margin-top: 0px;
+
+}

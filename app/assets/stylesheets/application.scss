@@ -14,6 +14,8 @@
  *= require_self
  */
 
+
+
 //* Devise Login CSS
 
 .login_wrapper, .signup_wrapper{
@@ -52,8 +54,8 @@
 }
 html,
 body {
-	margin:0;
-	padding:0;
+	//margin:0;
+	//padding:0;
 	height:100%;
 }
 #wrapper {
@@ -64,10 +66,12 @@ body {
 	background:#ededed;
 	padding:10px;
 }
+
 #content {
-  margin: 0 5%;
-	padding-bottom:100px; /* Height of the footer element */
+  margin: 40px 5%;
+	padding-bottom: 175px; /* Height of the footer element */
 }
+
 #footer {
 	background:#ffab62;
 	width:100%;
@@ -82,3 +86,11 @@ body {
 .alert{
 	color: red;
 }
+
+body{
+  padding: 0px;
+  margin: 0px;
+  background-color:#efeff5;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
