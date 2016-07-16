@@ -1,7 +1,7 @@
 <div class="form_wrapper">
     <div class="form_content">
         <%= form_for(@recipe) do |f| %>
-            <%= f.label :name, 'Your Name:' %>
+            <%= f.label :name, 'Recipe Name:' %>
             <%= f.text_field :name %><br>
             
             <%= f.label :author, 'Author:' %>
@@ -11,7 +11,7 @@
             <%= f.text_area :instructions, size: "50x12" %><br>
             
             <%= f.label :servings, 'Servings:' %>
-            <%= f.text_field :servings %><br>
+            <%= f.select :servings, ['2', '3', '4', '5', '6', '7', '8', '9', '10']%><br>
             
             <%= f.label :recipe_image, 'Recipe Image:' %><br>
             <%= f.file_field :recipe_image %><br>

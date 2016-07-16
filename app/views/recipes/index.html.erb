@@ -1,12 +1,15 @@
 <div class="recipe_list_wrapper">
-
 <h1>Recipe List</h1>
 
     <% @recipes.each do |recipe| %>
         <ul>
+            <li><%= recipe.id %></li>
             <li><%= recipe.name %></li>
             <li><%= recipe.author %></li>
-            <li><%= image_tag(recipe.recipe_image, width: "300") %></li>
+            <li><%= recipe.recipe_image %></li>
+            <li><%= image_tag(recipe.recipe_image) %></li>
+            <li><%#= image_tag("rainbow.jpg") %></li>
+
         </ul>
     <% end %>
     
