@@ -6,8 +6,8 @@
         <ul>
             <li><%= recipe.name %></li>
             <li><%= recipe.author %></li>
-            <li><%= image_tag(recipe.recipe_image, width: "300") %></li>
-            <li><%#= image_tag recipe.image_url(:thumb) if recipe.image? %></li>
+            <li><%= recipe.recipe_image %></li>
+            <li><%= image_tag(recipe.recipe_image) %></li>
         </ul>
     <% end %>
     

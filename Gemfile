@@ -25,10 +25,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
-gem "carrierwave", git: "git@github.com:carrierwaveuploader/carrierwave.git"
+gem 'carrierwave', git: "git@github.com:carrierwaveuploader/carrierwave.git"
 gem 'fog-aws'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'sprockets'
+gem 'mini_magick'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

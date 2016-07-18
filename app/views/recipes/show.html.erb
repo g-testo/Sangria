@@ -13,6 +13,8 @@
         </div>
     <div class="article_body">
         <%= image_tag(@recipe.recipe_image, width: "300") %>
+        <%= image_tag @recipe.recipe_image.url if @recipe.recipe_image? %>
+        
         <h3>Ingredients</h3>
         <ul>
             <li>One 750-milliliter bottle fruity red wine, such as Merlot</li>
