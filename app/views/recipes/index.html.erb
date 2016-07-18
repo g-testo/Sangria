@@ -1,13 +1,18 @@
 <div class="recipe_list_wrapper">
-
 <h1>Recipe List</h1>
 
     <% @recipes.each do |recipe| %>
         <ul>
+            <li><%= recipe.id %></li>
             <li><%= recipe.name %></li>
             <li><%= recipe.author %></li>
             <li><%= recipe.recipe_image %></li>
             <li><%= image_tag(recipe.recipe_image) %></li>
+<<<<<<< HEAD
+=======
+            <li><%#= image_tag("rainbow.jpg") %></li>
+
+>>>>>>> styling_index_page
         </ul>
     <% end %>
     
