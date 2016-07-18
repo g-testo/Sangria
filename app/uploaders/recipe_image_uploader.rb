@@ -21,11 +21,11 @@ class RecipeImageUploader < CarrierWave::Uploader::Base
   end
 
   def cache_dir
-    "#{Rails.root}/tmp/uploads"
+    ""
   end
   
-  def default_url(*args)
-    ActionController::Base.helpers.asset_path([version_name, "default.jpg"].compact.join('_'))
+  def default_url()
+    "default.jpg"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
