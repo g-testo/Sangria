@@ -29,8 +29,8 @@
     align-items:center;
   }
   img{
-    max-height: 200px;
-    width:auto;
+    max-height: 400px;
+    width:100%;
   }
 }
 .index_name{
@@ -41,4 +41,20 @@
 .index_author{
   font-size:.7em;
   text-align: center;
+}
+.pagination{
+  list-style-type: none;
+  ul{
+    list-style-type: none;
+    width:90%;
+    height:auto;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+  a{
+  text-decoration: none;
+  color: #333333;
+  padding: 0 10px;
+  }
 }

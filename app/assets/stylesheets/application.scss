@@ -17,8 +17,6 @@
 
 html,
 body {
-	//margin:0;
-	//padding:0;
 	width:100%;
 	height:auto;
 }
@@ -26,14 +24,13 @@ body {
 	min-height:100%;
 	position:relative;
 }
-#header {
-	background:#ededed;
-	padding:10px;
-}
 
 #content {
-  margin: 40px 5%;
-	padding-bottom: 175px; /* Height of the footer element */
+  margin: 0 auto;
+  padding: 0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .notice{
 	color: green;
@@ -45,7 +42,6 @@ body {
 body{
   padding: 0px;
   margin: 0px;
-  background-color:#efeff5;
   font-family: 'Source Sans Pro', sans-serif;
 }
 

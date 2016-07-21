@@ -4,16 +4,15 @@
         <div class="article_author_date">
             <a href="#">
                 <img src="http://www.placehold.it/35x35" />
-                <span class="article_author_name">Geoff Graham</span>
+                <span class="article_author_name"><%= @email %></span>
             </a>
             <span class="date_slashes"> // </span>
-            <span class="article_publish_date"> 
+            <span class="articublish_date"> 
                 <%= @recipe.created_at.strftime("%B %e, %Y") %>
             </span>
         </div>
     <div class="article_body">
         <%= image_tag @recipe.recipe_image.url %>
-       
         <h3>Ingredients</h3>
         <ul>
             <li>One 750-milliliter bottle fruity red wine, such as Merlot</li>

@@ -1,6 +1,8 @@
 <div class="recipe_index_wrapper">
     <span class="recipe_index_title">Recipe List</span><br>
+    <%= will_paginate %>
     <div class="recipe_index_content">
+        
         <% @recipes.each do |recipe| %>
             <ul>
                 <li><%= image_tag recipe.recipe_image.url %></li>
@@ -9,4 +11,5 @@
             </ul>
         <% end %>
     </div>
+    <%= will_paginate %>
 </div>

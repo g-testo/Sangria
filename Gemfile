@@ -31,6 +31,10 @@ gem 'fog-aws'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'sprockets'
 gem 'mini_magick'
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
