@@ -1,0 +1,44 @@
+.recipe_index_title{
+  display:block;
+  font-size: 3em;
+  text-align: center;
+}
+.recipe_index_wrapper{
+  width: 100%;
+  height: auto;
+  font-family:cursive;
+}
+.recipe_index_content{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items:center;
+  flex-wrap:wrap;
+  ul{
+    width:25%;
+    list-style: none;
+    padding:10px;
+    margin:10px auto;
+    background-color: rgba(300, 300, 300, 1);
+    border: 0px solid;
+    border-radius: 25px 0px;
+  }
+  li{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  img{
+    max-height: 200px;
+    width:auto;
+  }
+}
+.index_name{
+  font-size:1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+.index_author{
+  font-size:.7em;
+  text-align: center;
+}

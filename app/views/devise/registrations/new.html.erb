@@ -1,6 +1,6 @@
-<div class="signup_wrapper">
-  <div class="signup_form">
-    <div class="signup_title">Sign up</div>
+<div class="devise_signup_wrapper">
+  <div class="devise_signup_form">
+    <div class="devise_signup_title">Sign up</div>
     <div class="signup_fields">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -27,8 +27,7 @@
           <%= f.submit "Sign up" %>
         </div>
       <% end %>
-      
-      <%= render "devise/shared/links" %>
+       <button type="button"><%= render "devise/shared/links" %></button> 
     </div>
   </div>
 </div>
