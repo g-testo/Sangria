@@ -1,6 +1,7 @@
-#header {
+.header {
 	background:#e4e4e4;
 	padding:10px;
+	overflow:auto;
 }
 
 .logo_image{
@@ -16,6 +17,38 @@
   margin:0 0 0 50px;
   padding:0;
 }
+@media only screen and (max-width: 870px) {
+    .nav_menu, .right, .left{
+      float:left;
+    }
+}
+
+.left {
+  padding: 0 auto;
+  margin: 0 auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  float: left;
+  margin:0 auto;
+  padding:auto 0;
+  
+  a{
+  margin:auto;
+  padding:auto;
+  }
+}
+.right {
+  float: right;
+  margin: 13px auto;
+  padding:0;
+}
+li{
+  display: inline;
+  a{
+    text-decoration: none;
+  }
+}
 .nav_about_image, .nav_recipe_image, .nav_login_image, .nav_logout_image, .nav_signin_image{
   opacity: 1;
 	-webkit-transition: .3s ease-in-out;
@@ -29,38 +62,5 @@
   li{
   margin:0;
   padding:0;
-  }
-}
-.left{
-  padding: 0 auto;
-  margin: 0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-#header{
-  overflow:auto;
-  ul.left{
-    float: left;
-    margin:0 auto;
-    padding:auto 0;
-    
-    a{
-    margin:auto;
-    padding:auto;
-    }
-    
-  }
-  ul.right{
-    float: right;
-    margin: 13px auto;
-    padding:0;
-  }
-  li{
-    display: inline;
-    a{
-      text-decoration: none;
-    }
   }
 }

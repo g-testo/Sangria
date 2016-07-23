@@ -42,8 +42,12 @@
   font-size:.7em;
   text-align: center;
 }
+
 .pagination{
   list-style-type: none;
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
   ul{
     list-style-type: none;
     width:90%;
@@ -57,4 +61,7 @@
   color: #333333;
   padding: 0 10px;
   }
+  li :hover{
+  opacity: .5;
+}
 }

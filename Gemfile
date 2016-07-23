@@ -33,9 +33,7 @@ gem 'sprockets'
 gem 'mini_magick'
 gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
-
-
-
+gem 'faker',                   '1.4.2'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -55,3 +53,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg',                      '0.17.1'
+  gem 'rails_12factor',          '0.0.2'
+end
