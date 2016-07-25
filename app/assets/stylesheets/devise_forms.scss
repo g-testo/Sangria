@@ -8,30 +8,30 @@
   background-size: cover;
   width: 100%;
   height: auto;
-  padding:0;
+  padding:10px;
   margin:0;
 }
 
 .devise_login_form, .devise_signup_form{
   display: inline-block;
-  margin: 5% 30%;
-  width: 30%;
-  height:auto;
-  border: 2px solid black;
-  padding: 3%;
+  margin: 5% 25%;
+  width: 250px;
+  height:350px;
+  border: 1px solid black;
+  padding: 15px;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.8);
   
   input, textarea{
-  padding: 2%;
-  margin: 3% auto;
+  padding: 5px;
+  margin: 15px;
   border-radius: 5px;
   }
   
   input[type=submit]{
     background-color:rgba(225, 225, 225, 0.8);
     padding: 4px 15px 3px 15px;
-    margin: 10px 0 0 0;
+    margin: 25px 0 0 0;
   }
   button{
     background-color: rgba(225, 225, 225, 0.8);
@@ -49,7 +49,7 @@ label{
   min-width: 100px;
 }
 .devise_login_title, .devise_signup_title{
-  font-size: 2em;
+  font-size: 1.5em;
 }
 .devise_login_fields, .devise_signup_fields{
 
