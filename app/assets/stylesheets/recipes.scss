@@ -80,7 +80,7 @@
     height:450px;
     padding:0px;
     margin:0px;
-
+    
     .body_left_column{
       border-style: solid;
       border-width: 1px;
@@ -90,6 +90,11 @@
       display:flex;
       justify-content:center;
       align-items:center;
+      
+      .yelp_businesses li{
+        padding:10px;
+        display:inline-block;
+      }
     }
   
     .body_bottom_row{
