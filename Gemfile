@@ -35,6 +35,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'faker',                   '1.4.2'
 gem 'yelp', require: 'yelp'
 gem 'figaro'
+gem 'flickraw'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

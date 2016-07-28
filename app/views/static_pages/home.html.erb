@@ -16,7 +16,33 @@
   </ul>
   
   <hr>
-  <div class="sangria_gallery">Sangria Gallery</div>
+  <div class="sangria_gallery">
+  <%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[7].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_m(info)
+    image_tag(photo) %>
+    <%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[1].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_m(info)
+    image_tag(photo) %>
+    <%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[4].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_m(info)
+    image_tag(photo) %>
+    <%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[9].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_m(info)
+    image_tag(photo) %>
+    <%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[3].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_m(info)
+    image_tag(photo) %>
+</div>
   <hr>
   
   <div class="body_wrapper">
