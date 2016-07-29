@@ -17,57 +17,58 @@
   
   <hr>
   <div class="sangria_gallery">
-  <%= list = flickr.photos.search(:tags => "sangria") 
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
     id     = list[7].id
     info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_m(info)
-    image_tag(photo) %>
-    <%= list = flickr.photos.search(:tags => "sangria") 
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
     id     = list[1].id
     info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_m(info)
-    image_tag(photo) %>
-    <%= list = flickr.photos.search(:tags => "sangria") 
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
     id     = list[4].id
     info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_m(info)
-    image_tag(photo) %>
-    <%= list = flickr.photos.search(:tags => "sangria") 
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
     id     = list[9].id
     info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_m(info)
-    image_tag(photo) %>
-    <%= list = flickr.photos.search(:tags => "sangria") 
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
     id     = list[3].id
     info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_m(info)
-    image_tag(photo) %>
-</div>
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
+  </div>
   <hr>
   
   <div class="body_wrapper">
     <ul class="body_sections">
       <div class="body_left_column"> 
-      <% response = Yelp.client.search('New York City', { term: 'Sangria Bars', limit: '10' }) %>
-      <ol class="yelp_businesses">
-        <li><%= response.businesses[0].name %></li><br>
-        <li><%= response.businesses[1].name %></li><br>
-        <li><%= response.businesses[2].name %></li><br>
-        <li><%= response.businesses[3].name %></li><br>
-        <li><%= response.businesses[4].name %></li><br>
-        <li><%= response.businesses[5].name %></li><br>
-        <li><%= response.businesses[6].name %></li><br>
-        <li><%= response.businesses[7].name %></li><br>
-        <li><%= response.businesses[8].name %></li><br>
-        <li><%= response.businesses[9].name %></li><br>
-      </ol>
-      
-      
-      
+        <% response = Yelp.client.search('New York City', { term: 'Sangria Bars', limit: '10' }) %>
+        <ol class="yelp_businesses">
+          <li><%= response.businesses[0].name %></li><br>
+          <li><%= response.businesses[1].name %></li><br>
+          <li><%= response.businesses[2].name %></li><br>
+          <li><%= response.businesses[3].name %></li><br>
+          <li><%= response.businesses[4].name %></li><br>
+          <li><%= response.businesses[5].name %></li><br>
+          <li><%= response.businesses[6].name %></li><br>
+          <li><%= response.businesses[7].name %></li><br>
+          <li><%= response.businesses[8].name %></li><br>
+          <li><%= response.businesses[9].name %></li><br>
+        </ol>
       </div>
       <div class="body_top_left">Happy Hour Specials</div>
       <div class="body_top_right">Suprise Me</div>
-      <div class="body_bottom_row">Top Sangria Bars</div>
+      <div class="body_bottom_row"> Bottom </div>
     </ul>
+    <div><%= result = @client.search("to:justinbieber marry me", :count => 1, :result_type => "recent")
+          result.class %>
+    
+    </div>
   </div>
 </div>

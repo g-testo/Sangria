@@ -58,7 +58,14 @@
 .sangria_gallery{
   text-align: center;
   width:100%;
-  height:300px;
+  height:100px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+  li{
+    margin:4%;
+  }
   }
 
 .new_recipe {
@@ -102,7 +109,7 @@
     .body_bottom_row{
       border-style: solid;
       border-width: 1px;
-      width:58%;
+      width:58.2%;
       height:200px;
       float:right;
       display:flex;
@@ -152,4 +159,7 @@
 .about_paragraphs{
   display: inline-block;
   width: 60%;
+}
+.twitter_feed_wrapper{
+  width:50%;
 }

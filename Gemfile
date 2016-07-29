@@ -36,7 +36,8 @@ gem 'faker',                   '1.4.2'
 gem 'yelp', require: 'yelp'
 gem 'figaro'
 gem 'flickraw'
-
+gem 'twitter'
+gem 'yt'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
