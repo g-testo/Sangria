@@ -50,6 +50,7 @@
       <div class="body_left_column"> 
         <% response = Yelp.client.search('New York City', { term: 'Sangria Bars', limit: '10' }) %>
         <ol class="yelp_businesses">
+          <h3 class = "title">Top Sangria Bars in NYC!</h3>
           <li><%= response.businesses[0].name %></li><br>
           <li><%= response.businesses[1].name %></li><br>
           <li><%= response.businesses[2].name %></li><br>
@@ -58,17 +59,18 @@
           <li><%= response.businesses[5].name %></li><br>
           <li><%= response.businesses[6].name %></li><br>
           <li><%= response.businesses[7].name %></li><br>
-          <li><%= response.businesses[8].name %></li><br>
-          <li><%= response.businesses[9].name %></li><br>
         </ol>
       </div>
       <div class="body_top_left">Happy Hour Specials</div>
       <div class="body_top_right">Suprise Me</div>
       <div class="body_bottom_row"> Bottom </div>
     </ul>
-    <div><%= result = @client.search("to:justinbieber marry me", :count => 1, :result_type => "recent")
-          result.class %>
-    
+    <div class="twitter_feed">
+      <ol>
+            <li><% @client.search("#Sangria", lang: "en").take(5).each do |tweet| %>
+              <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %> <br><br>
+            <% end %></li>
+      </ol>
     </div>
   </div>
 </div>
