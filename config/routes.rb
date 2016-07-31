@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
+      
+  # devise_for :users, :controllers => { :registrations => "users/registrations" }
   
   authenticate :user do
     resources :recipes, only: [:new, :create, :edit, :update, :destroy]
