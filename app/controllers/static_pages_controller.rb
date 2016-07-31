@@ -6,6 +6,11 @@ class StaticPagesController < ApplicationController
       config.access_token        = ENV["YOUR_ACCESS_TOKEN"]
       config.access_token_secret = ENV["YOUR_ACCESS_SECRET"]
     end
+    
+    
+    @yelp_response = Yelp.client.search('New York City', { term: 'Sangria Bars', limit: '10' })
+    
+    
   end
   def about
   end
