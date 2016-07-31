@@ -21,16 +21,24 @@
   width: 100%;
   height: 250px;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  border-color: red;
   padding:0px;
   margin:0px;
-
+  cursor: pointer;
+  a{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  }
+  
+  img {
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  }
   
   .featured_recipe_left{
-  border-style: solid;
-  border-width: 1px;
   width: 30%;
   height:100%;
   float:left;
@@ -38,34 +46,45 @@
   }
 
   .featured_recipe_middle{
-  border-style: solid;
-  border-width: 1px;
+  
   width: 30%;
   height:100%;
   display: inline-block;
   }
   
   .featured_recipe_right {
-  border-style: solid;
-  border-width: 1px;
+  
   width: 30%;
   height:100%;
   float:right;
   list-style-type: none;
   }
 }
-
+// Add hover effect to home page drinks
+.featured_recipe_left:hover a, .featured_recipe_middle:hover a, .featured_recipe_right:hover a{
+  -webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+.featured_recipe_left:hover img, .featured_recipe_middle:hover img, .featured_recipe_right:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 .sangria_gallery{
   text-align: center;
   width:100%;
-  height:100px;
+  height:200px;
   display:flex;
   justify-content:center;
   align-items:center;
   
   li{
-    margin:4%;
+    margin:1%;
   }
+    img{
+      min-height: 100px;
+    }
   }
 
 .new_recipe {
@@ -76,23 +95,17 @@
 }
 
 .body_wrapper{
-  border-style: solid;
-  border-width: 1px;
   width: 100%;
   display:flex;
   justify-content:center;
   
   .body_sections{
     width: 100%;
-    border-style: solid;
-    border-width: 1px;
     height:450px;
     padding:0px;
     margin:0px;
     
     .body_left_column{
-      border-style: solid;
-      border-width: 1px;
       width:40%;
       height:400px;
       float:left;
@@ -160,8 +173,17 @@
   display: inline-block;
   width: 60%;
 }
-.twitter_feed{
+.twitter-timeline {
   width: 40%;
   margin: 10px;
   font-size: .85em;
+  height: 490px;
+  
+  a{
+    color:black;
+  }
+  img{
+  max-width: 50px;
+  float: left;
+  }
 }

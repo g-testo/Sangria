@@ -1,24 +1,24 @@
 <div class="full_wrapper">
   <ul class="featured_recipes">
     
-      <li class="featured_recipe_left">
+      <figure><li class="featured_recipe_left">
         <a href="#">
-        <%= image_tag "red_sangria.jpg", size: "200x200", alt: "Edit Entry" %></a>Red</li>
+        <%= image_tag "red_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %><figure></a>Red</li>
       
       <li class="featured_recipe_middle">
         <a href="#">
-        <%= image_tag "white_sangria.jpg", size: "200x200", alt: "Edit Entry" %></a>White</li>
+        <%= image_tag "white_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>White</li>
       
       <li class="featured_recipe_right">
         <a href="#">
-        <%= image_tag "blue_sangria.jpg", size: "200x200", alt: "Edit Entry" %></a>Blue</li>
+        <%= image_tag "blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Blue</li>
         
   </ul>
   
   <hr>
   <div class="sangria_gallery">
     <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[7].id
+    id     = list[10].id
     info = flickr.photos.getInfo :photo_id => id
     photo = FlickRaw.url_t(info)
     image_tag(photo) %></li>
@@ -42,6 +42,16 @@
     info = flickr.photos.getInfo :photo_id => id
     photo = FlickRaw.url_t(info)
     image_tag(photo) %></li>
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[2].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
+    <li><%= list = flickr.photos.search(:tags => "sangria") 
+    id     = list[5].id
+    info = flickr.photos.getInfo :photo_id => id
+    photo = FlickRaw.url_t(info)
+    image_tag(photo) %></li>
   </div>
   <hr>
   
@@ -51,24 +61,37 @@
         <% response = Yelp.client.search('New York City', { term: 'Sangria Bars', limit: '10' }) %>
         <ol class="yelp_businesses">
           <h3 class = "title">Top Sangria Bars in NYC!</h3>
-          <li><%= response.businesses[0].name %></li><br>
-          <li><%= response.businesses[1].name %></li><br>
-          <li><%= response.businesses[2].name %></li><br>
-          <li><%= response.businesses[3].name %></li><br>
-          <li><%= response.businesses[4].name %></li><br>
-          <li><%= response.businesses[5].name %></li><br>
-          <li><%= response.businesses[6].name %></li><br>
-          <li><%= response.businesses[7].name %></li><br>
+          <li><%= image_tag(response.businesses[0].rating_img_url_small) %>
+          <%= response.businesses[0].name %></li><br>
+          
+          <li><%= image_tag(response.businesses[1].rating_img_url_small) %>
+          <%= response.businesses[1].name %></li><br>
+          
+          <li><%= image_tag(response.businesses[2].rating_img_url_small) %>
+          <%= response.businesses[2].name %></li><br>
+          
+          <li><%= image_tag(response.businesses[3].rating_img_url_small) %>
+          <%= response.businesses[3].name %></li><br>
+          
+          <li><%= image_tag(response.businesses[4].rating_img_url_small) %>
+          <%= response.businesses[4].name %></li><br>
+          
+          <li><%= image_tag(response.businesses[5].rating_img_url_small) %>
+          <%= response.businesses[5].name %></li><br>
+          
+          <li><%= image_tag(response.businesses[6].rating_img_url_small) %>
+          <%= response.businesses[6].name %></li><br>
         </ol>
       </div>
       <div class="body_top_left">Happy Hour Specials</div>
       <div class="body_top_right">Suprise Me</div>
       <div class="body_bottom_row"> Bottom </div>
     </ul>
-    <div class="twitter_feed">
+    <div class="twitter-timeline">
       <ol>
-            <li><% @client.search("#Sangria", lang: "en").take(5).each do |tweet| %>
-              <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}" %> <br><br>
+            <li><% @client.search("#Sangria -rt", lang: "en").take(5).each do |tweet| %>
+              <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
+              <%= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
             <% end %></li>
       </ol>
     </div>
