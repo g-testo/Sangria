@@ -45,10 +45,12 @@
     </div>
     <div class="twitter-timeline">
       <ol>
-            <li><% @client.search("#Sangria -rt", lang: "en").take(5).each do |tweet| %>
-              <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
-              <%= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
-            <% end %></li>
+            <% @twitter_response.each do |tweet| %>
+              <li>
+                <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
+                <%= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
+              </li>
+            <% end %>
       </ol>
     </div>
   </div>

@@ -1,11 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["TWITTER_YOUR_CONSUMER_KEY"]
-      config.consumer_secret     = ENV["TWITTER_YOUR_CONSUMER_SECRET"]
-      config.access_token        = ENV["YOUR_ACCESS_TOKEN"]
-      config.access_token_secret = ENV["YOUR_ACCESS_SECRET"]
-    end
+    #@twitter_response = ApplicationController::CLIENT.search("#Sangria -rt", lang: "en").take(5)
     
     flikr_response = flickr.photos.search(:tags => "sangria", :per_page => 6)
     
