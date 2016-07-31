@@ -16,41 +16,13 @@
   </ul>
   <hr>
   <div class="sangria_gallery">
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[10].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[1].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[4].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[9].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[3].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[2].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
-    <li><%= list = flickr.photos.search(:tags => "sangria") 
-    id     = list[5].id
-    info = flickr.photos.getInfo :photo_id => id
-    photo = FlickRaw.url_t(info)
-    image_tag(photo) %></li>
+    <ul>
+      <% @flickr_photos.each do |photo| %>
+        <li>
+          <%= image_tag(photo) %>
+        </li>    
+      <% end %>
+    </ul>
   </div>
   <hr>
   
