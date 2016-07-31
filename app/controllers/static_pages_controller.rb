@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    #@twitter_response = ApplicationController::CLIENT.search("#Sangria -rt", lang: "en").take(5)
+    @twitter_response = ApplicationController::CLIENT.search("#SangriaNYC -rt", lang: "en").take(5)
     
     flikr_response = flickr.photos.search(:tags => "sangria", :per_page => 6)
     
