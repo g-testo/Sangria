@@ -11,32 +11,22 @@
   margin:0;
   padding:0;
 }
-.nav_menu{
-  float:left;
-  width:50%;
-  margin:0 0 0 50px;
-  padding:0;
-}
 
-.left {
-  padding: 0 auto;
-  margin: 0 auto;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  float: left;
-  margin:0 auto;
-  padding:auto 0;
-  
-  a{
-  margin:auto;
-  padding:auto;
-  }
+.nav_menu {
+  display: inline-block;
+  margin: 0 0 0 50px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
 }
-.right {
-  float: right;
-  margin: 13px auto;
-  padding:0;
+@media screen and (max-width: 795px) {
+  .nav_menu {
+    margin-left: 0;
+    display: inline-block;
+    width:100%
+  }
 }
 li{
   display: inline;
