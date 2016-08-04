@@ -6,30 +6,25 @@
 	display: flex;
   justify-content:center;
   align-items:center;
+  
+  ul{
+  margin:0px;
+  padding:0px;
+	}
 }
-.footer_content{
-	width: 20%;
-	li{
-		margin:5px;
-		padding:5px;
-		float:left;
-		list-style:none;
-		width:100%;
-		opacity: 1;
-		-webkit-transition: .3s ease-in-out;
-		transition: .3s ease-in-out;
+.footer_content li{
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 		
 		:hover img {
 		opacity: .5;
 	  }
-	}
-	.social_images li, .contact_images li{
-		float: none;
-	  display: inline;
-	  margin:5px;
-	  padding:0px;
-	  
-	}
 }
 .copyright{
 	display: flex;
