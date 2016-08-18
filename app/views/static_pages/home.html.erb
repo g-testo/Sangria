@@ -1,57 +1,61 @@
-<div class="full_wrapper">
-  <ul class="featured_recipes">
-    
-      <li class="featured_recipe_left">
-        <a href="#">
-        <%= image_tag "red_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Red</li>
+<div class="bg_warapper">
+  <div class="full_wrapper">
+    <ul class="featured_recipes">
       
-      <li class="featured_recipe_middle">
-        <a href="#">
-        <%= image_tag "white_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>White</li>
-      
-      <li class="featured_recipe_right">
-        <a href="#">
-        <%= image_tag "blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Blue</li>
+        <li class="featured_recipe_left">
+          <a href="#">
+          <%= image_tag "red_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Red</li>
         
-  </ul>
-  <hr>
-  <div class="sangria_gallery">
-    <ul>
-      <% @flickr_photos.each do |photo| %>
-        <li>
-          <%= image_tag(photo) %>
-        </li>    
-      <% end %>
+        <li class="featured_recipe_middle">
+          <a href="#">
+          <%= image_tag "white_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>White</li>
+        
+        <li class="featured_recipe_right">
+          <a href="#">
+          <%= image_tag "blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Blue</li>
+          
     </ul>
-  </div>
-  <hr>
-  
-  <div class="body_wrapper">
-    <div class="body_sections">
-      <div class="body_left_column"> 
-        <div class="yelp_title">Top Sangria Bars in NYC!</div>
-        <ol class="yelp_businesses">
-          <% @yelp_response.businesses.each do | business | %>
-            <li>
-              <%= image_tag(business.rating_img_url_small) %>
-              <%= business.name %>
-            </li>
-          <% end %>
-        </ol>
-      </div>
-      <div class="body_top_left">Happy Hour Specials</div>
-      <div class="body_top_right">Suprise Me</div>
-      <div class="body_bottom_row"> Bottom </div>
+    <hr>
+    <div class="sangria_gallery">
+      <ul>
+        <% @flickr_photos.each do |photo| %>
+          <li>
+            <%= image_tag(photo) %>
+          </li>    
+        <% end %>
+      </ul>
     </div>
-    <div class="twitter-timeline">
-      <ol>
-            <% @twitter_response.each do |tweet| %>
+    <hr>
+    
+    <div class="body_wrapper">
+      <div class="body_sections">
+        <div class="body_left_column"> 
+          <div class="yelp_title">Top Sangria Bars in NYC!</div>
+          <ol class="yelp_businesses">
+            <% @yelp_response.businesses.each do | business | %>
               <li>
-                <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
-                <%= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
+                <%= image_tag(business.rating_img_url_small) %>
+                <%= business.name %>
               </li>
             <% end %>
-      </ol>
+          </ol>
+        </div>
+        <div class="body_top_left">Happy Hour Specials</div>
+        <div class="body_top_right">Suprise Me</div>
+        <div class="body_bottom_row"> Bottom
+        <%= video_tag "videos/test_video.mp4", :size => "300x100", autoplay: :autoplay, loop: :loop%>
+        </div>
+      </div>
+      <div class="twitter-timeline">
+        <ol>
+              <% @twitter_response.each do |tweet| %>
+                <li>
+                  <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
+                  <%= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
+                </li>
+              <% end %>
+        </ol>
+      </div>
     </div>
   </div>
 </div>

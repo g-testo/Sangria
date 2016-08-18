@@ -9,13 +9,19 @@
   text-align: center;
   font-family: cursive;
 }
+.bg_warapper{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .full_wrapper{
   width:90%;
   padding:60px 0;
   margin:0px;
   position:relative;
   background-color: white;
-  min-height: 700px;
 }
 .featured_recipes{
   display: inline-block;
@@ -76,10 +82,7 @@
 .sangria_gallery{
   text-align: center;
   width:100%;
-  height:200px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  height:100px;
   
   li{
     margin:1%;
@@ -101,13 +104,13 @@
   
   .body_sections{
     width: 100%;
-    height:450px;
+    height:250px;
     padding:0px;
     margin:0px;
     
     .body_left_column{
       width:40%;
-      height:400px;
+      height:200px;
       float:left;
       
       .yelp_businesses li{
@@ -166,7 +169,6 @@
   width: 40%;
   margin: 10px;
   font-size: .85em;
-  height: 490px;
   
   a{
     color:black;
