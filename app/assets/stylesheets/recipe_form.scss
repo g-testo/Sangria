@@ -27,6 +27,9 @@ label{
   float:left;
   min-width: 100px;
 }
+.signup_fields, .login_fields{
+    text-align: left;
+}
 .recipe_bg{
   background: url(about_sangria.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;

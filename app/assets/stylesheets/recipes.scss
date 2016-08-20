@@ -9,19 +9,27 @@
   text-align: center;
   font-family: cursive;
 }
-.bg_warapper{
-  text-align: center;
+.featured_recipes_title{
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background:black;
+}
+
+.bottom_wrapper {
+  width: 90%;
+  margin: auto;
+  max-width: 800px;
 }
 
 .full_wrapper{
-  width:90%;
-  padding:60px 0;
-  margin:0px;
-  position:relative;
+  padding: 0;
+  margin: 0;
+  position: relative;
   background-color: white;
+  display: block;
+  text-align: center;
 }
 .featured_recipes{
   display: inline-block;
@@ -54,20 +62,19 @@
   }
 
   .featured_recipe_middle{
-  
   width: 30%;
   height:100%;
   display: inline-block;
   }
   
   .featured_recipe_right {
-  
   width: 30%;
   height:100%;
   float:right;
   list-style-type: none;
   }
 }
+
 // Add hover effect to home page drinks
 .featured_recipe_left:hover a, .featured_recipe_middle:hover a, .featured_recipe_right:hover a{
   -webkit-filter: grayscale(0%);
@@ -113,58 +120,42 @@
       height:200px;
       float:left;
       
-      .yelp_businesses li{
+      .yelp_title{
+        font-size:1.5em;
+      }
+      .yelp_logo{
+        float:right;
+      }
+      .yelp_businesses{
+        text-align: left;
+        
+        li{
         padding:0;
         display:inline-block;
         font-size: .8em;
         min-width: 200px;
+        margin-bottom: 8px;
+        }
       }
     }
     .body_bottom_row{
-      border-style: solid;
-      border-width: 1px;
       width:58.2%;
       height:200px;
       float:right;
     }
     .body_top_left{
-      border-style: solid;
-      border-width: 1px;
       width:29%;
       height:200px;
       float:right;
     }
     .body_top_right{
-      border-style: solid;
-      border-width: 1px;
       width:29%;
       height:200px;
       float:right;
     }
   }
 }
-.about_bg_wrapper { 
-  background: url(about_sangria.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 550px;
-  width:100%;
-  text-align: center;
-  font-family: cursive;
-}
-.about_wrapper {
-  background-color: rgba(255, 255, 255, 0.6);
-  text-align: center;
-  width: 100%;
-  height: auto;
-  display: inline-block;
-}
-.about_paragraphs{
-  display: inline-block;
-  width: 60%;
-}
+
 .twitter-timeline {
   width: 40%;
   margin: 10px;

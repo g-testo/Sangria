@@ -10,6 +10,7 @@
   height: auto;
   padding:10px;
   margin:0;
+  text-align: center;
 }
 
 .devise_login_form, .devise_signup_form{
@@ -21,6 +22,7 @@
   padding: 15px;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.8);
+  
   
   input, textarea{
   padding: 5px;
@@ -50,7 +52,4 @@ label{
 }
 .devise_login_title, .devise_signup_title{
   font-size: 1.5em;
-}
-.devise_login_fields, .devise_signup_fields{
-
 }

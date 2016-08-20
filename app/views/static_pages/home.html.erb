@@ -1,32 +1,24 @@
-<div class="bg_warapper">
+<div class="bg_wrapper">
+  <div class="featured_recipes_title">
+    <%#= video_tag "videos/bubble_video_long_loop.mp4", autoplay: :autoplay, loop: :loop%></div>
   <div class="full_wrapper">
     <ul class="featured_recipes">
-      
         <li class="featured_recipe_left">
           <a href="#">
-          <%= image_tag "red_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Red</li>
+          <%= image_tag "red_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a></li>
         
         <li class="featured_recipe_middle">
           <a href="#">
-          <%= image_tag "white_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>White</li>
+          <%= image_tag "white_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a></li>
         
         <li class="featured_recipe_right">
           <a href="#">
-          <%= image_tag "blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a>Blue</li>
-          
+          <%= image_tag "blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a></li>
     </ul>
     <hr>
-    <div class="sangria_gallery">
-      <ul>
-        <% @flickr_photos.each do |photo| %>
-          <li>
-            <%= image_tag(photo) %>
-          </li>    
-        <% end %>
-      </ul>
-    </div>
-    <hr>
     
+    <hr>
+  <div class="bottom_wrapper">
     <div class="body_wrapper">
       <div class="body_sections">
         <div class="body_left_column"> 
@@ -38,22 +30,22 @@
                 <%= business.name %>
               </li>
             <% end %>
+            <div class="yelp_logo"><%= image_tag "yelp-logo.png", alt: "Edit Entry" %></a></li></div>
           </ol>
         </div>
         <div class="body_top_left">Happy Hour Specials</div>
         <div class="body_top_right">Suprise Me</div>
-        <div class="body_bottom_row"> Bottom
-        <%= video_tag "videos/test_video.mp4", :size => "300x100", autoplay: :autoplay, loop: :loop%>
-        </div>
-      </div>
+        <div class="body_bottom_row"> <iframe width="400" height="200" src="https://www.youtube.com/embed/M7qjo30yJYQ" frameborder="0" allowfullscreen></iframe></div>
+    </div>
+  </div>
       <div class="twitter-timeline">
         <ol>
-              <% @twitter_response.each do |tweet| %>
+              <%# @twitter_response.each do |tweet| %>
                 <li>
-                  <%= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
-                  <%= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
+                  <%#= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
+                  <%#= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
                 </li>
-              <% end %>
+              <%# end %>
         </ol>
       </div>
     </div>

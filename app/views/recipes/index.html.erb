@@ -4,11 +4,14 @@
     <div class="recipe_index_content">
         
         <% @recipes.each do |recipe| %>
-            <ul>
+            <ul class="recipe_list">
+                <a href="www.test.link">
                 <li><%= image_tag recipe.recipe_image.url %></li>
                 <li><span class="index_name"><%= recipe.name %></span></li>
                 <li><span class="index_author"><%= recipe.author %></span></li>
+                </a> 
             </ul>
+        
         <% end %>
     </div>
     <%= will_paginate %>

@@ -8,6 +8,7 @@
   height: auto;
   font-family:cursive;
   min-height: 700px;
+  max-width: 1000px;
 }
 .recipe_index_content{
   width: 100%;
@@ -23,15 +24,21 @@
     background-color: rgba(300, 300, 300, 1);
     border: 0px solid;
     border-radius: 25px 0px;
+    min-width: 300px;
   }
   li{
     display:flex;
     justify-content:center;
     align-items:center;
   }
+  a{
+    text-decoration: none;
+    color: #333333;
+  }
   img{
     max-height: 400px;
     width:100%;
+    width:auto;
   }
 }
 .index_name{
@@ -56,6 +63,7 @@
     display: flex;
     justify-content:center;
     align-items:center;
+    min-width: 300px;
   }
   a{
   text-decoration: none;
