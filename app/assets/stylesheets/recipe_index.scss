@@ -34,13 +34,28 @@
   a{
     text-decoration: none;
     color: #333333;
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+	  transition: .3s ease-in-out;
+  }
+	:hover .index_name, .index_author{
+  	opacity: .5;
+	}
+  :hover img{
+    -webkit-filter: grayscale(0%);
+  	filter: grayscale(0%);
   }
   img{
     max-height: 400px;
     width:100%;
     width:auto;
+    -webkit-filter: grayscale(25%);
+    filter: grayscale(25%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
   }
 }
+
 .index_name{
   font-size:1.5em;
   font-weight: bold;

@@ -4,8 +4,6 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
-      
-  # devise_for :users, :controllers => { :registrations => "users/registrations" }
   
   authenticate :user do
     resources :recipes, only: [:new, :create, :edit, :update, :destroy]
@@ -20,7 +18,6 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get '/contact' => 'static_pages#contact'
   get '/about' => 'static_pages#about'
-  
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
