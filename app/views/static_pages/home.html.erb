@@ -15,9 +15,12 @@
           <a href="#">
           <%= image_tag "blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry" %></a></li>
     </ul>
+  </div>
+  
     <hr>
     
     <hr>
+    
   <div class="bottom_wrapper">
     <div class="body_wrapper">
       <div class="body_sections">
@@ -33,21 +36,27 @@
             <div class="yelp_logo"><%= image_tag "yelp-logo.png", alt: "Edit Entry" %></a></li></div>
           </ol>
         </div>
-        <div class="body_top_left">Happy Hour Specials</div>
-        <div class="body_top_right">Suprise Me</div>
+        <div class="body_top_right">
+            <ul>
+              <% recipe = Recipe.find(Recipe.ids.sample) %>
+              <%= link_to recipe_path(recipe.id) do %> <%= image_tag "recipe_roulette_color.png" %>
+              <% end %>
+            </ul>
+            </ul>
+        </div>
+        
         <div class="body_bottom_row"> <iframe width="400" height="200" src="https://www.youtube.com/embed/M7qjo30yJYQ" frameborder="0" allowfullscreen></iframe></div>
-    </div>
-  </div>
-      <div class="twitter-timeline">
-        <ol>
-              <%# @twitter_response.each do |tweet| %>
-                <li>
-                  <%#= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
-                  <%#= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
-                </li>
-              <%# end %>
-        </ol>
       </div>
+    </div>
+    <div class="twitter-timeline">
+      <ol>
+            <%# @twitter_response.each do |tweet| %>
+              <li>
+                <%#= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
+                <%#= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
+              </li>
+            <%# end %>
+      </ol>
     </div>
   </div>
 </div>
