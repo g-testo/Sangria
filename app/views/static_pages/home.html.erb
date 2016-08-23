@@ -24,19 +24,21 @@
   <div class="bottom_wrapper">
     <div class="body_wrapper">
       <div class="body_sections">
-        <div class="body_left_column"> 
+        <div class="body_left"> 
           <div class="yelp_title">Top Sangria Bars in NYC!</div>
           <ol class="yelp_businesses">
             <% @yelp_response.businesses.each do | business | %>
               <li>
-                <%= image_tag(business.rating_img_url_small) %>
-                <%= business.name %>
+                <%= link_to business.name, business.url %>
+                <%= image_tag(business.rating_img_url_small) %><br>
+                <%= business.location.cross_streets %><br>
+                <%= business.location.neighborhoods.first %>
               </li>
             <% end %>
             <div class="yelp_logo"><%= image_tag "yelp-logo.png", alt: "Edit Entry" %></a></li></div>
           </ol>
         </div>
-        <div class="body_top_right">
+        <div class="body_right">
             <ul>
               <% recipe = Recipe.find(Recipe.ids.sample) %>
               <%= link_to recipe_path(recipe.id) do %> <%= image_tag "recipe_roulette_color.png" %>
@@ -45,17 +47,17 @@
             </ul>
         </div>
         
-        <div class="body_bottom_row"> <iframe width="400" height="200" src="https://www.youtube.com/embed/M7qjo30yJYQ" frameborder="0" allowfullscreen></iframe></div>
+        <div class="youtube_video"> <iframe width="400" height="200" src="https://www.youtube.com/embed/M7qjo30yJYQ" frameborder="0" allowfullscreen></iframe></div>
       </div>
     </div>
     <div class="twitter-timeline">
       <ol>
-            <%# @twitter_response.each do |tweet| %>
-              <li>
-                <%#= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
-                <%#= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
-              </li>
-            <%# end %>
+        <%# @twitter_response.each do |tweet| %>
+          <li>
+            <%#= link_to tweet.text, "https://www.twitter.com/#{tweet.user.screen_name}"%>
+            <%#= image_tag(tweet.media[0]["media_url"]) if(tweet.media.present?) %> <br><br>
+          </li>
+        <%# end %>
       </ol>
     </div>
   </div>

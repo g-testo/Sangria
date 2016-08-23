@@ -111,14 +111,12 @@
   
   .body_sections{
     width: 100%;
-    height:250px;
+    height:400px;
     padding:0px;
     margin:0px;
     
-    .body_left_column{
-      width:40%;
+    .body_left{
       height:200px;
-      float:left;
       
       .yelp_title{
         font-size:1.5em;
@@ -138,20 +136,10 @@
         }
       }
     }
-    .body_bottom_row{
-      width:58.2%;
-      height:200px;
+    .body_right{
+      width:50%;
       float:right;
-    }
-    .body_top_left{
-      width:29%;
-      height:200px;
-      float:right;
-    }
-    .body_top_right{
-      width:29%;
-      height:auto;
-      float:right;
+      text-align: right;
     }
   }
 }
@@ -168,4 +156,10 @@
   max-width: 50px;
   float: left;
   }
+}
+.youtube_video {
+  text-align: left;
+  float: left;
+  width: 50%;
+  height: auto;
 }
