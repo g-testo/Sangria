@@ -31,6 +31,12 @@
                 <%= image_tag(business.rating_img_url_small) %><br>
                 <%= business.location.cross_streets %><br>
                 <%= business.location.neighborhoods.first %>
+                <div class="hidden_gmap"><iframe
+                  width="500"
+                  height="500"
+                  frameborder="0" style="border:0"
+                  src=<%= "https://www.google.com/maps/embed/v1/place?key=#{Rails.application.secrets.gmaps_key}&q="+business.location.address.first.split(' ').join("+").to_s %>>
+                </iframe></div>
               </li>
             <% end %>
           </ol>
