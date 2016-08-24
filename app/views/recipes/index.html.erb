@@ -1,6 +1,6 @@
 <div class="recipe_index_wrapper">
     <span class="recipe_index_title">Recipe List</span><br>
-    <%= will_paginate %>
+    <%= will_paginate unless !!params[:flavor] %>
     <div class="recipe_index_content">
         <% @recipes.each do |recipe| %>
             <ul class="recipe_list">
@@ -13,5 +13,5 @@
             </ul>
         <% end %>
     </div>
-    <%= will_paginate %>
+    <%= will_paginate unless !!params[:flavor] %>
 </div>

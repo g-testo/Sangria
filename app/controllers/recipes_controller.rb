@@ -1,6 +1,14 @@
 class RecipesController < ApplicationController
   def index
+  
+  if params[:flavor]
+    @recipes = Recipe.where(:flavor => params[:flavor])
+  else
+    @recipes = Recipe.all
     @recipes = Recipe.paginate(page: params[:page], :per_page => 6)
+  end
+
+  
   end
 
   def new
@@ -43,6 +51,6 @@ class RecipesController < ApplicationController
   
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id)
+      params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor)
     end
 end
