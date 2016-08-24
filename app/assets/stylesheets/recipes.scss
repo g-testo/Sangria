@@ -116,13 +116,13 @@
     margin:0px;
     
     .body_left{
-      height:200px;
+      height:300px;
       
       .yelp_title{
         font-size:1.5em;
       }
       .yelp_logo{
-        float:right;
+        display:inline-block;
       }
       .yelp_businesses{
         text-align: left;
