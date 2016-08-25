@@ -3,77 +3,94 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Recipe Form
-
-.sangria_title{
-  font-size: 3em;
-  text-align: center;
-  font-family: cursive;
+.bg_wrapper{
+  width:100%;
 }
-.featured_recipes_title{
-  width: 100%;
+.welcome_content{
+  width: 90%;
+  margin: auto;
+  padding: auto;
+  display: inline-block;
   display: flex;
   justify-content: center;
   align-items: center;
-  background:black;
-}
-
-.bottom_wrapper {
-  width: 90%;
-  margin: auto;
   max-width: 800px;
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  img{
+    width: 45%;
+    height: auto;
+    float: left;
+    max-width: 300px;
+  }
 }
-
-.full_wrapper{
+.welcome_text{
+  width: 45%;
+  display: inline-block;
+  float: right;
+}
+.top_full_wrapper{
   padding: 0;
   margin: 0;
   position: relative;
-  background-color: white;
   display: block;
   text-align: center;
 }
+
 .featured_recipes{
   display: inline-block;
-  width: 100%;
+  width: 90%;
   height: 250px;
   text-align: center;
-  padding:0px;
-  margin:0px;
+  padding: 0px;
+  margin: 0px;
   cursor: pointer;
   max-width: 800px;
+  margin-bottom: 30px;
   a{
   -webkit-filter: grayscale(50%);
   filter: grayscale(50%);
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
   }
-  
   img {
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
   -webkit-transform: scale(1);
   transform: scale(1);
-  }
-  
-  .featured_recipe_left{
-  width: 30%;
-  height:100%;
-  float:left;
-  list-style-type: none;
-  }
-
-  .featured_recipe_middle{
-  width: 30%;
-  height:100%;
-  display: inline-block;
-  }
-  
-  .featured_recipe_right {
-  width: 30%;
-  height:100%;
-  float:right;
-  list-style-type: none;
+  padding-top: 20px;
   }
 }
+.featured_recipe_left{
+  width: 30%;
+  height: 100%;
+  float: left;
+  list-style-type: none;
+  background-color: #fff2f2;
+  box-shadow: 2px 6px 3px #888888;
+  border-radius: 10px;
+}
+.featured_recipe_middle{
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+  border-radius: 10px;
+}
+.featured_recipe_right {
+  width: 30%;
+  height: 100%;
+  float: right;
+  list-style-type: none;
+  background-color: #f0f5ff;
+  box-shadow: 2px 6px 3px #888888;
+  border-radius: 10px;
+}
+
 
 // Add hover effect to home page drinks
 .featured_recipe_left:hover a, .featured_recipe_middle:hover a, .featured_recipe_right:hover a{
@@ -86,87 +103,72 @@
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-.sangria_gallery{
-  text-align: center;
-  width:100%;
-  height:100px;
-  
-  li{
-    margin:1%;
-  }
-    img{
-      min-height: 100px;
-    }
-  }
 
-.new_recipe {
-  input{
-      margin: 5px;
-      padding: 5px;
-  }
+.bottom_full_wrapper{
+  padding: auto;
+  margin: auto;
+  position: relative;
+  display: block;
 }
-
-.body_wrapper{
+.bottom_content{
+  width:90%;
+  margin: auto;
+  padding:auto;
+  max-width: 800px;
+  display: block;
+}
+.top_bars{
   width: 100%;
-  
-  .body_sections{
-    width: 100%;
-    height:400px;
-    padding:0px;
-    margin:0px;
-    
-    .body_left{
-      height:300px;
-      text-align: center;
-      
-      .yelp_title{
-        font-size:1.5em;
-        display:inline;
-      }
-      .yelp_logo{
-        display:inline-block;
-        padding-left:30px;
-      }
-      .yelp_businesses{
-        text-align: left;
-        a{
-          color: inherit; 
-        }
-        
-        li{
-        padding:0;
-        display:inline-block;
-        font-size: .8em;
-        min-width: 200px;
-        margin-bottom: 8px;
-        text-align: center;
-        }
-      }
-    }
-    .recipe_roulette {
-      width:50%;
-      float:right;
-      text-align: right;
-    }
-  }
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+  text-align: center;
+  margin-bottom:30px;
+  padding: 30px 0 30px 0
 }
-
-.twitter-timeline {
-  width: 40%;
-  margin: 10px;
-  font-size: .85em;
-  
+.top_bars li{
+  display: inline-block;
+}
+.yelp_title{
+  font-size:1.5em;
+}
+.yelp_businesses{
+  margin: 0;
+  padding: 0;
   a{
-    color:black;
+    color: inherit; 
   }
-  img{
-  max-width: 50px;
-  float: left;
+      li{
+      padding: 0;
+      margin: 0;
+      font-size: .8em;
+      min-width: 200px;
+      margin-bottom: 8px;
+      }
+}
+.recipe_roulette {
+  float:left;
+  width: 35%;
+  text-align: center;
+  ul{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    img {
+      background-color: white;
+      box-shadow: 2px 6px 3px #888888;
+      border-radius: 10px;
+      padding: 15px;
+    }
   }
 }
 .youtube_video {
-  text-align: left;
-  float: left;
-  width: 50%;
+  float:right;
+  width: 60%;
   height: auto;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom:50px;
 }

@@ -19,16 +19,10 @@ html,
 body {
 	width:100%;
 	height:auto;
+	background:#e4e4e4;
 }
-#wrapper {
-	min-height:100%;
-	position:relative;
-}
-
-#content {
-  margin: 0 auto;
-  padding: 0 auto;
-  display:flex;
+#content{
+	display:flex;
   justify-content:center;
   align-items:center;
 }
