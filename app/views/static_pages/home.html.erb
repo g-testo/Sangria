@@ -29,19 +29,13 @@
               <li>
                 <%= link_to business.name, business.url %><br>
                 <%= image_tag(business.rating_img_url_small) %><br>
-                <%= business.location.cross_streets %><br>
                 <%= business.location.neighborhoods.first %>
-                <div class="hidden_gmap"><iframe
-                  width="500"
-                  height="500"
-                  frameborder="0" style="border:0"
-                  src=<%= "https://www.google.com/maps/embed/v1/place?key=#{Rails.application.secrets.gmaps_key}&q="+business.location.address.first.split(' ').join("+").to_s %>>
-                </iframe></div>
+
               </li>
             <% end %>
           </ol>
         </div>
-        <div class="body_right">
+        <div class="recipe_roulette">
             <ul>
               <% recipe = Recipe.find(Recipe.ids.sample) %>
               <%= link_to recipe_path(recipe.id) do %> <%= image_tag "recipe_roulette_color.png" %>

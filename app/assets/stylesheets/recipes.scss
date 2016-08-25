@@ -117,15 +117,21 @@
     
     .body_left{
       height:300px;
+      text-align: center;
       
       .yelp_title{
         font-size:1.5em;
+        display:inline;
       }
       .yelp_logo{
         display:inline-block;
+        padding-left:30px;
       }
       .yelp_businesses{
         text-align: left;
+        a{
+          color: inherit; 
+        }
         
         li{
         padding:0;
@@ -133,10 +139,11 @@
         font-size: .8em;
         min-width: 200px;
         margin-bottom: 8px;
+        text-align: center;
         }
       }
     }
-    .body_right{
+    .recipe_roulette {
       width:50%;
       float:right;
       text-align: right;
@@ -162,7 +169,4 @@
   float: left;
   width: 50%;
   height: auto;
-}
-.hidden_gmap{
-  display:none;
 }
