@@ -13,6 +13,10 @@
   margin-bottom: 30px;
   margin-top: 30px;
 }
+.welcome_title{
+  font-size:3em;
+  font-family: cursive;
+}
 .welcome_content{
   width: 90%;
   max-width: 800px;
@@ -21,6 +25,7 @@
   box-shadow: 2px 6px 3px #888888;
   padding-bottom: 20px;
   padding-top: 20px;
+  font-family: cursive;
   img{
     width: 45%;
     height: auto;
@@ -30,6 +35,7 @@
 .welcome_text{
   width: 45%;
   display: inline-block;
+  vertical-align: top;
 }
 .top_full_wrapper{
   padding: 0;
@@ -132,6 +138,7 @@
 }
 .yelp_title{
   font-size:1.5em;
+  font-family: cursive;
 }
 .yelp_businesses{
   margin: 0;
