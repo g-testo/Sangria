@@ -1,62 +1,25 @@
-<div class="article_container">
-    <!--Everything for article goes here-->
-    <div class="article_title"><%= @recipe.name %></div>
-        <div class="article_author_date">
-                <img src="http://www.placehold.it/35x35" />
-                <span class="article_author_name"><%= @recipe.user.user_name %></span>
-            <span class="date_slashes"> // </span>
-            <span class="article_publish_date"> 
-                <%= @recipe.created_at.strftime("%B %e, %Y") %>
-            </span>
+<div class="recipe_show_wrapper">
+  <div class="recipe_show_content">
+    <div class="recipe_show_top_content">
+      <div class="recipe_show_image_wrapper"><%= image_tag @recipe.recipe_image.url %></div>
+      <div class="recipe_show_recipe_info">
+        <div class="recipe_show_title_name"><%= @recipe.name %></div>
+        <div class="recipe_show_author_date">
+          <span class="recipe_show_author_name"><%= @recipe.user.user_name %></span>
+          <span class="date_slashes"> // </span>
+          <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
         </div>
-    <div class="article_body">
-        <%= image_tag @recipe.recipe_image.url %>
-        <h3>Ingredients</h3>
         <ul>
-            <li><%= simple_format @recipe.ingredients %>
+          <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br>
+          <li><span class="recipe_show_title">Ingredients:</span><br><%= simple_format @recipe.ingredients %></li>
         </ul>
-        <h3>Servings: <%= @recipe.servings %></h3>
-        <h3>Instructions:</h3>
-        <%= simple_format @recipe.instructions %>
+      </div>
     </div>
+    <div class="recipe_show_bottom_content">
+      <div class="recipe_show_instructions">
+        <span class="recipe_show_title">Instructions:</span><%= simple_format @recipe.instructions %></div>
+      <%= link_to "edit", edit_recipe_path(@recipe)%>
+      <%= link_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' }%>
+    </div>
+  </div>
 </div>
-<div class="side_bar">
-    <div class="job_board">
-        <h3>>_ job board</h3>
-        
-        <div class="job_listing">
-            <p>
-                <a href="#"><strong>Shopify</strong></a>
-                is hiring a Senior Front End Developer
-            </p>
-        </div>
-        <div class="job_listing">
-            <p>
-                <a href="#"><strong>(mt) Media Temple</strong></a>
-                is hiring a Senior Front End Developer
-            </p>
-        </div>
-        <div class="job_listing">
-            <p>
-                <a href="#"><strong>Billy Graham Evangelistic Association</strong></a>
-                is hiring a Front End Developer
-            </p>
-        </div>
-        <div class="btn">See More Jobs</div>
-        <div class="btn">Post A Job</div>
-    </div>
-    <div class="advertisement">
-        <img src="http://placehold.it/500x500" />
-        <p class="blurb">
-            CSS-Tricks uses and recommends Media Temple web hosting. Their 
-            exceptional service and support keep this site fast. USe Coupon code
-            <span id="coupon_code">CSSTRICKS</span> to save 20% for the first year.
-        </p>
-        
-        <div class="advertisement btn">Save 20% on web hosting</div>
-    </div>
-</div>
-
-
-<!--<%= link_to "edit", edit_recipe_path(@recipe)%>-->
-<!--<%= link_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' }%>-->

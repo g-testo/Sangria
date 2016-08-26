@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
-        redirect_to @recipe, alert: "Recipe created successfully."
+        redirect_to @recipe, notice: "Recipe created successfully."
     else
         redirect_to new_recipe_path, alert: "Error creating recipe."
     end
@@ -33,7 +33,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     
     if @recipe.update(recipe_params)
-        redirect_to @recipe, alert: "Recipe updated successfully."
+        redirect_to @recipe, notice: "Recipe updated successfully."
     else
         redirect_to edit_recipe_path(@recipe), alert: "Error updating recipe."
     end
