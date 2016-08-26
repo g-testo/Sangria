@@ -28,9 +28,19 @@ body {
 }
 .notice{
 	color: green;
+  position: fixed;
+  top:0;
+  text-align: center;
+  background-color: rgb(235, 255, 225);
+  width:100%
 }
 .alert{
 	color: red;
+  position: fixed;
+  top:0;
+  text-align: center;
+  background-color: rgb(255, 198, 183);
+  width:100%
 }
 
 body{

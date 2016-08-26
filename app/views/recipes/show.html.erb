@@ -2,10 +2,8 @@
     <!--Everything for article goes here-->
     <div class="article_title"><%= @recipe.name %></div>
         <div class="article_author_date">
-            <a href="#">
                 <img src="http://www.placehold.it/35x35" />
-                <span class="article_author_name"> <%= @recipe.user.user_name %></span>
-            </a>
+                <span class="article_author_name"><%= @recipe.user.user_name %></span>
             <span class="date_slashes"> // </span>
             <span class="article_publish_date"> 
                 <%= @recipe.created_at.strftime("%B %e, %Y") %>
@@ -15,11 +13,7 @@
         <%= image_tag @recipe.recipe_image.url %>
         <h3>Ingredients</h3>
         <ul>
-            <li>One 750-milliliter bottle fruity red wine, such as Merlot</li>
-            <li>4 ounces brandy</li>
-            <li>3 ounces Simple Syrup</li>
-            <li>1 cup mixed chunks of seeded oranges, lemons and limes</li>
-            <li>Ice</li>
+            <li><%= simple_format @recipe.ingredients %>
         </ul>
         <h3>Servings: <%= @recipe.servings %></h3>
         <h3>Instructions:</h3>
