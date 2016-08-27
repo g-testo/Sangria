@@ -38,6 +38,7 @@ gem 'figaro'
 gem 'flickraw'
 gem 'twitter'
 gem 'yt'
+ruby '2.3.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
