@@ -47,9 +47,10 @@
       </div>
       <div class="recipe_roulette">
           <ul>
-            <% unless Recipe.find(Recipe.ids.sample).nil? recipe = Recipe.find(Recipe.ids.sample)  %>
-            <%= link_to recipe_path(recipe.id) do %> <%= image_tag "recipe_roulette_color.png" %>
-            <% end %>
+            <%# recipe = Recipe.find(Recipe.ids.sample) %>
+            <%#= link_to recipe_path(recipe.id) do %> 
+            <%#= image_tag "recipe_roulette_color.png" %>
+            <%# end %>
           </ul>
           </ul>
       </div>
