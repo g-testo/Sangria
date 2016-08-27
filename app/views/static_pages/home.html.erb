@@ -12,8 +12,11 @@
       </div>
     </div>
   </div>
-  <div class="bubble_video">
-    <%#= video_tag "videos/bubble_video_long_loop.mp4", autoplay: :autoplay, loop: :loop%></div>
+  <div class="create_recipe_wrapper">
+    <div class="create_recipe">
+      <%= link_to "Create A Recipe", new_recipe_path(@recipe) %>
+    </div>
+  </div>
   <div class="top_full_wrapper">
     <ul class="featured_recipes">
         <li class="featured_recipe_left">
@@ -47,10 +50,14 @@
       </div>
       <div class="recipe_roulette">
           <ul>
-            <%# recipe = Recipe.find(Recipe.ids.sample) %>
-            <%#= link_to recipe_path(recipe.id) do %> 
-            <%#= image_tag "recipe_roulette_color.png" %>
-            <%# end %>
+            <% if Recipe.ids.length != 0 
+              recipe = Recipe.find(Recipe.ids.sample) 
+            end %>
+            <%= if Recipe.ids.length != 0 
+              link_to recipe_path(recipe.id) do %> 
+                <%= image_tag "recipe_roulette_color.png" %>
+              <% end %>
+            <% end %>
           </ul>
           </ul>
       </div>

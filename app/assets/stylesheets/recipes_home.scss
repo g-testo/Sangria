@@ -5,6 +5,7 @@
 // Recipe Form
 .bg_wrapper{
   width:100%;
+  font-family: cursive;
 }
 .welcome_wrapper{
   display: flex;
@@ -15,7 +16,6 @@
 }
 .welcome_title{
   font-size:3em;
-  font-family: cursive;
 }
 .welcome_content{
   width: 90%;
@@ -25,7 +25,6 @@
   box-shadow: 2px 6px 3px #888888;
   padding-bottom: 20px;
   padding-top: 20px;
-  font-family: cursive;
   cursor: context-menu;
   img{
     width: 45%;
@@ -48,7 +47,30 @@
     min-width: 300px
   }
 }
+.create_recipe_wrapper{
+  width: 90%;
+  font-size: 3em;
+  text-align: center;
+  padding: auto;
+  margin: auto;
+}
 
+.create_recipe{
+  width: 100%;
+  a{
+    width: 100%;
+    max-width: 800px;
+    min-width: 250px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: white;
+    box-shadow: 2px 6px 3px #888888;
+    margin:10px 0 30px 0;
+    padding:20px 0 20px 0;
+  }
+}
 .top_full_wrapper{
   padding: 0;
   margin: 0;
@@ -198,7 +220,6 @@
 }
 .yelp_title{
   font-size:1.5em;
-  font-family: cursive;
   cursor: context-menu;
 }
 .yelp_businesses{
@@ -207,13 +228,13 @@
   a{
     color: inherit; 
   }
-      li{
-        padding: 5px;
-        margin: 15px;
-        font-size: .8em;
-        min-width: 200px;
-        margin-bottom: 8px;
-      }
+  li{
+    padding: 15px 10px 15px 10px;
+    margin: 15px;
+    font-size: .8em;
+    min-width: 200px;
+    margin-bottom: 8px;
+  }
 }
 .businesses_container{
   width: 50px;
