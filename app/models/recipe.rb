@@ -1,9 +1,9 @@
 class Recipe < ActiveRecord::Base
   belongs_to :user
   mount_uploader :recipe_image, RecipeImageUploader
-  validates_presence_of :author, :instructions, :servings, :ingredients, :user_id
-  validates :name, presence: true, uniqueness: true, length: { minimum: 5, maximum: 80 }
-  validates :user_id, presence: true
+  # validates_presence_of :author, :instructions, :servings
+  # validates :name, presence: true, uniqueness: true, length: { minimum: 5, maximum: 80 }
+  # validates :user_id, presence: true
   validate :recipe_image_size
   
     
