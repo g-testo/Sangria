@@ -6,7 +6,7 @@
         <span class="welcome_title">WELCOME</span>
         <p>
            Peruse our selection of red, white or blended sangria recipe libraries or are you looking for some excitement? 
-           In that case, checkout out the best rated sangria bars in the city. 
+           In that case, checkout the best rated sangria bars in the city. 
            If you're feeling lucky you could spin the recipe roulette and learn how to make it yourself with a do-it-yourself video. 
         </p>
       </div>
@@ -34,10 +34,13 @@
         <div class="yelp_logo"><%= image_tag "yelp-logo.png", alt: "Edit Entry" %></div>
         <ol class="yelp_businesses">
           <% @yelp_response.businesses.each do | business | %>
-            <li>
-              <%= link_to business.name, business.url %><br>
+            <li class="businesses_container">
+              <a href=<%= business.url %>>
+                <span class="business_container_link"></span>
+              <%= business.name %><br>
               <%= image_tag(business.rating_img_url_small) %><br>
               <%= business.location.neighborhoods.first %>
+              </a>
             </li>
           <% end %>
         </ol>

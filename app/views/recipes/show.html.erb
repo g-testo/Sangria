@@ -1,16 +1,18 @@
 <div class="recipe_show_wrapper">
   <div class="recipe_show_content">
     <div class="recipe_show_top_content">
-      <div class="recipe_show_image_wrapper"><%= image_tag @recipe.recipe_image.url %></div>
-      <div class="recipe_show_recipe_info">
+      <div class="recipe_show_heading">
         <div class="recipe_show_title_name"><%= @recipe.name %></div>
         <div class="recipe_show_author_date">
           <span class="recipe_show_author_name"><%= @recipe.user.user_name %></span>
           <span class="date_slashes"> // </span>
           <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
         </div>
+      </div>
+      <div class="recipe_show_image_wrapper"><%= image_tag @recipe.recipe_image.url %></div>
+      <div class="recipe_show_recipe_info">
         <ul>
-          <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br>
+          <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br><br>
           <li><span class="recipe_show_title">Ingredients:</span><br><%= simple_format @recipe.ingredients %></li>
         </ul>
       </div>
@@ -18,8 +20,8 @@
     <div class="recipe_show_bottom_content">
       <div class="recipe_show_instructions">
         <span class="recipe_show_title">Instructions:</span><%= simple_format @recipe.instructions %></div>
-      <%= link_to "edit", edit_recipe_path(@recipe)%>
-      <%= link_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' }%>
+      <%#= link_to "edit", edit_recipe_path(@recipe)%>
+      <%#= link_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' }%>
     </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 //* Devise Login CSS
 
-.devise_login_wrapper, .devise_signup_wrapper{
+.devise_login_wrapper, .devise_signup_wrapper, .devise_change_password_wrapper .devise_forgot_password_wrapper{
   background: url(about_sangria.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -8,14 +8,14 @@
   background-size: cover;
   width: 100%;
   height: auto;
-  padding:0;
-  margin:0;
+  padding: auto;
+  margin: auto;
   text-align: center;
 }
 
-.devise_login_form, .devise_signup_form{
+.devise_login_form, .devise_signup_form, .devise_forgot_password_form, .devise_change_password_form{
   display: inline-block;
-  margin: 5% 25%;
+  margin: 30px auto;
   width: 250px;
   height: auto;
   padding: 15px;
@@ -46,10 +46,19 @@
     color:black;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .devise_login_form, .devise_signup_form{
+  }
+}
+
 label{
   float:left;
   min-width: 100px;
 }
 .devise_login_title, .devise_signup_title{
   font-size: 1.5em;
+}
+#user_remember_me{
+  margin: 0 0 0 30px;
 }
