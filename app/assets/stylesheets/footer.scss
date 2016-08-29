@@ -1,8 +1,8 @@
 .footer_content{
   display: block;
-  margin: auto;
+  margin: 0 auto;
   clear: both;
-  width: 100px;
+  width: 250px;
   li {
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
@@ -19,10 +19,7 @@
 .social_images, .contact_images {
   display: none;
 }
-.copyright{
-  width: 102%;
-}
 .copyright img {
   display: block;
-  margin: auto;
+  margin: 0 auto;
 }

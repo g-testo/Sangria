@@ -42,7 +42,7 @@
   .welcome_text {
     min-width: 290px;
     padding:auto;
-    margin: auto;
+    margin: 0 auto;
   }
   .welcome_content img {
     min-width: 300px
@@ -53,7 +53,7 @@
   font-size: 3em;
   text-align: center;
   padding: auto;
-  margin: auto;
+  margin: 0 auto;
   font-family: cursive;
 }
 
@@ -179,13 +179,13 @@
 
 .bottom_full_wrapper{
   padding: auto;
-  margin: auto;
+  margin: 0 auto;
   position: relative;
   display: block;
 }
 .bottom_content{
   width:90%;
-  margin: auto;
+  margin: 0 auto;
   padding:auto;
   max-width: 800px;
   display: block;
@@ -280,7 +280,7 @@
 @media screen and (max-width: 740px) {
   .recipe_roulette {
     float: none;
-    margin: auto;
+    margin: 0 auto;
     padding: auto;
     padding-bottom: 30px;
     min-width: 250px;
@@ -289,7 +289,7 @@
   
   .youtube_video {
     float:none;
-    margin: auto;
+    margin: 0 auto;
     padding: auto;
   }
 }
