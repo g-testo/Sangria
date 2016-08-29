@@ -5,17 +5,17 @@
 // Recipe Form
 .bg_wrapper{
   width:100%;
-  font-family: cursive;
+  font-family: Arial;
 }
 .welcome_wrapper{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin:auto;
+  padding:auto;
   margin-bottom: 30px;
   margin-top: 30px;
 }
 .welcome_title{
   font-size:3em;
+  font-family: cursive;
 }
 .welcome_content{
   width: 90%;
@@ -25,7 +25,8 @@
   box-shadow: 2px 6px 3px #888888;
   padding-bottom: 20px;
   padding-top: 20px;
-  cursor: context-menu;
+  cursor:default;
+  margin:auto;
   img{
     width: 45%;
     height: auto;
@@ -53,6 +54,7 @@
   text-align: center;
   padding: auto;
   margin: auto;
+  font-family: cursive;
 }
 
 .create_recipe{
@@ -133,30 +135,12 @@
 // media queries for drink categories
 @media screen and (max-width: 700px) {
   .featured_recipe_left {
-    float:none;
-    margin: auto;
-    padding: auto;
-  }
-  
-  .featured_recipe_middle {
-    margin: auto;
-    padding: auto;
-  }
-
-  .featured_recipe_right{
-    float:none;
-    margin: auto;
-    padding: auto;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .featured_recipe_left {
     min-width: 250px;
     display: block;
     float: none;
     margin: 30px auto;
     padding: auto;
+    width: 100%;
     
   }
 
@@ -165,6 +149,7 @@
     display: block;
     margin: 30px auto;
     padding: auto;
+    width: 100%;
   }
 
   .featured_recipe_right {
@@ -173,6 +158,7 @@
     float: none;
     margin: 30px auto;
     padding: auto;
+    width: 100%;
   }
   .top_bars{
     margin-top: 60px;
@@ -220,7 +206,7 @@
 }
 .yelp_title{
   font-size:1.5em;
-  cursor: context-menu;
+  cursor:default;
 }
 .yelp_businesses{
   margin: 0;
@@ -297,7 +283,8 @@
     margin: auto;
     padding: auto;
     padding-bottom: 30px;
-    min-width: 250px
+    min-width: 250px;
+    width: 100%;
     }
   
   .youtube_video {

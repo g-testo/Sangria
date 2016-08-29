@@ -1,14 +1,14 @@
 <div class="header">
     <ul class="nav_wrapper">
-        <li><span class="logo_image"><%= link_to image_tag('sangria_logo.png', size: "250x50"), root_path %></span></li>
+        <li><span class="logo_image"><%= link_to image_tag('sangria_logo.png', size: "500x100"), root_path %></span></li>
         <div class="nav_menu">
-            <li><span class="nav_recipe_image"><%= link_to image_tag('nav_recipe_image.png', size: "125x25"), recipes_path %></span></li>
-            <li><span class="nav_about_image"><%= link_to image_tag('nav_about_image.png', size: "125x25"), about_path %></span></li>
+            <li><span class="nav_recipe_image"><%= link_to image_tag('nav_recipe_image.png', size: "200x40"), recipes_path %></span></li>
+            <li><span class="nav_about_image"><%= link_to image_tag('nav_about_image.png', size: "200x40"), about_path %></span></li>
             <% if user_signed_in? %>
-                <li><span class="nav_logout_image"><%= link_to image_tag('nav_logout_image.png', size: "125x25"), destroy_user_session_path, method: :delete %></span></li>
+                <li><span class="nav_logout_image"><%= link_to image_tag('nav_logout_image.png', size: "200x40"), destroy_user_session_path, method: :delete %></span></li>
             <% else %>
-                <li><span class="nav_signin_image"><%= link_to image_tag('nav_signin_image.png', size: "125x25"), new_user_registration_path %></span></li>
-                <li><span class="nav_login_image"><%= link_to image_tag('nav_login_image.png', size: "125x25"), new_user_session_path %></span></li>
+                <li><span class="nav_signin_image"><%= link_to image_tag('nav_signin_image.png', size: "200x40"), new_user_registration_path %></span></li>
+                <li><span class="nav_login_image"><%= link_to image_tag('nav_login_image.png', size: "200x40"), new_user_session_path %></span></li>
             <% end %>
         </div>
     </ul>

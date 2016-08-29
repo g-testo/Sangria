@@ -1,31 +1,33 @@
 .header {
 	background:#e4e4e4;
-	overflow:auto;
-	min-width:320px;
-	display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow:hidden;
 }
 
 .logo_image {
+  display: block;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto 0 auto;
 }
-
+@media screen and (max-width: 600px) {
+    .nav_wrapper{
+    padding: 0;
+    margin: 0;
+  }
+  
+  .logo_image img{
+    width: 400px;
+    height: auto;
+  }
+}
 .nav_menu {
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-@media screen and (max-width: 795px) {
+@media screen and (max-width: 850px) {
   .nav_menu {
     margin-left: 0;
     display: inline-block;
-    width:100%
+    width: 100%;
   }
 }
 li{
