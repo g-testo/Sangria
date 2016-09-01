@@ -42,7 +42,7 @@
                 <span class="business_container_link"></span>
               <%= business.name %><br>
               <%= image_tag(business.rating_img_url_small) %><br>
-              <%= business.location.neighborhoods.first %>
+              <%= business.location.neighborhoods != nil ? business.location.neighborhoods.first : "" %>
               </a>
             </li>
           <% end %>
