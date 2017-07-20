@@ -19,7 +19,7 @@
 
       <div class="recipe_show_recipe_info">
         <ul>
-          <% if @recipe.user.user_name == current_user.user_name %>
+          <% if current_user && @recipe.user.user_name == current_user.user_name %>
             <li><%= button_to "edit", edit_recipe_path(@recipe), :method => :get%></li>
             <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <% end %>
