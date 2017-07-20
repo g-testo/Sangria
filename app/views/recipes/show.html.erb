@@ -9,7 +9,11 @@
           <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
         </div>
       </div>
-      <div class="recipe_show_image_wrapper"><%= image_tag @recipe.recipe_image.url %></div>
+      <div class="recipe_show_image_wrapper">
+        <%= link_to image_url(@recipe.recipe_image.url) do %>
+          <%= image_tag @recipe.recipe_image.url %>
+        <% end %>
+      </div>
       <div class="recipe_show_recipe_info">
         <ul>
           <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br><br>
