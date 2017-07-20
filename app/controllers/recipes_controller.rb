@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
     current_user.inspect
     @recipe.author = current_user.user_name
-    if @recipe.save!
+    if @recipe.save
         redirect_to @recipe, notice: "Recipe created successfully."
     else
         redirect_to new_recipe_path, alert: "Error creating recipe."

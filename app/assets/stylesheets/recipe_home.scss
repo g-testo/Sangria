@@ -48,7 +48,7 @@
     min-width: 300px
   }
 }
-.create_recipe_wrapper{
+.create_recipe_wrapper, .pick_wine_wrapper{
   width: 90%;
   font-size: 3em;
   text-align: center;
@@ -56,8 +56,21 @@
   margin: 0 auto;
   font-family: cursive;
 }
-
-.create_recipe{
+.pick_wine{
+  width: 100%;
+  margin: 10px 0;
+  padding: 5px 0;
+  cursor: default;
+  max-width: 800px;
+  min-width: 250px;
+  text-decoration: none;
+  color: black;
+  border-radius: 10px;
+  display: inline-block;
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+}
+.create_recipe, .pick_wine{
   width: 100%;
   a{
     width: 100%;
@@ -141,7 +154,7 @@
     margin: 30px auto;
     padding: auto;
     width: 100%;
-    
+
   }
 
   .featured_recipe_middle {
@@ -212,7 +225,7 @@
   margin: 0;
   padding: 0;
   a{
-    color: inherit; 
+    color: inherit;
   }
   li{
     padding: 15px 10px 15px 10px;
@@ -286,7 +299,7 @@
     min-width: 250px;
     width: 100%;
     }
-  
+
   .youtube_video {
     float: none;
     margin: 0 auto;
