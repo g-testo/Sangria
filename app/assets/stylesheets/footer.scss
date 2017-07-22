@@ -19,7 +19,9 @@
 .social_images, .contact_images {
   display: none;
 }
-.copyright img {
-  display: block;
-  margin: 0 auto;
+.copyright{
+  text-align: center;
+  letter-spacing: 2px;
+  cursor: default;
+
 }

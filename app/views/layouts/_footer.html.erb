@@ -22,7 +22,11 @@
     </div>
     <div class="copyright_wrapper">
         <div class="copyright">
-            <%= image_tag 'foot_copyright_image.png', size: "250x50" %>
+          C<span style="font-size:.8em;">OPYRIGHT</span> &copy;<span id="year"></span> S<span style="font-size:.8em;">ANGRIA</span>NYC
         </div>
     </div>
+    <script>
+      var d = new Date()
+      document.getElementById("year").innerHTML = d.getFullYear();
+    </script>
 </div>
