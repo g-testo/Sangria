@@ -1,33 +1,30 @@
 .recipe_index_wrapper {
   width: 100%;
   height: auto;
-  
-font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
   text-align: center;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 .recipe_index_wrapper{
   min-height: 700px;
-  max-width: 1000px;
 }
 .recipe_index_recipe_list{
   width: 100%;
   height: auto;
   display: -webkit-flex; /* Safari */
   -webkit-flex-wrap: wrap; /* Safari 6.1+ */
-  display: flex;  
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   ul{
-    width:25%;
+    width: 30%;
     list-style: none;
-    padding:10px;
-    margin:10px auto;
+    padding: 10px;
+    margin: 10px 5px;
     background-color: white;
     box-shadow: 2px 6px 3px #888888;
     border-radius: 10px;
-    min-width: 300px;
   }
   li{
     display: block;
@@ -43,35 +40,39 @@ font-family: 'Alegreya Sans SC', sans-serif;
   	opacity: .5;
 	}
   img{
-    max-height: 400px;
-    width:100%;
+    max-height: 250px;
+    width: 100%;
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
   }
 }
 .recipe_index_title{
-  display:block;
+  display: block;
   font-size: 3em;
   text-align: center;
-  cursor:default;
+  cursor: default;
 }
 .index_name{
-  font-size:1.5em;
+  font-size: 1.5em;
   font-weight: bold;
   text-align: center;
 }
 .index_author{
-  font-size:.7em;
+  font-size: .7em;
   text-align: center;
 }
 
 .paginate_wrapper{
-  width:100%;
+  width: 100%;
   list-style-type: none;
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
   text-align: center;
+  //bootstrap adds margin
+  .pagination {
+    margin: 5px 0 !important;
+  }
 }
 .paginate_wrapper a {
   text-decoration: none;

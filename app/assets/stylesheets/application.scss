@@ -20,9 +20,11 @@
 
 html,
 body {
-	width:100%;
-	height:auto;
 	background:#e4e4e4;
+}
+body {
+	max-width: 900px;
+		margin: 0 auto;
 }
 .notice{
 	color: green;

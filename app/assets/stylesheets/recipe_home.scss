@@ -15,12 +15,10 @@
 }
 .welcome_title{
   font-size:3em;
-
-font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
 }
 .welcome_content{
   width: 90%;
-  max-width: 800px;
   text-align: center;
   background-color: white;
   box-shadow: 2px 6px 3px #888888;
@@ -31,7 +29,6 @@ font-family: 'Alegreya Sans SC', sans-serif;
   img{
     width: 45%;
     height: auto;
-    max-width: 300px;
   }
 }
 .welcome_text{
@@ -63,7 +60,6 @@ font-family: 'Alegreya Sans SC', sans-serif;
   margin: 10px 0;
   padding: 5px 0;
   cursor: default;
-  max-width: 800px;
   min-width: 250px;
   text-decoration: none;
   color: black;
@@ -75,7 +71,6 @@ font-family: 'Alegreya Sans SC', sans-serif;
   width: 100%;
   a{
     width: 100%;
-    max-width: 800px;
     min-width: 250px;
     text-decoration: none;
     color: black;
@@ -106,7 +101,6 @@ font-family: 'Alegreya Sans SC', sans-serif;
   padding: 0px;
   margin: 0px;
   cursor: pointer;
-  max-width: 800px;
   margin-bottom: 30px;
   a{
     -webkit-filter: grayscale(50%);
@@ -152,30 +146,26 @@ font-family: 'Alegreya Sans SC', sans-serif;
 // media queries for drink categories
 @media screen and (max-width: 700px) {
   .featured_recipe_left {
-    min-width: 250px;
     display: block;
     float: none;
     margin: 10px auto 10px;
     padding: auto;
-    width: 100%;
-
+    width: 250px;
   }
 
   .featured_recipe_middle {
-    min-width: 250px;
     display: block;
     margin: 10px auto;
     padding: auto;
-    width: 100%;
+    width: 250px;
   }
 
   .featured_recipe_right {
-    min-width: 250px;
     display: block;
     float: none;
     margin: 10px auto;
     padding: auto;
-    width: 100%;
+    width: 250px;
   }
   .top_bars{
     margin-top: 175px;
@@ -204,7 +194,6 @@ font-family: 'Alegreya Sans SC', sans-serif;
   width:90%;
   margin: 0 auto;
   padding:auto;
-  max-width: 800px;
   display: block;
 }
 .top_bars{
@@ -301,8 +290,7 @@ font-family: 'Alegreya Sans SC', sans-serif;
     margin: 0 auto;
     padding: auto;
     padding-bottom: 30px;
-    min-width: 250px;
-    width: 100%;
+    width: 250px;
     }
 
   .youtube_video {
