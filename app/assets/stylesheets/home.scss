@@ -280,7 +280,7 @@ font-family: 'Alegreya Sans SC', sans-serif;
   border-radius: 10px;
   padding: 15px;
   margin-bottom:50px;
-  min-width: 400px;
+  min-width: 430px;
 }
 
 // media query for roulette and youtube
@@ -303,6 +303,7 @@ font-family: 'Alegreya Sans SC', sans-serif;
 }
 @media screen and (max-width: 475px) {
     .youtube_video {
-      min-width: 430px
+      width: 50%;
+      min-width: 480px
   }
 }
