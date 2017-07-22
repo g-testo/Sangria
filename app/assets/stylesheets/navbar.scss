@@ -13,7 +13,7 @@
     padding: 0;
     margin: 0;
   }
-  
+
   .logo_image img{
     width: 400px;
     height: auto;
@@ -36,18 +36,20 @@ li{
     text-decoration: none;
   }
 }
-.nav_about_image, .nav_recipe_image, .nav_login_image, .nav_logout_image, .nav_signin_image{
-  opacity: 1;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-  margin:0;
-  padding:0;
-  
-  :hover img {
+.nav_menu{
+	font-size: 1.2em;
+	font-family: 'Alegreya Sans SC', sans-serif;
+}
+.nav_menu li a{
+	-webkit-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+  font-size: 2.5em;
+  letter-spacing: 3px;
+  padding: 0 20px;
+  text-decoration:none;
+	color:black;
+	opacity: 1;
+}
+.nav_menu li :hover{
 	opacity: .5;
-  }
-  li{
-  margin:0;
-  padding:0;
-  }
 }
