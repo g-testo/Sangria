@@ -25,22 +25,24 @@ body {
 
 body {
 	max-width: 900px;
-		margin: 0 auto;
+	margin: 0 auto;
 }
 
-.notice{
-	color: green;
+
+
+.alert, .notice{
   position: fixed;
   top:0;
   text-align: center;
-  background-color: rgb(235, 255, 225);
-  width:100%
+  width:100%;
+	left: 0;
+	right: 0;
+}
+.notice{
+	color: green;
+	background-color: rgb(235, 255, 225);
 }
 .alert{
 	color: red;
-  position: fixed;
-  top:0;
-  text-align: center;
-  background-color: rgb(255, 198, 183);
-  width:100%
+	background-color: rgb(255, 198, 183);
 }
