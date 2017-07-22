@@ -15,14 +15,21 @@
 }
 
 .devise_login_form, .devise_signup_form, .devise_forgot_password_form, .devise_change_password_form{
-  width:60%;
+  min-width:300px;
+  max-width:400px;
   margin:auto;
   padding:20px;
   border-radius: 15px;
   background-color: rgb(255, 255, 255);
   box-shadow: 2px 6px 3px #888888;
+  .btn-default a, .btn-default{
+    color:black;
+  }
 }
 
+.devise_signup_title{
+  font-size: 2em;
+}
 @media screen and (max-width: 550px) {
   .devise_login_form, .devise_signup_form{
   }
