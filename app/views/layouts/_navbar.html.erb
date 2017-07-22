@@ -5,11 +5,11 @@
             <li><span class="nav_item"><%= link_to "Recipes", recipes_path %></span></li>
             <li><span class="nav_item"><%= link_to "About", about_path %></span></li>
             <% if user_signed_in? %>
-                <li><span class="nav_item"><%= link_to "Account", edit_user_registration_path(current_user), method: :get %></span></li>
-                <li><span class="nnav_item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></span></li>
+              <li><span class="nav_item"><%= link_to "Account", edit_user_registration_path(current_user), method: :get %></span></li>
+              <li><span class="nnav_item"><%= link_to "Logout", destroy_user_session_path, method: :delete %></span></li>
             <% else %>
-                <li><span class="nav_item"><%= link_to "Sign Up", new_user_registration_path %></span></li>
-                <li><span class="nav_item"><%= link_to "Login", new_user_session_path %></span></li>
+              <li><span class="nav_item"><%= link_to "Sign Up", new_user_registration_path %></span></li>
+              <li><span class="nav_item"><%= link_to "Login", new_user_session_path %></span></li>
             <% end %>
         </div>
     </ul>
