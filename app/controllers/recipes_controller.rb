@@ -1,8 +1,15 @@
 class RecipesController < ApplicationController
   def index
     if params[:flavor]
+      recipeFlavor = params[:flavor]
+      unless recipeFlavor == "Other"
+        @title = "#{recipeFlavor} Recipes"
+      else
+        @title = "Unique Recipes"
+      end
       @recipes = Recipe.where(:flavor => params[:flavor])
     else
+      @title = "All Recipes"
       @recipes = Recipe.all
       @recipes = Recipe.paginate(page: params[:page], :per_page => 6)
     end

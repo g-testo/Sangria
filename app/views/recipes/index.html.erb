@@ -1,6 +1,8 @@
 <div class="recipe_index_wrapper">
     <div class="recipe_index_content">
-        <span class="recipe_index_title">Recipe List</span><br>
+      <% if !@flavor %>
+        <span class="recipe_index_title"><%= @title %></span><br>
+      <% end %>
         <div class="paginate_wrapper"><%= will_paginate unless !!params[:flavor] %></div>
         <div class="recipe_index_recipe_list">
             <% @recipes.each do |recipe| %>
