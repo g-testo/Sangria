@@ -1,6 +1,5 @@
 .header {
 	background:#e4e4e4;
-  overflow:hidden;
 }
 
 .logo_image {
@@ -8,7 +7,7 @@
   text-align: center;
   margin: 0 auto 0 auto;
 }
-.nav_wrapper{
+.nav_wrapper {
 	padding: 0;
 	margin: 0;
 }
@@ -39,8 +38,6 @@
   padding: 0 20px;
   text-decoration:none;
 	color:black;
-	opacity: 1;
 }
-.nav_menu li :hover{
-	opacity: .5;
+.nav_menu :hover{
 }
