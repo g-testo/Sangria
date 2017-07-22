@@ -2,13 +2,25 @@
     <ul class="nav_wrapper">
         <li><span class="logo_image"><%= link_to image_tag('sangria_logo.png', size: "500x100"), root_path %></span></li>
         <div class="nav_menu">
-            <li><span class="nav_item"><%= link_to "Recipes", recipes_path %></span></li>
+
+          <li>
+            <span class="nav_item dropdown">
+              <a href="#" onclick='dropdownFunction("flavor")' class="dropbtn">Recipes</a>
+              <div id="flavorDropdown" class="dropdown-content">
+                <%= link_to "All", recipes_path %>
+                <%= link_to "Red Wine", recipes_path(:flavor=>"Red Wine") %>
+                <%= link_to "White Wine", recipes_path(:flavor=>"White Wine") %>
+                <%= link_to "Unique", recipes_path(:flavor=>"Other") %>
+              </div>
+            </span>
+          </li>
+
             <li><span class="nav_item"><%= link_to "About", about_path %></span></li>
             <% if user_signed_in? %>
               <li>
                 <span class="nav_item dropdown">
-                  <a href="#" onclick="myFunction()" class="dropbtn">Account</a>
-                  <div id="myDropdown" class="dropdown-content">
+                  <a href="#" onclick='dropdownFunction("account")' class="dropbtn">Account</a>
+                  <div id="accountDropdown" class="dropdown-content">
                     <%= link_to "Update", edit_user_registration_path(current_user), method: :get%>
                     <%= link_to "Logout", destroy_user_session_path, method: :delete %>
                   </div>
@@ -21,22 +33,3 @@
         </div>
     </ul>
 </div>
-<script>
-  function myFunction() {
-      document.getElementById("myDropdown").classList.toggle("show");
-  }
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-</script>
