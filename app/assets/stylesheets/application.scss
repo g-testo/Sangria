@@ -22,10 +22,12 @@ html,
 body {
 	background:#e4e4e4;
 }
+
 body {
 	max-width: 900px;
 		margin: 0 auto;
 }
+
 .notice{
 	color: green;
   position: fixed;
@@ -41,10 +43,4 @@ body {
   text-align: center;
   background-color: rgb(255, 198, 183);
   width:100%
-}
-
-body{
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Source Sans Pro', sans-serif;
 }
