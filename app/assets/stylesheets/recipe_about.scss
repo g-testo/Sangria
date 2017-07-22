@@ -1,4 +1,4 @@
-.about_bg_wrapper { 
+.about_bg_wrapper {
   background: url(about_sangria.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -7,7 +7,8 @@
   height: 550px;
   width:100%;
   text-align: center;
-  font-family: cursive;
+  font-size: 1.2em;
+  font-family: 'Alegreya Sans SC', sans-serif;
   cursor:default;
 }
 .about_wrapper {
