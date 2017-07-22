@@ -1,6 +1,6 @@
 //* Devise Login CSS
 
-.devise_login_wrapper, .devise_signup_wrapper, .devise_change_password_wrapper .devise_forgot_password_wrapper, .devise_edit_wrapper{
+.devise_login_wrapper, .devise_signup_wrapper, .devise_change_password_wrapper .devise_forgot_password_wrapper, .devise_edit_wrapper, .devise_unlock_wrapper{
   background: url(about_sangria.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -15,7 +15,7 @@
   margin: 0 auto;
 }
 
-.devise_login_form, .devise_signup_form, .devise_forgot_password_form, .devise_change_password_form, .devise_edit_form{
+.devise_login_form, .devise_signup_form, .devise_forgot_password_form, .devise_change_password_form, .devise_edit_form ,.devise_unlock_form{
   min-width:300px;
   max-width:400px;
   margin:auto;
@@ -29,7 +29,7 @@
   }
 }
 
-.devise_signup_title, .devise_login_title, .devise_forgot_title, .devise_edit_title{
+.devise_signup_title, .devise_login_title, .devise_forgot_title, .devise_edit_title, .devise_unlock_title, .devise_change_password_title{
   font-size: 2em;
 }
 @media screen and (max-width: 550px) {
