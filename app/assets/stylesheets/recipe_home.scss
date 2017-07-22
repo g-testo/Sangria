@@ -228,11 +228,13 @@
     color: inherit;
   }
   li{
-    padding: 15px 10px 15px 10px;
     margin: 15px;
     font-size: .8em;
     min-width: 200px;
     margin-bottom: 8px;
+  }
+  :hover{
+    text-decoration: none;
   }
 }
 .businesses_container{
