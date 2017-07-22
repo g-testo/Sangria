@@ -1,26 +1,23 @@
+
 function dropdownFunction(dropdownList) {
+
+  function dropdownAction(action, id){
+    if (action == "remove"){
+      document.getElementById(id).classList.remove("show");
+    } else if (action == "toggle"){
+      document.getElementById(id).classList.toggle("show");
+    }
+  }
   if (dropdownList == "flavor"){
-    document.getElementById("accountDropdown").classList.remove("show");
-    document.getElementById("flavorDropdown").classList.toggle("show");
+    dropdownAction("remove", "accountDropdown")
+    dropdownAction("toggle", "flavorDropdown")
   } else if (dropdownList == "account"){
-    document.getElementById("flavorDropdown").classList.remove("show");
-    document.getElementById("accountDropdown").classList.toggle("show");
+    dropdownAction("remove", "flavorDropdown")
+    dropdownAction("toggle", "accountDropdown")
   }
 }
 
 window.onclick = function(event) {
-  // openDropdownList = document.querySelectorAll('[id$="Dropdown"]');
-//   for (var i=0;i<openDropdownList.length;i++){
-    // if (openDropdownList[i].classList.contains('show')) {
-//       console.log("True")
-//       // document.getElementById(openDropdownList[i].id).classList.remove('show')
-//     // document.getElementsByClassName(openDropdownList[i]).classList.remove('show');
-//     // console.log(openDropdownList[i].id);
-//   //   if (openDropdownList[i].classList.contains('show')) {
-//   //   }
-//   }
-// }
-
   if (!event.target.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     for (var i=0; i<dropdowns.length;i++) {
