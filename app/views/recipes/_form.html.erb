@@ -1,26 +1,14 @@
 <div class="recipe_form_wrapper">
   <div class="recipe_form_content">
-    <%= form_for(@recipe) do |f| %>
-      <%= f.label :name, 'Recipe Name:' %>
-      <%= f.text_field :name %><br>
-            
-      <%= f.label :ingredients, 'Ingredients:' %><br>
-      <%= f.text_area :ingredients, size: "25x3" %><br>
-
-      <%= f.label :instructions, 'Instructions:' %><br>
-      <%= f.text_area :instructions, size: "25x3" %><br>
-
-      <%= f.label :servings, 'Servings:' %>
-      <%= f.select :servings, ['2', '3', '4', '5', '6', '7', '8', '9', '10']%><br>
-
-      <%= f.label :flavor, 'What is it made with?' %><br>
-      <%= f.select :flavor, ['Red Wine','White Wine','Exotic'] %><br>
-
-      <%= f.label :recipe_image, 'Recipe Image:' %><br>
-      <%= f.file_field :recipe_image %><br>
-
-      <%= f.submit %>
-
+    <div class="create_recipe_title">Create New Recipe</div>
+    <%= bootstrap_form_for(@recipe) do |f| %>
+      <%= f.text_field :name, autofocus: true, placeholder: "What's the name of your recipe?"%>
+      <%= f.text_area :ingredients, size: "25x3", placeholder: "What's in it?"%>
+      <%= f.text_area :instructions, size: "25x3", placeholder: "How do you make it?"%>
+      <%= f.select :servings, (2..10).to_a, placeholder: "How many people does it serve?"%>
+      <%= f.select :flavor, ['Red Wine','White Wine','Exotic'], placeholder: "What is it made with?"%>
+      <%= f.file_field :recipe_image, placeholder: "Recipe Image"%>
+      <%= f.submit "Create", :class => "btn btn-default" %>
     <% end %>
   </div>
 </div>
