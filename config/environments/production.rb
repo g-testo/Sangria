@@ -1,4 +1,11 @@
 Rails.application.configure do
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+  		api_key: ENV["MG_KEY"],
+  		domain: 'mg.testophotography.com'
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
