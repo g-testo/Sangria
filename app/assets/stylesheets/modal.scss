@@ -58,28 +58,9 @@
     to {transform:scale(1)}
 }
 
-/* The Close Button */
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    background-color: white;
-    padding:0 20px;
-    font-weight: bold;
-    transition: 0.3s;
-    z-index: 1;
-}
 .modal span{
   font-size: 7em;
   font-stretch: expanded;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 /* 100% Image Width on Smaller Screens */
