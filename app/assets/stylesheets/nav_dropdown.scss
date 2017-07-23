@@ -6,10 +6,6 @@
   cursor: pointer;
 }
 
-.dropbtn:focus {
-  background-color: white;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -35,7 +31,11 @@
   display: block;
 }
 
-.dropdown a:hover {
+.dropbtn :focus {
+  background-color: white;
+}
+
+.dropdown a:hover{
   background-color: #f1f1f1
 }
 

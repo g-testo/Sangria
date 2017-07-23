@@ -1,29 +1,10 @@
 <div class="footer_wrapper">
     <div class="footer_content">
-        <a id="social_show_hide"> <%= image_tag 'foot_social_image.png', size: "250x50" %></a>
-        <ul class="social_images">
-            <script>
-                $( "#social_show_hide" ).click(function() {
-                  $( ".social_images" ).toggle( "slow" );
-                });
-            </script>
-            <li><a href="https://www.facebook.com/SangriaNYCRecipes"><%= image_tag 'icons/fb.png', size: "80x80" %></li></a>
-            <!-- <li><a href="https://twitter.com/search?f=tweets&q=%23sangrianyc&src=typd"><%= image_tag 'icons/twitter.png', size: "80x80" %></li></a> -->
-        </ul>
-        <a id="contact_show_hide"><%= image_tag 'foot_contact_image.png', size: "250x50" %></a>
-        <ul class="contact_images">
-            <script>
-                $( "#contact_show_hide" ).click(function() {
-                  $( ".contact_images" ).toggle( "slow" );
-                });
-            </script>
-            <li><a href="mailto:gt@gregorytesto.com?Subject=SangriaNYC%20" target="_top"><%= image_tag 'icons/mail.png', size: "80x80" %></a></li>
-        </ul>
-    </div>
-    <div class="copyright_wrapper">
-        <div class="copyright">
-          C<span style="font-size:.8em;">OPYRIGHT</span> &copy;<span id="year"></span> S<span style="font-size:.8em;">ANGRIA</span>NYC
-        </div>
+      <div class="copyright_wrapper">
+          <div class="copyright">
+            C<span style="font-size:.8em;">OPYRIGHT</span> &copy;<span id="year"></span> S<span style="font-size:.8em;">ANGRIA</span>NYC
+          </div>
+      </div>
     </div>
     <script>
       var d = new Date()

@@ -15,16 +15,18 @@
             </span>
           </li>
 
-          <li>
+
+          <li><span class="nav_item"><%= link_to "About", about_path %></span></li>
+          <li><span class="nav_item"><%= link_to "Contact", contact_path %></span></li>
+          <!-- <li>
             <span class="nav_item dropdown">
               <a href="#" onclick='dropdownFunction("contact")' class="dropbtn">About</a>
               <div id="contactDropdown" class="dropdown-content">
-                <%= link_to "What is Sangria NYC?", about_path %>
-                <%= link_to "Contact Us", contact_path %>
+                <%= link_to "SangriaNYC?", about_path %>
+                <%= link_to "Contact", contact_path %>
               </div>
             </span>
-
-          </li>
+          </li> -->
 
           <% if user_signed_in? %>
             <li>
