@@ -9,6 +9,10 @@
 .recipe_index_wrapper{
   min-height: 700px;
 }
+
+.recipe_index_recipe_list ul{
+  margin: 10px auto;
+}
 .recipe_index_recipe_list{
   width: 100%;
   height: auto;
@@ -21,7 +25,6 @@
     width: 30%;
     list-style: none;
     padding: 10px;
-    margin: 10px 5px;
     background-color: white;
     box-shadow: 2px 6px 3px #888888;
     border-radius: 10px;
