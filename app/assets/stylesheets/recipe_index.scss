@@ -5,11 +5,9 @@
   text-align: center;
   margin: 0 auto;
   padding-top: 10px;
+  overflow:hidden;
 }
 
-.recipe_index_recipe_list ul{
-  margin: 10px auto;
-}
 .recipe_index_recipe_list{
   width: 100%;
   height: auto;
@@ -19,6 +17,8 @@
   flex-wrap: wrap;
   align-items: center;
   ul{
+    overflow: hidden;
+    margin: 10px auto;
     width: 30%;
     list-style: none;
     padding: 10px;
@@ -46,6 +46,22 @@
     transition: .3s ease-in-out;
   }
 }
+
+
+@media screen and (max-width: 600px) {
+  .recipe_index_recipe_list{
+    display: block;
+    ul{
+      width: 60%;
+    }
+    img{
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+}
 .recipe_index_title{
   max-width: 600px;
   width: 90%;
@@ -65,6 +81,7 @@
   font-size: 2em;
   font-weight: bold;
   text-align: center;
+  overflow: hidden;
 }
 .index_author{
   font-size: 1.5em;
