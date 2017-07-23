@@ -55,15 +55,13 @@
       </div>
       <div class="recipe_roulette">
           <ul>
-            <% if Recipe.ids.length != 0
-              recipe = Recipe.find(Recipe.ids.sample)
-            end %>
-            <%= if Recipe.ids.length != 0
-              link_to recipe_path(recipe.id) do %>
-                <%= image_tag "recipe_roulette_color.png" %>
-              <% end %>
-            <% end %>
-          </ul>
+            <%=
+              if Recipe.ids.length != 0
+                link_to image_tag("recipe_roulette_color.png"), recipe_path(@randomRecipe.id)
+              else
+                link_to image_tag("recipe_roulette_color.png"), "#"
+              end
+            %>
           </ul>
       </div>
       <div class="youtube_video">
