@@ -1,6 +1,5 @@
-
+// function for preventing multiple dropdowns being open at once
 function dropdownFunction(dropdownList) {
-
   function dropdownAction(action, id){
     if (action == "remove"){
       document.getElementById(id).classList.remove("show");
@@ -8,18 +7,17 @@ function dropdownFunction(dropdownList) {
       document.getElementById(id).classList.toggle("show");
     }
   }
-  if (dropdownList == "flavor"){
-    dropdownAction("toggle", "flavorDropdown")
-    dropdownAction("remove", "accountDropdown")
-    dropdownAction("remove", "contactDropdown")
-  } else if (dropdownList == "account"){
-    dropdownAction("toggle", "accountDropdown")
-    dropdownAction("remove", "flavorDropdown")
-    dropdownAction("remove", "contactDropdown")
-  } else if (dropdownList == "contact"){
-    dropdownAction("toggle", "contactDropdown")
-    dropdownAction("remove", "flavorDropdown")
-    dropdownAction("remove", "accountDropdown")
+  dropdownListName = dropdownList + "Dropdown"
+  dropdownArr = document.querySelectorAll("[id$=Dropdown]")
+  dropdownArr = [].slice.call(dropdownArr)
+  dropdownArr = dropdownArr.map(function(item){return item.id})
+
+  for (var i=0; i<dropdownArr.length; i++){
+    if (dropdownArr[i] == dropdownListName){
+      dropdownAction("toggle", dropdownArr[i])
+    } else {
+      dropdownAction("remove", dropdownArr[i])
+    }
   }
 }
 
