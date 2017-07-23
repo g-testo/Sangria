@@ -1,0 +1,20 @@
+<div class="contact_wrapper">
+  <div class="contact_form">
+    <div class="contact_title">Sign up</div>
+    <%= bootstrap_form_for @message, url: contact_path do |f| %>
+      <%= f.text_field :name, autofocus: true, placeholder: "Required", icon: "user"%>
+      <%= f.email_field :email, placeholder: "Required", icon: "envelope"%>
+      <%= f.text_area :content, size: "25x3", placeholder: "Required", icon: "pencil"%>
+
+      <md-button onclick="showAddFields()">Show Additional Fields</md-button>
+
+      <div id="contactAddFields" style="display:none";>
+        <%= f.text_field :subject, placeholder: "What is this about?", icon: "list"%>
+        <%= f.text_field :mobile, placeholder: "How can I reach you?", icon: "phone"%>
+      </div>
+
+      <br>
+      <%= f.submit "Send", :class => "btn btn-default", icon: "send" %>
+    <% end %>
+  </div>
+</div>

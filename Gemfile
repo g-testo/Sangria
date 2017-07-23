@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
-gem 'mailgun_rails'
+gem 'mailgun-ruby', '~>1.1.6'
 gem 'tether-rails'
 gem 'devise'
 
