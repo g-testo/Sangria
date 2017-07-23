@@ -7,11 +7,14 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Leave blank if you don't want to change it"%>
-      <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-      <%= f.password_field :password_confirmation, autocomplete: "off"%>
+      <a id="changePasswordBtn" onclick="changePassword()">Change Password</a>
+      <div id="changePasswordFields" style="display:none";>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Leave blank if you don't want to change it"%>
+        <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+        <%= f.password_field :password_confirmation, autocomplete: "off"%>
+      </div>
       <%= f.password_field :current_password, autocomplete: "off", placeholder: "We need your current password to confirm your changes" %>
       <%= f.submit "Update", :class => "btn btn-default" %>
     <% end %>
@@ -21,4 +24,10 @@
 
     <%= link_to "Back", :back %>
   </div>
+  <script>
+    function changePassword(){
+          document.getElementById('changePasswordFields').style.display = 'inline';
+          document.getElementById('changePasswordBtn').style.display = 'none';
+    };
+  </script>
 </div>

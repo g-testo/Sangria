@@ -3,7 +3,7 @@
     <div class="contact_title">Sign up</div>
     <%= bootstrap_form_for @message, url: contact_path do |f| %>
       <%= f.text_field :name, autofocus: true, placeholder: "Required"%>
-      <%= f.email_field :email, placeholder: "Required", icon: "envelope"%>
+      <%= f.email_field :email, placeholder: "Required"%>
       <%= f.text_area :content, size: "25x3", placeholder: "Required"%>
 
       <a id="addFields" onclick="showAddFields()">Show Additional Fields</a>
@@ -23,22 +23,22 @@
         document.getElementById('contactAddFields').style.display = 'inline';
         document.getElementById('addFields').style.display = 'none';
   };
-  $(document).ready(function(){
-    $('#characterLeft').text('140 characters left');
-    $('#message').keydown(function () {
-        var max = 140;
-        var len = $(this).val().length;
-        if (len >= max) {
-            $('#characterLeft').text('You have reached the limit');
-            $('#characterLeft').addClass('red');
-            $('#btnSubmit').addClass('disabled');
-        }
-        else {
-            var ch = max - len;
-            $('#characterLeft').text(ch + ' characters left');
-            $('#btnSubmit').removeClass('disabled');
-            $('#characterLeft').removeClass('red');
-        }
-    });
-  });
+  // $(document).ready(function(){
+  //   $('#characterLeft').text('140 characters left');
+  //   $('#message').keydown(function () {
+  //       var max = 140;
+  //       var len = $(this).val().length;
+  //       if (len >= max) {
+  //           $('#characterLeft').text('You have reached the limit');
+  //           $('#characterLeft').addClass('red');
+  //           $('#btnSubmit').addClass('disabled');
+  //       }
+  //       else {
+  //           var ch = max - len;
+  //           $('#characterLeft').text(ch + ' characters left');
+  //           $('#btnSubmit').removeClass('disabled');
+  //           $('#characterLeft').removeClass('red');
+  //       }
+  //   });
+  // });
 </script>
