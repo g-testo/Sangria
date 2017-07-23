@@ -1,17 +1,16 @@
 <div class="contact_wrapper">
   <div class="contact_form">
-    <div class="contact_title">Sign up</div>
+    <div class="contact_title">Contact Me</div>
     <%= bootstrap_form_for @message, url: contact_path do |f| %>
       <%= f.text_field :name, autofocus: true, placeholder: "Required"%>
       <%= f.email_field :email, placeholder: "Required"%>
+      <div id="contactAddFields" style="display:none";>
+        <%= f.text_field :mobile, placeholder: "How can I reach you?"%>
+        <%= f.text_field :subject, placeholder: "What is this about?"%>
+      </div>
       <%= f.text_area :content, size: "25x3", placeholder: "Required"%>
 
       <a id="addFields" onclick="showAddFields()">Show Additional Fields</a>
-
-      <div id="contactAddFields" style="display:none";>
-        <%= f.text_field :subject, placeholder: "What is this about?"%>
-        <%= f.text_field :mobile, placeholder: "How can I reach you?"%>
-      </div>
 
       <br>
       <%= f.submit "Send", :class => "btn btn-default"%>
