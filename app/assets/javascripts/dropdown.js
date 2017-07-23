@@ -9,11 +9,11 @@ function dropdownFunction(dropdownList) {
     }
   }
   if (dropdownList == "flavor"){
-    dropdownAction("remove", "accountDropdown")
     dropdownAction("toggle", "flavorDropdown")
+    dropdownAction("remove", "accountDropdown")
   } else if (dropdownList == "account"){
-    dropdownAction("remove", "flavorDropdown")
     dropdownAction("toggle", "accountDropdown")
+    dropdownAction("remove", "flavorDropdown")
   }
 }
 

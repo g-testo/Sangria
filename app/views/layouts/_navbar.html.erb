@@ -2,7 +2,6 @@
     <ul class="nav_wrapper">
         <li><span class="logo_image"><%= link_to image_tag('sangria_logo.png', size: "500x100"), root_path %></span></li>
         <div class="nav_menu">
-
           <li>
             <span class="nav_item dropdown">
               <a href="#" onclick='dropdownFunction("flavor")' class="dropbtn">Recipes</a>
@@ -14,22 +13,23 @@
               </div>
             </span>
           </li>
+          <li><span class="nav_item"><%= link_to "About", about_path %></span></li>
 
-            <li><span class="nav_item"><%= link_to "About", about_path %></span></li>
-            <% if user_signed_in? %>
-              <li>
-                <span class="nav_item dropdown">
-                  <a href="#" onclick='dropdownFunction("account")' class="dropbtn">Account</a>
-                  <div id="accountDropdown" class="dropdown-content">
-                    <%= link_to "Update", edit_user_registration_path(current_user), method: :get%>
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-                  </div>
-                </span>
-              </li>
-            <% else %>
-              <li><span class="nav_item"><%= link_to "Sign Up", new_user_registration_path %></span></li>
-              <li><span class="nav_item"><%= link_to "Login", new_user_session_path %></span></li>
-            <% end %>
+          <% if user_signed_in? %>
+            <li>
+              <span class="nav_item dropdown">
+                <a href="#" onclick='dropdownFunction("account")' class="dropbtn">Account</a>
+                <div id="accountDropdown" class="dropdown-content">
+                  <%= link_to "Update", edit_user_registration_path(current_user), method: :get%>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                </div>
+              </span>
+            </li>
+          <% else %>
+            <li><span class="nav_item"><%= link_to "Sign Up", new_user_registration_path %></span></li>
+            <li><span class="nav_item"><%= link_to "Login", new_user_session_path %></span></li>
+          <% end %>
+
         </div>
     </ul>
 </div>
