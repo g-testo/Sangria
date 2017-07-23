@@ -9,7 +9,7 @@
       <% end %>
       <a id="changePasswordBtn" onclick="changePassword()">Change Password</a>
       <div id="changePasswordFields" style="display:none";>
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Leave blank if you don't want to change it"%>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "New Password"%>
         <% if @minimum_password_length %>
           <em><%= @minimum_password_length %> characters minimum</em>
         <% end %>
