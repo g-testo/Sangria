@@ -11,9 +11,15 @@ function dropdownFunction(dropdownList) {
   if (dropdownList == "flavor"){
     dropdownAction("toggle", "flavorDropdown")
     dropdownAction("remove", "accountDropdown")
+    dropdownAction("remove", "contactDropdown")
   } else if (dropdownList == "account"){
     dropdownAction("toggle", "accountDropdown")
     dropdownAction("remove", "flavorDropdown")
+    dropdownAction("remove", "contactDropdown")
+  } else if (dropdownList == "contact"){
+    dropdownAction("toggle", "contactDropdown")
+    dropdownAction("remove", "flavorDropdown")
+    dropdownAction("remove", "accountDropdown")
   }
 }
 
