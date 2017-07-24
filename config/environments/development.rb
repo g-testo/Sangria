@@ -3,9 +3,11 @@ Rails.application.configure do
 
   mg_client = Mailgun::Client.new ENV["MG_KEY"]
 
-  message_params =  { from: ENV["FROM_EMAIL"],
-                      to: ENV["PERSONAL_EMAIL"]
-                    }
+  message_params =  { from:ENV["FROM_EMAIL"],
+                       to:ENV["PERSONAL_EMAIL"],
+                       subject: 'Subject',
+                       text:    'Message'
+ }
 
   mg_client.send_message ENV["MG_DOMAIN"], message_params
 
