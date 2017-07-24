@@ -1,0 +1,17 @@
+<h2>From: </h2>
+<p><%= @message.email %></p>
+<% if @message.subject %>
+  <h2>Subject: </h2>
+  <p><%= @message.subject %></p>
+<% else %>
+  <h2>No Subject</h2>
+<% end %>
+
+<% if @message.mobile %>
+  <h3>Contact Number: </h3>
+  <p><%= @message.mobile %></p>
+<% end %>
+
+<h3><%= @message.name %> wrote:</h3>
+
+<p><%= @message.content %></p>

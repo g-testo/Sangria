@@ -3,21 +3,24 @@ Rails.application.configure do
 
   mg_client = Mailgun::Client.new ENV["MG_KEY"]
 
-  message_params =  { from:   ENV["FROM_EMAIL"],
-                      to:   ENV["PERSONAL_EMAIL"],
-                      subject: 'Test 5!',
-                      text:    'It is really easy to send a message!'
+  message_params =  { from: ENV["FROM_EMAIL"],
+                      to: ENV["PERSONAL_EMAIL"],
+                      subject:"Testing",
+                      message:"Testing",
                     }
 
   mg_client.send_message ENV["MG_DOMAIN"], message_params
 
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.default :charset => "utf-8"
+  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
   config.action_mailer.mailgun_settings = {
       api_key: ENV["MG_KEY"],
       domain: ENV["MG_DOMAIN"]
   }
-
-  config.action_mailer.perform_deliveries = true
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
