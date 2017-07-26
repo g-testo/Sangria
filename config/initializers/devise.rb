@@ -1,12 +1,16 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :facebook, ENV["FACEBOOK_ID"], ENV["FACEBOOK_SECRET"]
+
+
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '9f8160a8279eaf1ec623fb9117efbe220f4b407e4b9f92a4d4ed86b918917423270d173c9eba1da6d28ecd5b1289e75d6bc3b23999009fc4f6966f0c827b9be4'
+  config.secret_key = '9f8160a8279eaf1ec623fb9117efbe220f4b407e4b9f92a4d4ed86b918917423270d173c9eba1da6d28ecd5b1289e75d6bc3b23999009fc4f6966f0c827b9be4'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
