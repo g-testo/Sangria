@@ -4,7 +4,7 @@
         <div class="nav_menu">
           <li>
             <span class="nav_item dropdown">
-              <a href="#" onclick='dropdownFunction("flavor")' class="dropbtn">Recipes</a>
+              <a href="javascript:void(0)" onclick='dropdownFunction("flavor")' class="dropbtn">Recipes</a>
               <div id="flavorDropdown" class="dropdown-content">
                 <%= link_to "Create New", new_recipe_path(@recipe) %>
                 <%= link_to "All", recipes_path %>
@@ -18,7 +18,7 @@
           <li><span class="nav_item"><%= link_to "Contact", contact_path %></span></li>
           <!-- <li>
             <span class="nav_item dropdown">
-              <a href="#" onclick='dropdownFunction("contact")' class="dropbtn">About</a>
+              <a href="javascript:void(0)" onclick='dropdownFunction("contact")' class="dropbtn">About</a>
               <div id="contactDropdown" class="dropdown-content">
                 <%= link_to "SangriaNYC?", about_path %>
                 <%= link_to "Contact", contact_path %>
@@ -27,7 +27,7 @@
           </li> -->
             <li>
               <span class="nav_item dropdown">
-                <a href="#" onclick='dropdownFunction("account")' class="dropbtn">Account</a>
+                <a href="javascript:void(0)" onclick='dropdownFunction("account")' class="dropbtn">Account</a>
                 <div id="accountDropdown" class="dropdown-content">
                   <% if user_signed_in? %>
                     <%= link_to "Update", edit_user_registration_path(current_user), method: :get%>
