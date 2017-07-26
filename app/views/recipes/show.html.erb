@@ -13,9 +13,11 @@
 
       <div class="recipe_show_image_wrapper">
         <%= image_tag @recipe.recipe_image.url, :id => 'myImg', alt: @recipe.name%>
-        <div id="myModal" class="modal">
+        <div id="photoModal" class="modal">
+
           <img class="modal-content" id="img01">
           <div id="caption"></div>
+
         </div>
       </div>
 
@@ -40,16 +42,21 @@
 
 
     <script>
-    $(document).on('click touch',function(){
-      $('#myModal').collapse('hide');
-    })
-      var modal = document.getElementById('myModal');
+    // close modal if clicked or touch event is triggered outside of photo
+      var modal = document.getElementById('photoModal');
+      var flag = false;
+      
+      $('#photoModal').bind('touchstart click', function(event){
+        if (!flag) {
+          flag = true;
+          setTimeout(function(){ flag = false; }, 100);
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        return false
+      });
 
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
       // Get the image and insert it inside the modal - use its "alt" text as a caption
       var img = document.getElementById('myImg');
       var modalImg = document.getElementById("img01");
