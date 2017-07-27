@@ -11,12 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727033705) do
+ActiveRecord::Schema.define(version: 20170727062301) do
 
   create_table "messages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "user_id"
+    t.integer  "score", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["recipe_id"], name: "index_ratings_on_recipe_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"

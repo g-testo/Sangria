@@ -4,6 +4,13 @@
 
       <div class="recipe_show_heading">
         <div class="recipe_show_title_name"><%= @recipe.name %></div>
+
+        <p>Averate rating</p>
+        <div id="star"></div>
+
+        <p>Your rating</p>
+        <div id="user_star"></div>
+
         <div class="recipe_show_author_date">
           <span class="recipe_show_author_name"><%= @recipe.user.user_name %></span>
           <span class="date_slashes"> // </span>
@@ -45,7 +52,7 @@
     // close modal if clicked or touch event is triggered outside of photo
       var modal = document.getElementById('photoModal');
       var flag = false;
-      
+
       $('#photoModal').bind('touchstart click', function(event){
         if (!flag) {
           flag = true;
@@ -66,5 +73,22 @@
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
       }
+      $('#star').raty({
+        readOnly: true,
+        score: <%= @recipe.average_rating %>,
+        path: '/assets'
+      });
+
+      $('#user_star').raty({
+        score: <%= @rating.score %>,
+        path: '/assets',
+        click: function(score, evt) {
+          $.ajax({
+            url: '/ratings/' + <%= @rating.id %>,
+            type: 'PATCH',
+            data: { score: score }
+          });
+        }
+      });
     </script>
 </div>

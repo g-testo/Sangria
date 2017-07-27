@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :recipes, only: [:index, :show]
+  resources :ratings, only: :update
 
   root 'static_pages#home'
   get '/about' => 'static_pages#about'
