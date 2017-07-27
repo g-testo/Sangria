@@ -38,12 +38,23 @@
           <li><span class="recipe_show_title">Ingredients:</span><br><%= simple_format @recipe.ingredients %></li>
         </ul>
       </div>
-    </div>
-
-    <div class="recipe_show_bottom_content">
       <div class="recipe_show_instructions">
         <span class="recipe_show_title">Instructions:</span><%= simple_format @recipe.instructions %></div>
       </div>
+    </div>
+
+    <div class="recipe_show_bottom_content">
+      <h3>Comments</h3>
+
+      <%= form_for [@recipe, Comment.new] do |f| %>
+      <%= f.text_field :body, placeholder: "Add a comment" %><br/>
+      <%= f.submit "Add Comment" %>
+      <% end %>
+
+      <ul>
+        <%= render(partial: 'comments/comment', collection: @recipe.comments) %>
+      </ul>
+
     </div>
 
 

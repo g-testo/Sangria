@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show]
   resources :ratings, only: :update
 
+  resources :recipes do
+    resources :comments
+  end
+  resources :comments do
+    resources :comments
+  end
+
   root 'static_pages#home'
   get '/about' => 'static_pages#about'
 
