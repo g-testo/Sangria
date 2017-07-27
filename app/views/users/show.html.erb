@@ -1,2 +1,13 @@
-<%= @user.email %>
 <h1>Testing</h1>
+<%= @user.name %>
+<ul>
+  <li> User email: <%= @user.email %></li>
+  <li><%= image_tag @user.avatar %></li>
+  <li> Number of submitted recipes <%= @user.recipes.length %></li>
+</ul>
+
+<ul>
+  <% @user.recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+  <% end %>
+</ul>
