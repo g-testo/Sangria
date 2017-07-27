@@ -1,11 +1,12 @@
-<h1>Testing</h1>
-<%= @user.name %>
+<h1><%= @user.name %>'s Profile Page</h1>
+<h3>User Information</h3>
+
 <ul>
   <li> User email: <%= @user.email %></li>
   <li><%= image_tag @user.avatar %></li>
   <li> Number of submitted recipes <%= @user.recipes.length %></li>
 </ul>
-
+<h3>Recipe Names</h3>
 <ul>
   <% @user.recipes.each do |recipe| %>
     <li><%= recipe.name %></li>
