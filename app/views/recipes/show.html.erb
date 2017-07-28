@@ -8,11 +8,10 @@
         <p>Averate rating</p>
         <div id="star"></div>
 
-        <p>Your rating</p>
-
-        <% if current_user %>
+        <% if current_user && current_user != @recipe.user%>
+          <p>Your rating</p>
           <div id="user_star"></div>
-        <% else %>
+        <% elsif !current_user %>
           Please <%= link_to "login", new_user_session_path %> or <%= link_to "create", new_user_registration_path %> an account to rate this recipe.
         <% end %>
 
