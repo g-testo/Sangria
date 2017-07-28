@@ -17,7 +17,11 @@
         <% end %>
 
         <div class="recipe_show_author_date">
-          <span class="recipe_show_author_name"><%= @recipe.user.user_name %></span>
+
+
+          <span class="recipe_show_author_name"><%= link_to @recipe.user.user_name, user_path(@recipe.user.id) %></span>
+
+
           <span class="date_slashes"> // </span>
           <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
         </div>
