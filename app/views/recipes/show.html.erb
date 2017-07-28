@@ -9,7 +9,12 @@
         <div id="star"></div>
 
         <p>Your rating</p>
-        <div id="user_star"></div>
+
+        <% if current_user %>
+          <div id="user_star"></div>
+        <% else %>
+          Please <%= link_to "login", new_user_session_path %> or <%= link_to "create", new_user_registration_path %> an account to rate this recipe.
+        <% end %>
 
         <div class="recipe_show_author_date">
           <span class="recipe_show_author_name"><%= @recipe.user.user_name %></span>
@@ -84,22 +89,24 @@
         modalImg.src = this.src;
         captionText.innerHTML = this.alt;
       }
-      $('#star').raty({
-        readOnly: true,
-        score: <%= @recipe.average_rating %>,
-        path: '/assets'
-      });
 
-      $('#user_star').raty({
-        score: <%= @rating.score %>,
-        path: '/assets',
-        click: function(score, evt) {
-          $.ajax({
-            url: '/ratings/' + <%= @rating.id %>,
-            type: 'PATCH',
-            data: { score: score }
+        $('#star').raty({
+          readOnly: true,
+          score: <%= @recipe.average_rating %>,
+          path: '/assets'
+        });
+        <% if current_user %>
+          $('#user_star').raty({
+            score: <%= @rating.score %>,
+            path: '/assets',
+            click: function(score, evt) {
+              $.ajax({
+                url: '/ratings/' + <%= @rating.id %>,
+                type: 'PATCH',
+                data: { score: score }
+              });
+            }
           });
-        }
-      });
+        <% end %>
     </script>
 </div>

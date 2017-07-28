@@ -21,9 +21,11 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @rating = Rating.where(recipe_id: @recipe.id, user_id: current_user.id).first
-    unless @rating
-      @rating = Rating.create(recipe_id: @recipe.id, user_id: current_user.id, score: 0)
+    if current_user
+      @rating = Rating.where(recipe_id: @recipe.id, user_id: current_user.id).first
+      unless @rating
+        @rating = Rating.create(recipe_id: @recipe.id, user_id: current_user.id, score: 0)
+      end
     end
   end
 
