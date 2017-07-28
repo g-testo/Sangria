@@ -34,7 +34,11 @@
           <a><%= link_to image_tag("blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry"), recipes_path(:flavor=>"Other") %></a></li>
     </ul>
   </div>
-
+  <% if current_user %>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  <% end %>
   <div class="bottom_full_wrapper">
     <div class="bottom_content">
       <div class="top_bars">

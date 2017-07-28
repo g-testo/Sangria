@@ -19,6 +19,13 @@ Rails.application.routes.draw do
   resources :comments do
     resources :comments
   end
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,       only: [:create, :destroy]
+
 
   root 'static_pages#home'
   get '/about' => 'static_pages#about'
