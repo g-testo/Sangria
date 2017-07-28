@@ -3,6 +3,11 @@
       <% if !@flavor %>
         <span class="recipe_index_title"><%= @title %></span><br>
       <% end %>
+
+      <%= sortable "id", "Order Submitted", params[:flavor] %>
+      <%= sortable "name", "Name", params[:flavor] %>
+      <%#= sortable "released_at", "Released" %>
+
         <div class="paginate_wrapper"><%= will_paginate unless !!params[:flavor] %></div>
         <div class="recipe_index_recipe_list">
             <% @recipes.each do |recipe| %>

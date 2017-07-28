@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   def index
     if params[:flavor]
       recipeFlavor = params[:flavor]
@@ -7,12 +8,12 @@ class RecipesController < ApplicationController
       else
         @title = "Unique Recipes"
       end
-      @recipes = Recipe.where(:flavor => params[:flavor])
+      @recipes = Recipe.where(:flavor => params[:flavor]).order(sort_column + " " + sort_direction)
     else
       @title = "All Recipes"
-      @recipes = Recipe.all
-      @recipes = Recipe.paginate(page: params[:page], :per_page => 6)
+      @recipes = Recipe.order(sort_column + " " + sort_direction)
     end
+    @recipes = @recipes.paginate(page: params[:page], :per_page => 6)
   end
 
   def new
@@ -62,7 +63,15 @@ class RecipesController < ApplicationController
   end
 
   private
-    def recipe_params
-      params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients)
-    end
+  def recipe_params
+    params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients)
+  end
+
+  def sort_column
+    Recipe.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end
