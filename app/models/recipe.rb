@@ -11,6 +11,7 @@ class Recipe < ActiveRecord::Base
   def average_rating
     ratings.sum(:score) / ratings.size
   end
+
   private
 
   def recipe_image_size

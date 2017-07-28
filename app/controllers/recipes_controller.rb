@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   def index
     if params[:flavor]
       recipeFlavor = params[:flavor]
-      unless recipeFlavor == "Other"
+      if recipeFlavor != "Other"
         @title = "#{recipeFlavor} Recipes"
       else
         @title = "Unique Recipes"
@@ -11,9 +11,15 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(:flavor => params[:flavor]).order(sort_column + " " + sort_direction)
     else
       @title = "All Recipes"
-      @recipes = Recipe.order(sort_column + " " + sort_direction)
-    end
-    @recipes = @recipes.paginate(page: params[:page], :per_page => 6)
+      if sort_column != "rating"
+        @recipes = Recipe.order(sort_column + " " + sort_direction)
+      else
+        @recipes = Recipe.joins(:ratings)
+          .select("recipes.*, avg(ratings.score) as average_rating, count(ratings.id) as number_of_ratings")
+          .order("average_rating " + sort_direction + ", number_of_ratings " + sort_direction)
+        end
+        # @recipes = @recipes.paginate(page: params[:page], :per_page => 6)
+      end
   end
 
   def new
