@@ -1,17 +1,24 @@
-<h1><%= @user.user_name %>'s Profile Page</h1>
+<% if current_user == @user %>
+  <h1>My Profile Page</h1>
+<% else %>
+  <h1><%= @user.user_name %>'s Profile Page</h1>
+<% end %>
 <h3>User Information</h3>
 
 <ul>
   <li> User email: <%= @user.email %></li>
-  <li><%= image_tag @user.avatar %></li>
-  <li> Number of submitted recipes <%= @user.recipes.length %></li>
+  <li><%= image_tag @user.avatar, size: "128" %></li>
 </ul>
-<h3>Recipe Names</h3>
+<h3>List of submitted recipes</h3>
 <ul>
   <% @user.recipes.each do |recipe| %>
-    <li><%= recipe.name %></li>
+    <%= link_to recipe_path(recipe.id) do %>
+      <li><%= image_tag recipe.recipe_image.url, size: "64" %></li>
+      <li><span class="index_name"><%= recipe.name %></span></li>
+    <% end %>
   <% end %>
 </ul>
+
 <section class="stats">
   <%= render 'shared/stats' %>
 </section>
