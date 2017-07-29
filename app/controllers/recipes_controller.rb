@@ -11,8 +11,8 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(:flavor => params[:flavor]).order(sort_column + " " + sort_direction)
     else
       @title = "All Recipes"
-        @recipes = Recipe.order(sort_column + " " + sort_direction)
-      end
+      @recipes = Recipe.order(sort_column + " " + sort_direction)
+    end
   end
 
   def new
