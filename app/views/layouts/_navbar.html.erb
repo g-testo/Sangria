@@ -21,6 +21,9 @@
                 <a href="javascript:void(0)" onclick='dropdownFunction("account")' class="dropbtn">Account</a>
                 <div id="accountDropdown" class="dropdown-content">
                   <% if user_signed_in? %>
+                    <% if current_user.admin? %>
+                      <%= link_to "Admin", admin_path(current_user) %>
+                    <% end %>
                     <%= link_to "Profile", user_path(current_user) %>
                     <%= link_to "Update", edit_user_registration_path(current_user), method: :get%>
                     <%= link_to "Logout", destroy_user_session_path, method: :delete %>

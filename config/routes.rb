@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :recipes, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :users, only: [:show]
-  resources :recipes, only: [:index, :show]
+  resources :users, only: [:show, :destroy]
+  resources :recipes, only: [:index, :show, :destroy]
   resources :ratings, only: :update
 
   resources :recipes do
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
-  get 'admin' => 'recipes#recipe_admin_page'
+  get 'admin' => 'admin#admin_page'
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
 

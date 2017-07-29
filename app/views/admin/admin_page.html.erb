@@ -1,0 +1,45 @@
+<h1>Admin Page</h1>
+
+<table>
+    <thead>
+        <th>Recipe id</th>
+        <th>Recipe Name</th>
+        <th>Image</th>
+        <th>Rating</th>
+        <th>Author</th>
+    </thead>
+    <tbody>
+<% @recipes.each do |recipe| %>
+    <tr>
+        <td><%= recipe.id %></td>
+        <td><%= recipe.name %></td>
+        <td><%= image_tag(recipe.recipe_image.url, width: "64") %></td>
+        <td><%= recipe.average_rating %></td>
+        <td><%= recipe.author %></td>
+        <td><%#= link_to "edit", edit_recipe_path(recipe)%></td>
+        <td><%#= link_to "delete", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>
+    </tbody>
+</table>
+<table>
+    <thead>
+        <th>User id</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Admin?</th>
+    </thead>
+    <tbody>
+<% @users.each do |user| %>
+    <tr>
+        <td><%= user.id %></td>
+        <td><%= user.user_name %></td>
+        <td><%= image_tag(user.avatar, width: "64") %></td>
+        <td><%= user.admin %></td>
+        <td><%#= link_to "edit", edit_user_path(user)%></td>
+        <td><%#= link_to "delete", admin_path(user), :method => :delete %></td>
+    </tr>
+<% end %>
+    </tbody>
+</table>

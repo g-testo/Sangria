@@ -59,11 +59,7 @@ class RecipesController < ApplicationController
 
     redirect_to recipes_path
   end
-
-  def recipe_admin_page
-    @recipes = Recipe.all
-  end
-
+  
   private
   def recipe_params
     params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients, :avg_rating)
