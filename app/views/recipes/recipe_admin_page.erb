@@ -3,15 +3,20 @@
 <table>
     <thead>
         <th>ID</th>
-        <th>Author</th>
-        <th>Instructions</th>
+        <th>Recipe Name</th>
+        <th>Image</th>
+        <th>Rating</th>
+        <th>author</th>
+        
     </thead>
     <tbody>
 <% @recipes.each do |recipe| %>
     <tr>
         <td><%= recipe.id %></td>
+        <td><%= recipe.name %></td>
+        <td><%= image_tag(recipe.recipe_image.url, size: "64x64") %></td>
+        <td><%= recipe.average_rating %></td>
         <td><%= recipe.author %></td>
-        <td><%= recipe.instructions %></td>
         <td><%= link_to "edit", edit_recipe_path(recipe)%></td>
         <td><%= link_to "delete", recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </tr>
