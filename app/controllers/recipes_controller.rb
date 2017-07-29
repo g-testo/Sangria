@@ -11,14 +11,7 @@ class RecipesController < ApplicationController
       @recipes = Recipe.where(:flavor => params[:flavor]).order(sort_column + " " + sort_direction)
     else
       @title = "All Recipes"
-      if sort_column != "rating"
         @recipes = Recipe.order(sort_column + " " + sort_direction)
-      else
-        @recipes = Recipe.joins(:ratings)
-          .select("recipes.*, avg(ratings.score) as average_rating, count(ratings.id) as number_of_ratings")
-          .order("average_rating " + sort_direction + ", number_of_ratings " + sort_direction)
-        end
-        # @recipes = @recipes.paginate(page: params[:page], :per_page => 6)
       end
   end
 
@@ -42,7 +35,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
-    current_user.inspect
     @recipe.author = current_user.user_name
     if @recipe.save
         redirect_to @recipe, notice: "Recipe created successfully."
@@ -70,7 +62,7 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients)
+    params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients, :avg_rating)
   end
 
   def sort_column

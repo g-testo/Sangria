@@ -6,7 +6,7 @@
 
       <%= sortable "id", "Submitted Order", params[:flavor] %>
       <%= sortable "name", "Name", params[:flavor] %>
-      <%= sortable "rating", "Rating", params[:flavor] %>
+      <%= sortable "avg_rating", "Rating", params[:flavor] %>
 
         <div class="paginate_wrapper"><%#= will_paginate unless !!params[:flavor] %></div>
         <div class="recipe_index_recipe_list">
@@ -16,6 +16,7 @@
                       <li><%= image_tag recipe.recipe_image.url %></li>
                       <li><span class="index_name"><%= recipe.name %></span></li>
                       <li><span class="index_author"><%= recipe.author %></span></li>
+                      <li><span class="index_rating"><%= recipe.avg_rating %></span></li>
                     <% end %>
                 </ul>
             <% end %>
