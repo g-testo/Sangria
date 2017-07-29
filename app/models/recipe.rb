@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :ratings
-  belongs_to :user 
+  belongs_to :user
   has_many :comments, as: :commentable
   mount_uploader :recipe_image, RecipeImageUploader
   validates_presence_of :author, :instructions, :servings
@@ -9,7 +9,11 @@ class Recipe < ActiveRecord::Base
   validate :recipe_image_size
 
   def average_rating
-    ratings.sum(:score) / ratings.size
+    if ratings.size > 0
+      ratings.sum(:score) / ratings.size
+    else
+      0
+    end
   end
 
   private
