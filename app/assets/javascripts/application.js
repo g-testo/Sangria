@@ -17,3 +17,5 @@
 // = require jquery.raty.js
 // = require turbolinks
 // = require_tree
+
+// = require filterrific/filterrific-jquery

@@ -1,0 +1,22 @@
+<div id="filterrific_results">
+  <div class="recipe_index_wrapper">
+      <div class="recipe_index_content">
+          <div class="paginate_wrapper"><%#= will_paginate unless !!params[:flavor] %></div>
+          <div class="recipe_index_recipe_list">
+              <% @recipes.each do |recipe| %>
+                  <ul class="recipe_list">
+                      <%= link_to recipe_path(recipe.id) do %>
+                        <li><%= image_tag recipe.recipe_image.url %></li>
+                        <li><span class="index_name"><%= recipe.name %></span></li>
+                        <li><span class="index_author"><%= recipe.author %></span></li>
+                        <li><span class="index_rating"><%= recipe.avg_rating %></span></li>
+                      <% end %>
+                  </ul>
+              <% end %>
+          </div>
+      </div>
+      <div class="paginate_wrapper">
+          <%#= will_paginate unless !!params[:flavor] %>
+      </div>
+  </div>
+</div>

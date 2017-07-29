@@ -28,6 +28,8 @@ gem 'bootstrap_form', '~> 2.7.0'
 gem 'mailgun-ruby', '~> 1.1.6'
 gem 'tether-rails', '~> 1.4.0'
 gem 'devise', '~> 4.2.0'
+gem 'filterrific' #, path: '../filterrific'
+
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'

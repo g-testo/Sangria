@@ -90,6 +90,7 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     figaro (1.1.1)
       thor (~> 0.14)
+    filterrific (2.1.2)
     flickraw (0.9.9)
     fog-aws (0.9.4)
       fog-core (~> 1.38)
@@ -283,6 +284,7 @@ DEPENDENCIES
   devise (~> 4.2.0)
   faker (= 1.4.2)
   figaro
+  filterrific
   flickraw
   fog-aws
   jbuilder (~> 2.0)

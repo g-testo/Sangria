@@ -3,28 +3,34 @@
       <% if !@flavor %>
         <span class="recipe_index_title"><%= @title %></span><br>
       <% end %>
-
-      <%= sortable "id", "Submitted Order", params[:flavor] %>
-      <%= sortable "name", "Name", params[:flavor] %>
-      <%= sortable "avg_rating", "Rating", params[:flavor] %>
-      <%= sortable "user_name", "User", params[:flavor] %>
-
-        <div class="paginate_wrapper"><%#= will_paginate unless !!params[:flavor] %></div>
-        <div class="recipe_index_recipe_list">
-            <% @recipes.each do |recipe| %>
-                <ul class="recipe_list">
-                    <%= link_to recipe_path(recipe.id) do %>
-                      <li><%= image_tag recipe.recipe_image.url %></li>
-                      <li><span class="index_name"><%= recipe.name %></span></li>
-                      <li><span class="index_author"><%= recipe.author %></span></li>
-                      <li><span class="index_rating"><%= recipe.avg_rating %></span></li>
-                      <li><span class="index_rating"><%= recipe.average_rating %></span></li>
-                    <% end %>
-                </ul>
-            <% end %>
+      <%#
+        Filterrific adds the `form_for_filterrific` view helper:
+        * adds dom id 'filterrific_filter'
+        * applies javascript behaviors:
+            * AJAX form submission on change
+            * AJAX spinner while AJAX request is being processed
+        * sets form_for options like :url, :method and input name prefix
+      %>
+      <%= form_for_filterrific @filterrific do |f| %>
+        <div>
+          Sorted by
+          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
         </div>
-    </div>
-    <div class="paginate_wrapper">
-        <%#= will_paginate unless !!params[:flavor] %>
-    </div>
+
+        <div>
+          <%= link_to(
+            'Reset filters',
+            reset_filterrific_url,
+          ) %>
+        </div>
+
+        <%# add an automated spinner to your form when the list is refreshed %>
+        <%= render_filterrific_spinner %>
+      <% end %>
+
+      <%= render(
+        partial: 'recipes/list',
+        locals: { recipes: @recipes }
+      ) %>
+
 </div>

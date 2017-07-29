@@ -1,6 +1,17 @@
 class RecipesController < ApplicationController
   helper_method :sort_column, :sort_direction
   def index
+
+
+
+    @filterrific = initialize_filterrific(
+      Recipe,
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Recipe.options_for_sorted_by }
+    ) or return @recipes = @filterrific.find.page(params[:page])
+
+
     if params[:flavor]
       recipeFlavor = params[:flavor]
       if recipeFlavor != "Other"
@@ -8,11 +19,14 @@ class RecipesController < ApplicationController
       else
         @title = "Unique Recipes"
       end
-      @recipes = Recipe.where(:flavor => params[:flavor]).order(sort_column + " " + sort_direction)
+      @recipes = @recipes.where(:flavor => params[:flavor])
     else
       @title = "All Recipes"
-      @recipes = Recipe.order(sort_column + " " + sort_direction)
+      @recipes = Recipe.all
     end
+
+
+
   end
 
   def new
@@ -63,13 +77,5 @@ class RecipesController < ApplicationController
   private
   def recipe_params
     params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients, :avg_rating)
-  end
-
-  def sort_column
-    Recipe.column_names.include?(params[:sort]) ? params[:sort] : "id"
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
