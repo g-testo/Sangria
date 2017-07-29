@@ -28,8 +28,8 @@ Rails.application.routes.draw do
 
 
   root 'static_pages#home'
-  get '/about' => 'static_pages#about'
-
+  get 'about' => 'static_pages#about'
+  get 'admin' => 'recipes#recipe_admin_page'
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
 
