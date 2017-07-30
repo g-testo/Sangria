@@ -14,4 +14,5 @@ $('#user_star').raty({
       data: { score: score }
     }).done(function (data){});
   }
+  <% Recipe.update(@recipe.id, :avg_rating => @recipe.average_rating) %>
 });

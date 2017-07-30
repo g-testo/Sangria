@@ -1,7 +1,7 @@
 <div id="filterrific_results">
   <div class="recipe_index_wrapper">
       <div class="recipe_index_content">
-          <div class="paginate_wrapper"><%#= will_paginate unless !!params[:flavor] %></div>
+          <div class="paginate_wrapper"><%= will_paginate %></div>
           <div class="recipe_index_recipe_list">
               <% @recipes.each do |recipe| %>
                   <ul class="recipe_list">
@@ -16,7 +16,7 @@
           </div>
       </div>
       <div class="paginate_wrapper">
-          <%#= will_paginate unless !!params[:flavor] %>
+          <%= will_paginate %>
       </div>
   </div>
 </div>

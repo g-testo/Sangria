@@ -1,4 +1,4 @@
 <% js = escape_javascript(
-  render(partial: 'recipes/list', locals: { recipes: @recipes })
+  render(partial: 'recipes/list', locals: { recipes: @recipes, flavor: @flavor })
 ) %>
 $("#filterrific_results").html("<%= js %>");
