@@ -5,10 +5,13 @@
       <% end %>
       <%= form_for_filterrific @filterrific do |f| %>
         <div>
-          Sorted by
+          Sort by
+          <br>
           <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
         </div>
         <div>
+          Filter by
+          <br>
           <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }
           ) %>
         </div>
