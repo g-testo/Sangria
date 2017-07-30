@@ -11,7 +11,7 @@
       <%= f.text_area :content, label: 'Message', size: "25x3", placeholder: "Required"%>
 
       <a id="addFields" onclick="showAddFields()">Show Additional Fields</a>
-
+      <%= recaptcha_tags %>
       <br>
       <%= f.submit "Send", :class => "btn btn-default"%>
     <% end %>
