@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
       params[:filterrific],
       :select_options => {
         sorted_by: @recipes.options_for_sorted_by,
-        with_flavor_wine: @recipes.options_for_select
+        with_flavor_wine: ['Red Wine', 'White Wine', 'Exotic']
       }
     ) or return
     @recipes = @filterrific.find.page(params[:page])

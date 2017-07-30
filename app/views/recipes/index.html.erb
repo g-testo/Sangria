@@ -8,7 +8,10 @@
           Sorted by
           <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
         </div>
-
+        <div>
+          <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }
+          ) %>
+        </div>
         <div>
           <%= link_to(
             'Reset filters',

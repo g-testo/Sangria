@@ -45,10 +45,6 @@ class Recipe < ActiveRecord::Base
       ['Author (a-z)', 'author_asc'],
       ['Rating (Highest first)', 'avg_rating_desc']    ]
   end
-  
-  def self.options_for_select
-    order('LOWER(name)').map { |e| [e.name, e.id] }
-  end
 
   private
 
