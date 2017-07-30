@@ -21,7 +21,8 @@ class RecipesController < ApplicationController
       :select_options => {
         sorted_by: @recipes.options_for_sorted_by,
         with_flavor_wine: ['Red Wine', 'White Wine', 'Exotic']
-      }
+      },
+        :persistence_id => false,
     ) or return
     @recipes = @filterrific.find.page(params[:page])
 
