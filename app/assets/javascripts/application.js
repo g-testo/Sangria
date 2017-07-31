@@ -19,3 +19,4 @@
 // = require_tree
 
 // = require filterrific/filterrific-jquery
+// = require nested_form_fields

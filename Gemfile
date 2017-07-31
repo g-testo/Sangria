@@ -30,6 +30,7 @@ gem 'tether-rails', '~> 1.4.0'
 gem 'devise', '~> 4.2.0'
 gem 'filterrific' #, path: '../filterrific'
 gem "recaptcha", require: "recaptcha/rails"
+gem 'nested_form_fields'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'

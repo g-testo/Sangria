@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
   has_many :ingredients
-  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :ingredients, allow_destroy: true
   has_many :ratings
   belongs_to :user
   has_many :comments, as: :commentable
