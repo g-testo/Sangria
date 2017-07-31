@@ -43,7 +43,7 @@
             <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <% end %>
           <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br><br>
-          <li><span class="recipe_show_title">Ingredients:</span><br><%= simple_format @recipe.ingredients %></li>
+          <li><span class="recipe_show_title">Ingredients:</span><br><%#= simple_format @recipe.ingredients %></li>
         </ul>
       </div>
       <div class="recipe_show_instructions">

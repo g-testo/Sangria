@@ -3,8 +3,12 @@
     <div class="create_recipe_title">Create New Recipe</div>
     <%= bootstrap_form_for(@recipe) do |f| %>
       <%= f.text_field :name, autofocus: true, placeholder: "What's the name of your recipe?"%>
-      <%#= f.text_area :ingredients, size: "25x3", placeholder: "What's in it?"%>
       <%= f.text_area :instructions, size: "25x3", placeholder: "How do you make it?"%>
+      <%= f.fields_for :ingredients do |ingredient_field| %>
+        <%= ingredient_field.hidden_field :recipe_id %>
+        <%= ingredient_field.text_field :name %>
+        <%= ingredient_field.select :quantity, (2..10).to_a %>
+      <% end %>
       <%= f.select :servings, (2..10).to_a, placeholder: "How many people does it serve?"%>
       <%= f.select :flavor, ['Red Wine','White Wine','Exotic'], placeholder: "What is it made with?"%>
       <%= f.hidden_field :avg_rating, value: 0 %>

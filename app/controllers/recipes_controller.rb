@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   helper_method :sort_column, :sort_direction
+
   def index
 
     if params[:flavor]
@@ -31,6 +32,17 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = current_user.recipes.new
+    @recipe.ingredients.build
+  end
+
+  def create
+    @recipe = current_user.recipes.new(recipe_params)
+    @recipe.author = current_user.user_name
+    if @recipe.save
+        redirect_to @recipe, notice: "Recipe created successfully."
+    else
+        redirect_to new_recipe_path, alert: "Error creating recipe."
+    end
   end
 
   def show
@@ -45,16 +57,6 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-  end
-
-  def create
-    @recipe = current_user.recipes.new(recipe_params)
-    @recipe.author = current_user.user_name
-    if @recipe.save
-        redirect_to @recipe, notice: "Recipe created successfully."
-    else
-        redirect_to new_recipe_path, alert: "Error creating recipe."
-    end
   end
 
   def update
@@ -76,6 +78,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :ingredients, :avg_rating)
+    params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :avg_rating, ingredients_attributes: [:id, :name, :quantity, :destroy])
   end
 end
