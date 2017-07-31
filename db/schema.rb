@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170729054532) do
+ActiveRecord::Schema.define(version: 20170731003048) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20170729054532) do
     t.string   "commentable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "recipe_id"
+    t.string   "name"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -47,7 +55,6 @@ ActiveRecord::Schema.define(version: 20170729054532) do
     t.string   "recipe_image"
     t.integer  "user_id"
     t.string   "flavor"
-    t.string   "ingredients"
     t.integer  "avg_rating"
   end
 
