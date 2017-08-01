@@ -57,6 +57,8 @@ class Recipe < ActiveRecord::Base
       order("LOWER(recipes.name) #{ direction }")
     when /^author_/
       order("LOWER(recipes.author) #{ direction }")
+    when /^created_at_/
+      order("LOWER(recipes.created_at) #{ direction }")
     when /^avg_rating_/
       order("LOWER(recipes.avg_rating) #{ direction }")
     else
@@ -70,6 +72,7 @@ class Recipe < ActiveRecord::Base
     [
       ['Name (a-z)', 'name_asc'],
       ['Author (a-z)', 'author_asc'],
+      ['Date Created (Newest First)', 'created_at_desc'],
       ['Rating (Highest first)', 'avg_rating_desc']    ]
   end
 
