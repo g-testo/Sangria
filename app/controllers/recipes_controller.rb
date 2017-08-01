@@ -2,7 +2,6 @@ class RecipesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-
     if params[:flavor]
       recipeFlavor = params[:flavor]
       if recipeFlavor != "Exotic"
@@ -15,7 +14,6 @@ class RecipesController < ApplicationController
       @title = "All Recipes"
       @recipes = Recipe.all
     end
-
     @filterrific = initialize_filterrific(
       @recipes,
       params[:filterrific],
@@ -26,11 +24,11 @@ class RecipesController < ApplicationController
       :persistence_id => false,
     ) or return
     @recipes = @filterrific.find.page(params[:page])
-
     @recipes = @recipes.paginate(page: params[:page], :per_page => 6)
   end
 
   def new
+    @counter = 0
     @recipe = current_user.recipes.new
     @recipe.ingredients.build
   end
@@ -56,6 +54,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @counter == 0
     @recipe = Recipe.find(params[:id])
   end
 
@@ -77,6 +76,7 @@ class RecipesController < ApplicationController
   end
 
   private
+
   def recipe_params
     params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :avg_rating, ingredients_attributes: [:name, :quantity, :category, :_destroy, :id])
   end
