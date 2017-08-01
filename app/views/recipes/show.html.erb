@@ -16,11 +16,7 @@
         <% end %>
 
         <div class="recipe_show_author_date">
-
-
           <span class="recipe_show_author_name"><%= link_to @recipe.user.user_name, user_path(@recipe.user.id) %></span>
-
-
           <span class="date_slashes"> // </span>
           <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
         </div>
@@ -43,7 +39,20 @@
             <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <% end %>
           <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br><br>
-          <li><span class="recipe_show_title">Ingredients:</span><br><%#= simple_format @recipe.ingredients %></li>
+          <li><span class="recipe_show_title">Ingredients:</span><br>
+            <% @recipe.ingredients.each do |ingredient| %>
+              <% if !ingredient.name.blank? %>
+              <ul>
+                <li>Category: <%= ingredient.category %></li>
+                <br>
+                <li>Name: <%= ingredient.name %></li>
+                <br>
+                <li>Quantity: <%= ingredient.quantity %></li>
+                <br>
+              </ul>
+              <% end %>
+            <% end %>
+          </li>
         </ul>
       </div>
       <div class="recipe_show_instructions">
@@ -53,19 +62,14 @@
 
     <div class="recipe_show_bottom_content">
       <h3>Comments</h3>
-
       <%= form_for [@recipe, Comment.new] do |f| %>
       <%= f.text_field :body, placeholder: "Add a comment" %><br/>
       <%= f.submit "Add Comment" %>
       <% end %>
-
       <ul>
         <%= render(partial: 'comments/comment', collection: @recipe.comments) %>
       </ul>
-
     </div>
-
-
 
     <script>
     // close modal if clicked or touch event is triggered outside of photo
@@ -112,4 +116,5 @@
           });
         <% end %>
     </script>
+    
 </div>
