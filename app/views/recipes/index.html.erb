@@ -16,6 +16,12 @@
           ) %>
         </div>
         <div>
+          Search by recipe name
+          <br>
+          <%= f.text_field(:search_query, class: 'filterrific-periodically-observed'
+          ) %>
+        </div>
+        <div>
           <%= link_to(
             'Reset filters',
             reset_filterrific_url,

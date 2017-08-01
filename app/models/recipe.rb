@@ -10,12 +10,6 @@ class Recipe < ActiveRecord::Base
   validates :user_id, presence: true
   validate :recipe_image_size
 
-  filterrific :default_filter_params => { :sorted_by => 'name_desc' },
-                :available_filters => %w[
-                  sorted_by
-                  with_flavor_wine
-                ]
-
   def average_rating
     if ratings.size > 0
       (ratings.sum(:score) / ratings.size).to_f
@@ -23,6 +17,37 @@ class Recipe < ActiveRecord::Base
       0
     end
   end
+
+  filterrific :default_filter_params => { :sorted_by => 'name_desc' },
+                :available_filters => %w[
+                  sorted_by
+                  search_query
+                  with_flavor_wine
+                ]
+
+  scope :search_query, lambda { |query|
+    return nil  if query.blank?
+    # condition query, parse into individual keywords
+    terms = query.downcase.split(/\s+/)
+    # replace "*" with "%" for wildcard searches,
+    # append '%', remove duplicate '%'s
+    terms = terms.map { |e|
+      ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
+    }
+    # configure number of OR conditions for provision
+    # of interpolation arguments. Adjust this if you
+    # change the number of OR conditions.
+    num_or_conditions = 1
+    where(
+      terms.map {
+        or_clauses = [
+          "LOWER(recipes.name) LIKE ?"
+        ].join(' OR ')
+        "(#{ or_clauses })"
+      }.join(' AND '),
+      *terms.map { |e| [e] * num_or_conditions }.flatten
+    )
+  }
 
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.

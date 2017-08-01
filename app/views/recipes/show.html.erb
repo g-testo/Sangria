@@ -41,7 +41,6 @@
           <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br><br>
           <li><span class="recipe_show_title">Ingredients:</span><br>
             <% @recipe.ingredients.each do |ingredient| %>
-              <%# if !ingredient.name.blank? %>
               <ul>
                 <li>Category: <%= ingredient.category %></li>
                 <br>
@@ -50,7 +49,6 @@
                 <li>Quantity: <%= ingredient.quantity %></li>
                 <br>
               </ul>
-              <%# end %>
             <% end %>
           </li>
         </ul>
