@@ -10,14 +10,14 @@
         <div id="name_search">
           <div>Search by recipe name </div>
           <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
-          <button onclick="show_ingredient_search(event)">Search by ingredients instead</button>
+          <button onclick='toggleSearchTo("ingredients", event)'>Search by ingredients instead</button>
 
         </div>
 
         <div id="ingredient_search">
           <div>Search by recipe ingredients </div>
           <%= f.text_field(:search_query_ingredients, class: 'filterrific-periodically-observed') %>
-          <button onclick="show_name_search(event)">Search by name instead</button>
+          <button onclick='toggleSearchTo("name", event)'>Search by name instead</button>
 
         </div>
 
@@ -29,19 +29,39 @@
 
 </div>
 <script>
+
 document.getElementById("ingredient_search").style.display = 'none';
-
-  function show_ingredient_search(e) {
+  var search_details = [
+    {
+      switchTo: "ingredients",
+      field_to_show: "ingredient_search",
+      field_to_hide: "name_search"
+    },
+    {
+      switchTo: "name",
+      field_to_show: "name_search",
+      field_to_hide: "ingredient_search"
+    }
+  ]
+  function toggleSearchTo(showElement, e) {
     e.preventDefault();
-    document.getElementById("ingredient_search").style.display = 'block';
-    document.getElementById("name_search").style.display = 'none';
+    for (var i=0;i<search_details.length;i++) {
+      if (showElement == search_details[i].switchTo) {
+        document.getElementById(search_details[i].field_to_show).style.display = 'block';
+        $('.filterrific-periodically-observed').val(function() {
+                return this.defaultValue;
+            });
+        document.getElementById(search_details[i].field_to_hide).style.display = 'none';
+
+      }
+    }
   }
 
-  function show_name_search(e) {
-    e.preventDefault();
-    document.getElementById("ingredient_search").style.display = 'none';
-    document.getElementById("name_search").style.display = 'block';
-  }
+  // function show_name_search(e) {
+  //   e.preventDefault();
+  //   document.getElementById("ingredient_search").style.display = 'none';
+  //   document.getElementById("name_search").style.display = 'block';
+  // }
 
 
 </script>
