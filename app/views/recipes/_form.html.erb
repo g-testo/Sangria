@@ -5,16 +5,15 @@
       <%= f.text_area :instructions, size: "25x3", placeholder: "How do you make it?"%>
       <%= f.nested_fields_for :ingredients do |ingredient_field| %>
         <%= ingredient_field.remove_nested_fields_link do
-            @counter == 0 ? @counter += 1 : ("Remove Ingredient")
+            @counter <= 0 ? @counter += 1 : ("Remove Ingredient")
         end %>
         <%= ingredient_field.hidden_field :recipe_id, :value => @recipe.id %>
-
         <%= ingredient_field.select :category, ["Wine", "Liqour", "Garnish", "Other"], label: "Ingredient Category" %>
         <%= ingredient_field.text_field :name, label: "Ingredient Name" %>
         <%= ingredient_field.number_field :quantity %>
       <% end %>
       <%= f.add_nested_fields_link :ingredients, 'Add another ingredient', class: 'btn btn-primary', role: 'button' %>
-      <%= f.select :servings, ["2-4", "4-10", "10+"], placeholder: "How many people does it serve?"%>
+      <%= f.select :servings, ["2-6", "6-12", "12+"], placeholder: "How many people does it serve?"%>
       <%= f.select :flavor, ['Red Wine','White Wine','Exotic'], placeholder: "What is it made with?"%>
       <%= f.hidden_field :avg_rating, value: 0 %>
       <%= f.file_field :recipe_image, placeholder: "Recipe Image"%>

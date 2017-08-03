@@ -22,32 +22,42 @@ class Recipe < ActiveRecord::Base
                 :available_filters => %w[
                   sorted_by
                   search_query
+                  search_query_ingredients
                   with_flavor_wine
                 ]
-
-  scope :search_query, lambda { |query|
-    return nil  if query.blank?
-    # condition query, parse into individual keywords
-    terms = query.downcase.split(/\s+/)
-    # replace "*" with "%" for wildcard searches,
-    # append '%', remove duplicate '%'s
-    terms = terms.map { |e|
-      ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
+  #An array of two search query methods
+  searchArr = [
+    {
+      name: "search_query",
+      conditions: 1,
+      query: "recipes.name"
+    },
+    {
+      name: "search_query_ingredients",
+      conditions: 1,
+      query:"recipes.author"
+      # query: "!!recipes.ingredients ? recipes.ingredients[0].name || """
     }
-    # configure number of OR conditions for provision
-    # of interpolation arguments. Adjust this if you
-    # change the number of OR conditions.
-    num_or_conditions = 1
-    where(
-      terms.map {
-        or_clauses = [
-          "LOWER(recipes.name) LIKE ?"
-        ].join(' OR ')
-        "(#{ or_clauses })"
-      }.join(' AND '),
-      *terms.map { |e| [e] * num_or_conditions }.flatten
-    )
-  }
+  ]
+  searchArr.each do |search|
+    scope search[:name].to_sym, lambda { |query|
+      return nil  if query.blank?
+      terms = query.downcase.split(/\s+/)
+      terms = terms.map { |e|
+        ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
+      }
+      num_or_conditions = search[:conditions]
+      where(
+        terms.map {
+          or_clauses = [
+            "LOWER(#{search[:query]}) LIKE ?"
+          ].join(' OR ')
+          "(#{ or_clauses })"
+        }.join(' AND '),
+        *terms.map { |e| [e] * num_or_conditions }.flatten
+      )
+    }
+  end
 
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.

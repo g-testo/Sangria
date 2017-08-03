@@ -4,37 +4,44 @@
         <span class="recipe_index_title"><%= @title %></span><br>
       <% end %>
       <%= form_for_filterrific @filterrific do |f| %>
-        <div>
-          Sort by
-          <br>
-          <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-        </div>
-        <div>
-          Filter by
-          <br>
-          <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }
-          ) %>
-        </div>
-        <div>
-          Search by recipe name
-          <br>
-          <%= f.text_field(:search_query, class: 'filterrific-periodically-observed'
-          ) %>
-        </div>
-        <div>
-          <%= link_to(
-            'Reset filters',
-            reset_filterrific_url,
-          ) %>
+        <div>Sort by </div> <br> <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+        <div>Filter by </div> <br> <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }) %>
+
+        <div id="name_search">
+          <div>Search by recipe name </div>
+          <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
+          <button onclick="show_ingredient_search(event)">Search by ingredients instead</button>
+
         </div>
 
-        <%# add an automated spinner to your form when the list is refreshed %>
+        <div id="ingredient_search">
+          <div>Search by recipe ingredients </div>
+          <%= f.text_field(:search_query_ingredients, class: 'filterrific-periodically-observed') %>
+          <button onclick="show_name_search(event)">Search by name instead</button>
+
+        </div>
+
+        <div><%= link_to('Reset filters', reset_filterrific_url) %></div>
         <%= render_filterrific_spinner %>
       <% end %>
 
-      <%= render(
-        partial: 'recipes/list',
-        locals: { recipes: @recipes }
-      ) %>
+      <%= render(partial: 'recipes/list', locals: {recipes: @recipes}) %>
 
 </div>
+<script>
+document.getElementById("ingredient_search").style.display = 'none';
+
+  function show_ingredient_search(e) {
+    e.preventDefault();
+    document.getElementById("ingredient_search").style.display = 'block';
+    document.getElementById("name_search").style.display = 'none';
+  }
+
+  function show_name_search(e) {
+    e.preventDefault();
+    document.getElementById("ingredient_search").style.display = 'none';
+    document.getElementById("name_search").style.display = 'block';
+  }
+
+
+</script>

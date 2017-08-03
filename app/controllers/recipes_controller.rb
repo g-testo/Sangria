@@ -28,9 +28,9 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @counter = 0
     @recipe = current_user.recipes.new
     @recipe.ingredients.build
+    @counter = 0
   end
 
   def create
@@ -54,8 +54,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @counter == 0
     @recipe = Recipe.find(params[:id])
+    @counter = 0
   end
 
   def update
