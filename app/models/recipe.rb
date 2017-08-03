@@ -36,7 +36,9 @@ class Recipe < ActiveRecord::Base
       name: "search_query_ingredients",
       conditions: 1,
       query:"recipes.author"
-      # query: "!!recipes.ingredients ? recipes.ingredients[0].name || """
+      # query:"recipes.ingredients.map(&:category)",
+      # query:"recipes.ingredients.map(&:name)"
+
     }
   ]
   searchArr.each do |search|

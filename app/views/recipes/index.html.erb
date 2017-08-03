@@ -1,9 +1,12 @@
 <div class="recipe_index_wrapper">
     <div class="recipe_index_content">
+
       <% if !@flavor %>
         <span class="recipe_index_title"><%= @title %></span><br>
       <% end %>
+
       <%= form_for_filterrific @filterrific do |f| %>
+
         <div>Sort by </div> <br> <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
         <div>Filter by </div> <br> <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }) %>
 
@@ -11,57 +14,45 @@
           <div>Search by recipe name </div>
           <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
           <button onclick='toggleSearchTo("ingredients", event)'>Search by ingredients instead</button>
-
         </div>
 
-        <div id="ingredient_search">
+        <div style="display:none;" id="ingredient_search">
           <div>Search by recipe ingredients </div>
           <%= f.text_field(:search_query_ingredients, class: 'filterrific-periodically-observed') %>
           <button onclick='toggleSearchTo("name", event)'>Search by name instead</button>
-
         </div>
 
         <div><%= link_to('Reset filters', reset_filterrific_url) %></div>
+
         <%= render_filterrific_spinner %>
+
       <% end %>
 
       <%= render(partial: 'recipes/list', locals: {recipes: @recipes}) %>
 
 </div>
-<script>
 
-document.getElementById("ingredient_search").style.display = 'none';
+<script>
   var search_details = [
     {
       switchTo: "ingredients",
-      field_to_show: "ingredient_search",
-      field_to_hide: "name_search"
+      show_field: "ingredient_search",
+      hide_field: "name_search"
     },
     {
       switchTo: "name",
-      field_to_show: "name_search",
-      field_to_hide: "ingredient_search"
+      show_field: "name_search",
+      hide_field: "ingredient_search"
     }
   ]
   function toggleSearchTo(showElement, e) {
     e.preventDefault();
     for (var i=0;i<search_details.length;i++) {
       if (showElement == search_details[i].switchTo) {
-        document.getElementById(search_details[i].field_to_show).style.display = 'block';
-        $('.filterrific-periodically-observed').val(function() {
-                return this.defaultValue;
-            });
-        document.getElementById(search_details[i].field_to_hide).style.display = 'none';
-
+        document.getElementById(search_details[i].show_field).style.display = 'block';
+        $('.filterrific-periodically-observed').val(function() { return this.defaultValue; });
+        document.getElementById(search_details[i].hide_field).style.display = 'none';
       }
     }
   }
-
-  // function show_name_search(e) {
-  //   e.preventDefault();
-  //   document.getElementById("ingredient_search").style.display = 'none';
-  //   document.getElementById("name_search").style.display = 'block';
-  // }
-
-
 </script>
