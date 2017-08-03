@@ -15,7 +15,7 @@
       <%= f.add_nested_fields_link :ingredients, 'Add another ingredient', class: 'btn btn-primary', role: 'button' %>
       <%= f.select :servings, ["2-6", "6-12", "12+"], placeholder: "How many people does it serve?"%>
       <%= f.select :flavor, ['Red Wine','White Wine','Exotic'], placeholder: "What is it made with?"%>
-      <%= f.hidden_field :avg_rating, value: 0 %>
+      <%= f.hidden_field :avg_rating%>
       <%= f.file_field :recipe_image, placeholder: "Recipe Image"%>
       <%= f.submit :class => "btn btn-default" %>
     <% end %>
