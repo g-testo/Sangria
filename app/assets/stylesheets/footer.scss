@@ -1,7 +1,11 @@
+.footer_wrapper{
+  clear: both;
+}
+
 .copyright{
+  position: sticky;
   display: block;
   margin: 20px auto;
-  clear: both;
   width: 250px;
   text-align: center;
   letter-spacing: 2px;

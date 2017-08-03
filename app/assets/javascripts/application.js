@@ -12,11 +12,12 @@
 //
 // = require jquery
 // = require jquery_ujs
-// = require tether
 // = require bootstrap
-// = require jquery.raty.js
+// = require tether
 // = require turbolinks
 // = require_tree
+
+// = require jquery.raty.js
 
 // = require filterrific/filterrific-jquery
 // = require nested_form_fields
