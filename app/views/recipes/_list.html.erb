@@ -5,15 +5,12 @@
           <div class="recipe_index_recipe_list">
               <% @recipes.each do |recipe| %>
                   <ul class="recipe_list">
-
                       <%= link_to recipe_path(recipe.id) do %>
                         <li><%= image_tag recipe.recipe_image.url %></li>
                         <li><span class="index_name"><%= recipe.name %></span></li>
                       <% end %>
-
                       <%= link_to recipe.user.user_name, user_path(recipe.user.id) %>
                       <li><span class="index_rating"><div data-score=<%= recipe.average_rating %> class="star"></div></span></li>
-
                   </ul>
               <% end %>
           </div>
