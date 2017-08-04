@@ -8,7 +8,16 @@
       <% end %>
 
   <ul>
-      <%= render partial: 'comments/comment', collection: comment.comments %>
+      <li><%= render partial: 'comments/comment', collection: comment.comments %></li>
+      <%# if comment.user == current_user %>
+      <%= comment.inspect %>
+        <li>
+          <%= link_to 'Delete Comment',
+           recipe_comment_url(@recipe, comment),
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %>
+        </li>
+      <%# end %>
   </ul>
 
 </li>
