@@ -8,7 +8,7 @@
             @counter <= 0 ? @counter += 1 : ("Remove Ingredient")
         end %>
         <%= ingredient_field.hidden_field :recipe_id, :value => @recipe.id%>
-        <%= ingredient_field.select :category, ["Wine", "Liqour", "Garnish", "Other"], label: "Ingredient Category"%>
+        <%= ingredient_field.select :category,[ [ "Wine", "wine" ], [ "Liqour", "liqour" ], [ "Garnish", "garnish" ], [ "Other", "other"] ], label: "Ingredient Category"%>
         <%= ingredient_field.text_field :name, label: "Ingredient Name"%>
         <%= ingredient_field.number_field :quantity %>
       <% end %>

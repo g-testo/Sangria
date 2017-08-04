@@ -24,43 +24,40 @@ class Recipe < ActiveRecord::Base
                   search_query
                   search_query_ingredients
                   with_flavor_wine
-                ]
-  #An array of two search query methods
-  searchArr = [
-    {
-      name: "search_query",
-      conditions: 1,
-      query: "recipes.name"
-    },
-    {
-      name: "search_query_ingredients",
-      conditions: 1,
-      query:"recipes.author"
-      # query:"recipes.ingredients.map(&:category)",
-      # query:"recipes.ingredients.map(&:name)"
-
+                ]            
+  scope :search_query, lambda { |query|
+    return nil  if query.blank?
+    terms = query.downcase.split(/\s+/)
+    terms = terms.map { |e|
+      ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
     }
-  ]
-  searchArr.each do |search|
-    scope search[:name].to_sym, lambda { |query|
-      return nil  if query.blank?
-      terms = query.downcase.split(/\s+/)
-      terms = terms.map { |e|
-        ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
-      }
-      num_or_conditions = search[:conditions]
-      where(
-        terms.map {
-          or_clauses = [
-            "LOWER(#{search[:query]}) LIKE ?"
-          ].join(' OR ')
-          "(#{ or_clauses })"
-        }.join(' AND '),
-        *terms.map { |e| [e] * num_or_conditions }.flatten
-      )
+    num_or_conditions = 1
+    where(
+      terms.map { |term|
+        or_clauses = [
+          "LOWER(recipes.name) LIKE ?"
+        ].join(' OR ')
+        "(#{ or_clauses })"
+      }.join(' AND '),
+      *terms.map { |e| [e] * num_or_conditions }.flatten
+    )
+  }
+  scope :search_query_ingredients, lambda { |query|
+    return nil  if query.blank?
+    terms = query.downcase.split(/\s+/)
+    terms = terms.map { |e|
+      ('%' + e.gsub('*', '%') + '%').gsub(/%+/, '%')
     }
-  end
-
+    where(
+      terms.map { |term|
+        or_clauses = [
+          "LOWER(ingredients.name) LIKE ?"
+        ].join(' OR ')
+        "(#{ or_clauses })"
+      }.join(' AND '),
+      *terms.map { |e| [e] }.flatten
+    ).joins(:ingredients)
+  }
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'

@@ -34,24 +34,27 @@
           <a><%= link_to image_tag("blue_sangria_trans_bg.png", size: "200x200", alt: "Edit Entry"), recipes_path(:flavor=>"Other") %></a></li>
     </ul>
   </div>
+
   <div class="bottom_full_wrapper">
     <div class="bottom_content">
-      <div class="top_bars">
-        <div class="yelp_title">Top Sangria Bars in NYC!</div>
-        <div class="yelp_logo"><%= image_tag "yelp-logo.png", alt: "Edit Entry" %></div>
-        <ol class="yelp_businesses">
-          <% @yelp_response.businesses.each do | business | %>
-            <li class="businesses_container">
-              <a href=<%= business.url %>>
-                <span class="business_container_link"></span>
-              <%= business.name %><br>
-              <%= image_tag(business.rating_img_url_small) %><br>
-              <%= business.location.neighborhoods != nil ? business.location.neighborhoods.first : "" %>
-              </a>
-            </li>
-          <% end %>
-        </ol>
-      </div>
+      <% if !@yelp_response.blank? %>
+        <div class="top_bars">
+          <div class="yelp_title">Top Sangria Bars in NYC!</div>
+          <div class="yelp_logo"><%= image_tag "yelp-logo.png", alt: "Edit Entry" %></div>
+          <ol class="yelp_businesses">
+            <% @yelp_response.businesses.each do | business | %>
+              <li class="businesses_container">
+                <a href=<%= business.url %>>
+                  <span class="business_container_link"></span>
+                <%= business.name %><br>
+                <%= image_tag(business.rating_img_url_small) %><br>
+                <%= business.location.neighborhoods != nil ? business.location.neighborhoods.first : "" %>
+                </a>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+      <% end %>
       <div class="recipe_roulette">
           <ul>
             <%=
