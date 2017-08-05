@@ -1,11 +1,9 @@
-<%= form_for([@recipe, @recipe.comments.build]) do |f| %>
+<%= bootstrap_form_for([@recipe, @recipe.comments.build]) do |f| %>
   <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
+    <%= f.text_field :body, hide_label: true, placeholder: "Add a comment" %>
   </p>
   <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </p>
   <p>
     <%= f.submit %>
