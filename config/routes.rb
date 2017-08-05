@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :destroy]
   resources :ratings, only: :update
   resources :ingredients
+  resources :recipes do
+    resources :comments
+  end
   resources :users do
     member do
       get :following, :followers

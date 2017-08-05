@@ -59,6 +59,11 @@
     </div>
 
     <div class="recipe_show_bottom_content">
+      <h2>Comments</h2>
+      <%= render @recipe.comments %>
+
+      <h2>Add a comment:</h2>
+      <%= render 'comments/form' %>
     </div>
 
     <script>
