@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805042351) do
+ActiveRecord::Schema.define(version: 20170806142208) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170805042351) do
     t.string   "provider"
     t.string   "uid"
     t.string   "avatar"
+    t.boolean  "is_private",             default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,8 +1,4 @@
-<% if current_user == @user %>
-  <h1>My Profile Page</h1>
-<% else %>
-  <h1><%= @user.user_name %>'s Profile Page</h1>
-<% end %>
+<h1><%= current_user == @user ? "My Profile Page" : (@user.user_name + '\'s Profile Page') %></h1>
 <h3>User Information</h3>
 
 <ul>
@@ -15,6 +11,8 @@
     <%= link_to recipe_path(recipe.id) do %>
       <li><%= image_tag recipe.recipe_image.url, width: "64" %></li>
       <li><span class="index_name"><%= recipe.name %></span></li>
+      <small>Published <%= time_ago_in_words(recipe.created_at) %> ago</small>
+
     <% end %>
   <% end %>
 </ul>

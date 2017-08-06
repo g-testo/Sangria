@@ -2,7 +2,7 @@
   <strong>Comment by:</strong>
   <%= User.find_by(comment.user_id).user_name %>
 </p>
-<small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
+<small>Published <%= time_ago_in_words(comment.created_at) %> ago</small>
 <p>
   <%= visibility_auth(current_user, comment.user_id) ? (editable comment, :body) : comment.body %>
 </p>
