@@ -70,10 +70,16 @@
     $(document).ready(function() {
       $('.editable').editable({
         showbuttons:false,
+        onblur: "submit",
         ajaxOptions: {
           type: "PUT",
           dataType: "json"
         },
+        //Makes text in input highlighted
+      }).on('shown', function(ev, editable) {
+          setTimeout(function() {
+              editable.input.$input.select();
+          },0);
       });
     })
     // close modal if clicked or touch event is triggered outside of photo

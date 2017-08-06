@@ -92,10 +92,10 @@ class RecipesController < ApplicationController
     end
   end
 
-  def comment_visibility_auth(curr_user, comment_id)
+  def visibility_auth(curr_user, comment_id)
     !curr_user.blank? && (curr_user.id == comment_id)
   end
-  helper_method :comment_visibility_auth
+  helper_method :visibility_auth
 
   private
 
