@@ -4,11 +4,12 @@
 </p>
 <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
 <p>
-  <%= editable comment, :body %>
-  <%#= comment.body %>
+  <%= !current_user.blank? && (current_user.id == comment.user_id) ? (editable comment, :body) : comment.body %>
 </p>
 <p>
+  <% if !current_user.blank? && (current_user.id == comment.user_id) %>
   <%= link_to 'Delete', [comment.recipe, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </p>

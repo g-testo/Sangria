@@ -3,7 +3,7 @@
     <%= f.text_field :body, hide_label: true, placeholder: "Add a comment" %>
   </p>
   <p>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id if !current_user.blank? %>
   </p>
   <p>
     <%= f.submit %>
