@@ -8,9 +8,9 @@
               <div id="flavorDropdown" class="dropdown-content">
                 <%= link_to "Create New", new_recipe_path(@recipe) %>
                 <%= link_to "All", recipes_path %>
-                <%= link_to "Red Wine", recipes_path(:flavor=>"Red Wine") %>
-                <%= link_to "White Wine", recipes_path(:flavor=>"White Wine") %>
-                <%= link_to "Exotic", recipes_path(:flavor=>"Exotic") %>
+                <%= link_to "Red Wine", recipes_path(:flavor=>"red") %>
+                <%= link_to "White Wine", recipes_path(:flavor=>"white") %>
+                <%= link_to "Exotic", recipes_path(:flavor=>"exotic") %>
               </div>
             </span>
           </li>

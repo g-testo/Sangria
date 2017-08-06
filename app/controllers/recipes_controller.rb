@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
       params[:filterrific],
       :select_options => {
         sorted_by: @recipes.options_for_sorted_by,
-        with_flavor_wine: ['Red Wine', 'White Wine', 'Exotic']
+        with_flavor_wine: {'Red': 'red', 'White': 'white', 'Exotic': 'exotic'}
       },
       :persistence_id => false,
     ) or return
