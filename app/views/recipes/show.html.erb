@@ -3,7 +3,7 @@
     <div class="recipe_show_top_content">
 
       <div class="recipe_show_heading">
-        <div class="recipe_show_title_name"><%= editable @recipe, :name %></div>
+        <div class="recipe_show_title_name"><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :name) : @recipe.name %></div>
 
         <p>Averate rating</p>
         <div id="star"></div>
@@ -38,15 +38,17 @@
             <li><%= button_to "edit", edit_recipe_path(@recipe), :method => :get%></li>
             <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <% end %>
-          <li><span class="recipe_show_title">Servings:</span><br><%= editable @recipe, :servings %></li><br><br>
+
+          <li><span class="recipe_show_title">Servings:</span><br><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %></li><br><br>
+
           <li><span class="recipe_show_title">Ingredients:</span><br>
             <% @ingredients.each do |ingredient| %>
               <ul>
-                <li>Category: <%= editable ingredient, :category %> </li>
+                <li>Category: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :category) : ingredient.category %></li>
                 <br>
-                <li>Name: <%= editable ingredient, :name %> </li>
+                <li>Name: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
                 <br>
-                <li>Quantity: <%= editable ingredient, :quantity %></li>
+                <li>Quantity: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
                 <br>
               </ul>
             <% end %>
@@ -54,7 +56,7 @@
         </ul>
       </div>
       <div class="recipe_show_instructions">
-        <span class="recipe_show_title">Instructions:</span><%= editable @recipe, :instructions %></div>
+        <span class="recipe_show_title">Instructions: <%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :instructions) : @recipe.instructions %></div>
       </div>
     </div>
 
