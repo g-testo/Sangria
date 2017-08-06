@@ -1,13 +1,15 @@
-<h2>Add a comment:</h2>
+<% if user_signed_in? %>
+  <h2>Add a comment:</h2>
 
-<%= bootstrap_form_for([@recipe, @recipe.comments.build]) do |f| %>
-  <p>
-    <%= f.text_field :body, hide_label: true, placeholder: "Add a comment" %>
-  </p>
-  <p>
-    <%= f.hidden_field :user_id, :value => current_user.id if !current_user.blank? %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <%= bootstrap_form_for([@recipe, @recipe.comments.build]) do |f| %>
+    <p>
+      <%= f.text_field :body, hide_label: true, placeholder: "Add a comment" %>
+    </p>
+    <p>
+      <%= f.hidden_field :user_id, :value => current_user.id if !current_user.blank? %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
 <% end %>

@@ -5,7 +5,7 @@
       <%= f.text_area :instructions, size: "25x3", placeholder: "How do you make it?"%>
       <%= f.nested_fields_for :ingredients do |ingredient_field| %>
         <%= ingredient_field.remove_nested_fields_link do
-            @counter <= 0 ? @counter += 1 : ("Remove Ingredient")
+            !!@counter && (@counter <= 0) ? @counter += 1 : ("Remove Ingredient")
         end %>
         <%= ingredient_field.hidden_field :recipe_id, :value => @recipe.id%>
         <%= ingredient_field.select :category,[ [ "Wine", "wine" ], [ "Liqour", "liqour" ], [ "Garnish", "garnish" ], [ "Other", "other"] ], label: "Ingredient Category"%>

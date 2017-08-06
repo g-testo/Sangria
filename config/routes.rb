@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-
   devise_for :users, :path_prefix => 'd', controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations',
         passwords: "users/passwords",
         :omniauth_callbacks => "users/omniauth_callbacks"
       }
-
   authenticate :user do
     resources :recipes, only: [:new, :create, :edit, :update, :destroy]
   end
@@ -24,8 +22,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
-
-
+  
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
   get 'admin' => 'admin#admin_page'

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_filter :check_logged_in, only: [:create, :new]
+  before_filter :check_logged_in, only: [:create]
 
   def new
     @message = Message.new

@@ -7,7 +7,7 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :comments, allow_destroy: true
   mount_uploader :recipe_image, RecipeImageUploader
   validates_presence_of :author, :instructions, :servings
-  validates :name, presence: true, length: { minimum: 5, maximum: 15 }
+  validates :name, presence: true, length: { minimum: 5, maximum: 30 }
   validates :user_id, presence: true
   validate :recipe_image_size
 
