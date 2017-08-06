@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_filter :check_logged_in, only: [:create, :edit, :update, :destroy]
   def update
     @ingredient = Ingredient.find(params[:id])
     respond_to do |format|

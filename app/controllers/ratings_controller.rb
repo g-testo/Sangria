@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  before_filter :check_logged_in, only: [:update]
 
   def update
     @rating = Rating.find(params[:id])

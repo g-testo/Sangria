@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate
+  before_filter :check_logged_in, only: [:edit, :update, :destroy]
   respond_to :html, :js
   def new
     @recipe.comments.build
@@ -44,9 +44,7 @@ class CommentsController < ApplicationController
       end
     end
   end
-  def authenticate
-    redirect_to new_user_session_path, alert: "Please sign in to do that." unless user_signed_in?
-  end
+
   private
   def set_comment
      @comment = Comment.find(params[:id])

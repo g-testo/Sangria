@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_filter :check_logged_in, only: [:create, :edit, :update, :destroy]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
   respond_to :html, :js
@@ -90,6 +91,11 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def comment_visibility_auth(curr_user, comment_id)
+    !curr_user.blank? && (curr_user.id == comment_id)
+  end
+  helper_method :comment_visibility_auth
 
   private
 

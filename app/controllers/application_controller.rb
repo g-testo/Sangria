@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path
     end
   end
+
+  def check_logged_in
+    user_signed_in? ? '' : (redirect_to new_user_session_path, alert: "Please sign in to do that.")
+  end
 end
