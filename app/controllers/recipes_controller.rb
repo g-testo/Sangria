@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
 
   def index
@@ -44,15 +45,25 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     @recipe.author = current_user.user_name
-    if @recipe.save
-        redirect_to @recipe, notice: "Recipe created successfully."
-    else
-        redirect_to new_recipe_path, alert: "Error creating recipe."
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.json { render :index, status: :created, location: @recipe }
+      else
+        format.html { render :new }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
+
+    # if @recipe.save
+    #     redirect_to @recipe, notice: "Recipe created successfully."
+    # else
+    #     redirect_to new_recipe_path, alert: "Error creating recipe."
+    # end
+
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
     if current_user
       @rating = Rating.where(recipe_id: @recipe.id, user_id: current_user.id).first
       unless @rating
@@ -62,28 +73,41 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @counter = 0
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-
-    if @recipe.update(recipe_params)
-        redirect_to @recipe, notice: "Recipe updated successfully."
-    else
-        redirect_to edit_recipe_path(@recipe), alert: "Error updating recipe."
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.json { render :index, status: :ok, location: @recipe }
+      else
+        format.html { render :edit }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
+
+    # if @recipe.update(recipe_params)
+    #     redirect_to @recipe, notice: "Recipe updated successfully."
+    # else
+    #     redirect_to edit_recipe_path(@recipe), alert: "Error updating recipe."
+    # end
+
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
-
-    redirect_to recipes_path
+    respond_to do |format|
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully removed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :instructions, :author, :servings, :recipe_image, :user_id, :flavor, :avg_rating, ingredients_attributes: [:name, :quantity, :category, :_destroy, :id])

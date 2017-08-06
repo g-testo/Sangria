@@ -3,7 +3,7 @@
     <div class="recipe_show_top_content">
 
       <div class="recipe_show_heading">
-        <div class="recipe_show_title_name"><%= @recipe.name %></div>
+        <div class="recipe_show_title_name"><%= editable @recipe, :name %></div>
 
         <p>Averate rating</p>
         <div id="star"></div>
@@ -38,15 +38,16 @@
             <li><%= button_to "edit", edit_recipe_path(@recipe), :method => :get%></li>
             <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
           <% end %>
-          <li><span class="recipe_show_title">Servings:</span><br><%= @recipe.servings %></li><br><br>
+          <li><span class="recipe_show_title">Servings:</span><br><%= editable @recipe, :servings %></li><br><br>
           <li><span class="recipe_show_title">Ingredients:</span><br>
+            <!-- <li>Category: <%#= editable ingredient, :category %> </li> -->
             <% @recipe.ingredients.each do |ingredient| %>
               <ul>
-                <li>Category: <%= ingredient.category %></li>
+                <li>Category: <%= editable ingredient, :category %> </li>
                 <br>
-                <li>Name: <%= ingredient.name %></li>
+                <li>Name: <%= editable ingredient, :name %> </li>
                 <br>
-                <li>Quantity: <%= ingredient.quantity %></li>
+                <li>Quantity: <%= editable ingredient, :quantity %></li>
                 <br>
               </ul>
             <% end %>
@@ -54,7 +55,7 @@
         </ul>
       </div>
       <div class="recipe_show_instructions">
-        <span class="recipe_show_title">Instructions:</span><%= simple_format @recipe.instructions %></div>
+        <span class="recipe_show_title">Instructions:</span><%= editable @recipe, :instructions %></div>
       </div>
     </div>
 
@@ -67,6 +68,12 @@
     </div>
 
     <script>
+    $.fn.editable.defaults.mode = 'inline'
+    $(document).ready(function() {
+      $('.editable').editable({
+        showbuttons:false
+      });
+    })
     // close modal if clicked or touch event is triggered outside of photo
       var modal = document.getElementById('photoModal');
       var flag = false;

@@ -22,10 +22,9 @@ gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-gem 'bootstrap-editable-rails'
 gem 'omniauth-facebook', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.3.7'
+gem 'x-editable-rails'
 gem 'bootstrap_form', '~> 2.7.0'
 gem 'mailgun-ruby', '~> 1.1.6'
 gem 'tether-rails', '~> 1.4.0'

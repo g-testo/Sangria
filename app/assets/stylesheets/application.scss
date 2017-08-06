@@ -12,11 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require editable/bootstrap-editable
  *= require tether
  *= require rails_bootstrap_forms
- *= require bootstrap-editable.scss
  */
-
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 html,

@@ -4,8 +4,6 @@ class Recipe < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   belongs_to :user
   has_many :comments, dependent: :destroy
-  validates :title, presence: true,
-                    length: { minimum: 5 }
   mount_uploader :recipe_image, RecipeImageUploader
   validates_presence_of :author, :instructions, :servings
   validates :name, presence: true, length: { minimum: 5, maximum: 80 }

@@ -10,22 +10,4 @@
   <%= link_to 'Delete', [comment.recipe, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-   <a href="#" id="xeditable">
-     <%= "Update" %>
-   </a>
 </p>
-<script>
-$(document).ready(function() {
-  $("#xeditable").editable({
-    mode: 'inline',
-    showbuttons: false,
-    type: 'text',
-    url: '/put',
-    pk: 'comment.id',
-    name: 'Edit',
-    ajaxOptions: {
-      type: 'put'
-      }
-  })
-})
-</script>

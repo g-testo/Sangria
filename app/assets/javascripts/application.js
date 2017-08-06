@@ -15,10 +15,10 @@
 // = require bootstrap
 // = require tether
 // = require turbolinks
-// = require_tree
+// = require editable/bootstrap-editable
+// = require editable/rails
+// = require_tree .
 
-// = require bootstrap-editable.min.js
-// = require bootstrap-editable-rails
 // = require jquery.raty.js
 // = require filterrific/filterrific-jquery
 // = require nested_form_fields
