@@ -4,9 +4,10 @@ class Recipe < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   belongs_to :user
   has_many :comments, dependent: :destroy
+  accepts_nested_attributes_for :comments, allow_destroy: true
   mount_uploader :recipe_image, RecipeImageUploader
   validates_presence_of :author, :instructions, :servings
-  validates :name, presence: true, length: { minimum: 5, maximum: 80 }
+  validates :name, presence: true, length: { minimum: 5, maximum: 15 }
   validates :user_id, presence: true
   validate :recipe_image_size
 
@@ -25,6 +26,7 @@ class Recipe < ActiveRecord::Base
                   search_query_ingredients
                   with_flavor_wine
                 ]
+
   scope :search_query, lambda { |query|
     return nil  if query.blank?
     terms = query.downcase.split(/\s+/)
@@ -42,6 +44,7 @@ class Recipe < ActiveRecord::Base
       *terms.map { |e| [e] * num_or_conditions }.flatten
     )
   }
+
   scope :search_query_ingredients, lambda { |query|
     return nil  if query.blank?
     terms = query.downcase.split(/\s+/)
@@ -58,6 +61,7 @@ class Recipe < ActiveRecord::Base
       *terms.map { |e| [e] }.flatten
     ).joins(:ingredients)
   }
+
   scope :sorted_by, lambda { |sort_option|
     # extract the sort direction from the param value.
     direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
@@ -74,9 +78,11 @@ class Recipe < ActiveRecord::Base
       raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
     end
   }
+
   scope :with_flavor_wine, lambda { |flavors|
     where(:flavor => [*flavors])
   }
+
   def self.options_for_sorted_by
     [
       ['Name (a-z)', 'name_asc'],

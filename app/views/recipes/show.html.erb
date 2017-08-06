@@ -40,8 +40,7 @@
           <% end %>
           <li><span class="recipe_show_title">Servings:</span><br><%= editable @recipe, :servings %></li><br><br>
           <li><span class="recipe_show_title">Ingredients:</span><br>
-            <!-- <li>Category: <%#= editable ingredient, :category %> </li> -->
-            <% @recipe.ingredients.each do |ingredient| %>
+            <% @ingredients.each do |ingredient| %>
               <ul>
                 <li>Category: <%= editable ingredient, :category %> </li>
                 <br>
@@ -71,7 +70,11 @@
     $.fn.editable.defaults.mode = 'inline'
     $(document).ready(function() {
       $('.editable').editable({
-        showbuttons:false
+        showbuttons:false,
+        ajaxOptions: {
+          type: "PUT",
+          dataType: "json"
+        },
       });
     })
     // close modal if clicked or touch event is triggered outside of photo

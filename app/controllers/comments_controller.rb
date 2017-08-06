@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :js
   def new
     @recipe.comments.build
   end
@@ -32,10 +32,9 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-    @comment = @recipe.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     respond_to do |format|
-      if @comment.update(recipe_params)
+      if @comment.update(comment_params)
         format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
         format.json { render :index, status: :ok, location: @comment }
       else

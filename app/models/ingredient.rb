@@ -1,6 +1,6 @@
 class Ingredient < ActiveRecord::Base
-  # attr_accessor :name, :quantity
   belongs_to :recipe
+  accepts_nested_attributes_for :recipe, allow_destroy: true
   before_save :downcase_fields
 
   def downcase_fields

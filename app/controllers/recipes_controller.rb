@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
-
+  respond_to :html, :js
   def index
     if params[:flavor]
       recipeFlavor = params[:flavor]
@@ -54,16 +54,11 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
-
-    # if @recipe.save
-    #     redirect_to @recipe, notice: "Recipe created successfully."
-    # else
-    #     redirect_to new_recipe_path, alert: "Error creating recipe."
-    # end
-
   end
 
   def show
+    # Recipe.find(params[:id])
+    @ingredients = Ingredient.where( :recipe_id => @recipe.id )
     if current_user
       @rating = Rating.where(recipe_id: @recipe.id, user_id: current_user.id).first
       unless @rating
@@ -86,13 +81,6 @@ class RecipesController < ApplicationController
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
-
-    # if @recipe.update(recipe_params)
-    #     redirect_to @recipe, notice: "Recipe updated successfully."
-    # else
-    #     redirect_to edit_recipe_path(@recipe), alert: "Error updating recipe."
-    # end
-
   end
 
   def destroy

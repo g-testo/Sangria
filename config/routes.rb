@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :destroy]
   resources :recipes
   resources :ratings, only: :update
-  resources :ingredients
+  resources :ingredients, only: :update
+  resources :comments, only: :update
   resources :recipes do
     resources :comments
   end
