@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'activities/index'
+
   devise_for :users, :path_prefix => 'd', controllers: {
         sessions: 'users/sessions',
         registrations: 'users/registrations',
@@ -28,6 +30,6 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#admin_page'
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
-  get 'feed' => 'users#feed'
+  get 'feed' => 'activities#index'
 
 end

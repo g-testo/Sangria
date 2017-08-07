@@ -32,6 +32,7 @@ gem 'devise', '~> 4.2.0'
 gem 'filterrific' #, path: '../filterrific'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'nested_form_fields'
+gem 'public_activity'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'
