@@ -19,7 +19,8 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
   def feed
-    @users = User
-
+    @users = User.where(is_private = false).order(created_at: :desc).all
+    @comments = Comment.order(created_at: :desc).all
+    @recipes = Recipe.order(created_at: :desc).all
   end
 end

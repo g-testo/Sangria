@@ -1,0 +1,27 @@
+<h1> Feed Activity</h1>
+<ul>
+  <h1>Newest Recipes</h1>
+  <% @recipes.each do |recipe| %>
+    <li><%= recipe.name %></li>
+    <li><%= recipe.created_at.strftime("%B %e, %Y") %></li>
+    <br>
+  <% end %>
+</ul>
+<h1> Browse Other Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= image_tag user.avatar, width:"50"%></li>
+    <li><%= user.user_name %></li>
+    <li>Recipes Created: <%= user.recipes.length %></li>
+  <br>
+  <% end %>
+</ul>
+<h1> Comments </h1>
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= comment.body %></li>
+    <li><%= comment.recipe ? comment.recipe.name : '' %></li>
+    <li><small><%= time_ago_in_words(comment.created_at) %></small></li>
+    <br>
+  <% end %>
+</ul>

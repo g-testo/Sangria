@@ -22,11 +22,12 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
-  
+
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
   get 'admin' => 'admin#admin_page'
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
+  get 'feed' => 'users#feed'
 
 end
