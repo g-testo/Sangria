@@ -48,6 +48,7 @@ class RecipesController < ApplicationController
     @recipe.author = current_user.user_name
     respond_to do |format|
       if @recipe.save
+        @recipe.create_activity :create, owner: current_user
         format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
         format.json { render :index, status: :created, location: @recipe }
       else
@@ -75,6 +76,7 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
+        @recipe.create_activity :update, owner: current_user
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { render :index, status: :ok, location: @recipe }
       else
@@ -85,6 +87,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe.create_activity :destroy, owner: current_user
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully removed.' }

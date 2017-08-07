@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
     @comment = @recipe.comments.create(comment_params)
     respond_to do |format|
       if @comment.save
+        @comment.create_activity :create, owner: current_user
         format.html { redirect_to @comment.recipe, notice: 'Comment was successfully created.' }
         format.json { render :index, status: :created, location: @comment }
       else
@@ -21,6 +22,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment.create_activity :destroy, owner: current_user
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to recipe_url(@comment.recipe), notice: 'Recipe was successfully removed.' }
