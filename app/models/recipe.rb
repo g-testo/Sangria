@@ -15,7 +15,7 @@ class Recipe < ActiveRecord::Base
 
   def average_rating
     if ratings.size > 0
-      (ratings.sum(:score) / ratings.size).to_f
+      (ratings.sum(:score) / ratings.size)
     else
       0
     end

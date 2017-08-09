@@ -4,7 +4,6 @@
 
       <div class="recipe_show_heading">
         <div class="recipe_show_title_name"><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :name) : @recipe.name %></div>
-
         <p>Averate rating</p>
         <div id="star"></div>
 
@@ -118,7 +117,7 @@
       }
         $('#star').raty({
           readOnly: true,
-          score: <%= @recipe.average_rating %>,
+          score: <%= @recipe.avg_rating %>,
           path: '/assets'
         });
         <% if current_user %>
