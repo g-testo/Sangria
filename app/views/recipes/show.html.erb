@@ -68,6 +68,7 @@
     </div>
 
     <script>
+    //Ability to quick edit using jquery and ajax
     $.fn.editable.defaults.mode = 'inline'
     $(document).ready(function() {
       $('.editable').editable({
@@ -84,6 +85,13 @@
           },0);
       });
     })
+    $('[title]').attr('title','Edit');
+    $("body").tooltip({
+        selector: '[title]',
+        placement: 'right'
+    }, "option", "content", "Show Post - test");
+
+
     // close modal if clicked or touch event is triggered outside of photo
       var modal = document.getElementById('photoModal');
       var flag = false;
