@@ -4,3 +4,12 @@
     <%= render_activity activity %>
   </div>
 <% end %>
+<h1> Browse Other Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= image_tag user.avatar, width:"50"%></li>
+    <li><%= user.user_name %></li>
+    <li>Recipes Created: <%= user.recipes.length %></li>
+  <br>
+  <% end %>
+</ul>
