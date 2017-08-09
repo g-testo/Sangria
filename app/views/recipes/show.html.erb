@@ -41,15 +41,20 @@
           <li><span class="recipe_show_title">Servings:</span><br><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %></li><br><br>
 
           <li><span class="recipe_show_title">Ingredients:</span><br>
-            <% @ingredients.each do |ingredient| %>
-              <ul>
-                <li>Category: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :category) : ingredient.category %></li>
-                <br>
-                <li>Name: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
-                <br>
-                <li>Quantity: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
-                <br>
-              </ul>
+            <% @ingredients.each_with_index do |ingredient, index| %>
+               <div class= <%= index > 1 ? "hide_add_ingredients" : "" %> >
+                <ul>
+                  <li>Category: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :category) : ingredient.category %></li>
+                  <br>
+                  <li>Name: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
+                  <br>
+                  <li>Quantity: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
+                  <br>
+                </ul>
+              </div>
+            <% end %>
+            <% if @ingredients.length > 2 %>
+              <a onclick="showIngredients()">Show more ingredients</a>
             <% end %>
           </li>
         </ul>
@@ -133,6 +138,10 @@
             }
           });
         <% end %>
+        function showIngredients() {
+          var x = document.getElementsByClassName("hide_add_ingredients");
+          x.style.display = 'block';
+        }
     </script>
 <style>
   .tooltip{
