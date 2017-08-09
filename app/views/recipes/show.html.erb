@@ -85,9 +85,9 @@
           },0);
       });
     })
-    $('[title]').attr('title','Click to edit');
+    $('[title]').attr('title','click to edit');
     $("body").tooltip({
-        selector: '[title]',
+        selector: '.editable',
         placement: 'right'
     }, "option", "content", "Show Post - test");
 
@@ -135,5 +135,10 @@
           });
         <% end %>
     </script>
-
+<style>
+  .tooltip{
+    font-size:9pt;
+    font-family: 'Alegreya Sans SC', sans-serif;
+  }
+  </style>
 </div>
