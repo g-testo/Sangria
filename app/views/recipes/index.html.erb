@@ -60,9 +60,12 @@
   }
 
   $('.select_change').change(function(){
-
     var select_value = capitalize( $(this).val() )
-    $('.recipe_index_title').text(select_value + ' Wine');
+    $('.recipe_index_title').text(
+      select_value != 'Exotic' ? select_value + ' Wine Recipe' : select_value + ' Recipe'
+    );
+
+
 
     // if($(this).val()=='red'){
     //   $('.recipe_index_title').html('Red Flavor');
