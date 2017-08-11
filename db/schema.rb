@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170807094853) do
+ActiveRecord::Schema.define(version: 20170811201816) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170807094853) do
     t.string   "flavor"
     t.integer  "avg_rating"
     t.integer  "ingredient_id"
+    t.string   "description"
   end
 
   add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id"

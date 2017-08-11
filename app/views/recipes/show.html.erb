@@ -12,7 +12,9 @@
             <div id="caption"></div>
           </div>
         </div>
-        
+
+        <li><span class="recipe_show_title">Description: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :description) : @recipe.description %></li>
+
         <div class="recipe_show_author_date">
           <span class="recipe_show_author_name"><%= link_to @recipe.user.user_name, user_path(@recipe.user.id) %></span>
           <span class="date_slashes"> // </span>
@@ -123,7 +125,7 @@
       }
         $('#star').raty({
           readOnly: true,
-          score: <%= @recipe.avg_rating %>,
+          score: <%= @recipe.avg_rating ? @recipe.avg_rating : 0 %>,
           path: '/assets'
         });
         <% if current_user %>
