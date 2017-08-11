@@ -1,3 +1,4 @@
+<h1>Browse all activities</h1>
 <div class="feed_list">
   <% @activities.each do |activity| %>
     <div class="activity">
@@ -6,7 +7,18 @@
     </div>
   <% end %>
 </div>
-<h1> Browse Other Users</h1>
+
+<h1>Activities of followed users</h1>
+<div class="feed_list">
+  <% @following_activities.each do |activity| %>
+    <div class="activity">
+      <%= link_to activity.owner.user_name, activity.owner if activity.owner %>
+      <%= render_activity activity %>
+    </div>
+  <% end %>
+</div>
+
+<h1>Browse other users</h1>
 <div class="user_list">
     <% @users.each do |user| %>
     <div>
