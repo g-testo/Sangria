@@ -6,8 +6,8 @@ class RecipesController < ApplicationController
   def index
     if params[:flavor]
       recipeFlavor = params[:flavor]
-      if recipeFlavor != "Exotic"
-        @title = "#{recipeFlavor} Recipes"
+      if recipeFlavor != "exotic"
+        @title = "#{recipeFlavor.capitalize} Wine Recipes"
       else
         @title = "Exotic Recipes"
       end
