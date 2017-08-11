@@ -54,7 +54,7 @@
               </div>
             <% end %>
             <% if @ingredients.length > 2 %>
-              <a onclick="showIngredients()">Show more ingredients</a>
+              <a id="replaceOnClick" onclick="showIngredients()">Show more ingredients</a>
             <% end %>
           </li>
         </ul>
@@ -139,8 +139,9 @@
           });
         <% end %>
         function showIngredients() {
-          var x = document.getElementsByClassName("hide_add_ingredients");
-          x.style.display = 'block';
+          linkElement = document.getElementById("replaceOnClick")
+          linkElement.innerHTML != "Hide ingredients" ? linkElement.innerHTML = "Hide ingredients" : linkElement.innerHTML = "Show more ingredients"
+          $( ".hide_add_ingredients" ).toggle();
         }
     </script>
 <style>
