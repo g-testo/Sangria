@@ -7,13 +7,13 @@
       <div class='menu_container'>
           <%= form_for_filterrific @filterrific, html: { autocomplete: "off" } do |f| %>
           <div class='filter_sort_menu'>
-            <div>Sort by </div> <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-            <div>Filter by </div> <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }, class: 'select_change') %>
+            <div class="sort_by">Sort by <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %></div>
+            <div class="filter_by">Filter by <%= f.select(:with_flavor_wine, @filterrific.select_options[:with_flavor_wine], { include_blank: '- Any -' }, class: 'select_change') %></div>
+            <div><%= link_to('Reset filters', reset_filterrific_url) %></div>
           </div>
           <div class='search_menu'>
             <div id="name_search">
-              <div>Recipe name </div>
-              <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
+              <div class='search_by'>Recipe name <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %></div>
               <button onclick='toggleSearchTo("ingredients", event)'>Search by ingredient</button>
             </div>
 
@@ -22,7 +22,6 @@
               <%= f.text_field(:search_query_ingredients, class: 'filterrific-periodically-observed') %>
               <button onclick='toggleSearchTo("name", event)'>Search by recipe</button>
             </div>
-            <div><%= link_to('Reset filters', reset_filterrific_url) %></div>
           </div>
           <% end %>
       </div>
