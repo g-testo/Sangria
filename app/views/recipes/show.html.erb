@@ -60,7 +60,7 @@
         </ul>
       </div>
       <div class="recipe_show_instructions">
-        <span class="recipe_show_title">Instructions: <%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :instructions) : @recipe.instructions %></div>
+        <span class="recipe_show_title">Instructions: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :instructions) : @recipe.instructions %>
       </div>
     </div>
 
