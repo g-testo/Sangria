@@ -116,3 +116,22 @@
 .pagination li :hover {
   opacity: .5;
 }
+.menu_container {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+.filter_sort_menu, .search_menu {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+  margin: 0 10px;
+  width: 40%;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+  border-radius: 10px;
+}
+.search_menu *, .filter_sort_menu *{
+  margin: 10px 0;
+}
