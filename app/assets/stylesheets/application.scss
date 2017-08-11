@@ -33,22 +33,9 @@ body {
 		text-decoration: none;
 	}
 }
-.alert, .notice{
-  position: fixed;
-  top:0;
-  text-align: center;
-  width:100%;
-	left: 0;
-	right: 0;
-}
-.notice{
-	color: green;
-	background-color: rgb(235, 255, 225);
-}
-.alert{
-	color: red;
-	background-color: rgb(255, 198, 183);
-}
 a {
   cursor: pointer;
+}
+.float{
+	display: float;
 }

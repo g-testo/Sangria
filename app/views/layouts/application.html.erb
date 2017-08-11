@@ -18,12 +18,13 @@
       <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-          <%= render "layouts/navbar" %>
-          <div id="content">
-            <%= render "layouts/alerts" %>
-            <%= yield %>
-          </div>
-          <%= render "layouts/footer" %>
+      <%#= render "layouts/alerts" %>
+      <%= flash_messages %>
+      <%= render "layouts/navbar" %>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <%= render "layouts/footer" %>
     </body>
   </html>
 </div>
