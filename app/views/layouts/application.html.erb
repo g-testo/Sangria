@@ -25,6 +25,13 @@
         <%= yield %>
       </div>
       <%= render "layouts/footer" %>
+      <script>
+        $(document).ready(function(){
+          setTimeout(function(){
+            $('.alert').slideUp(1000);
+          }, 3000);
+         })
+      </script>
     </body>
   </html>
 </div>
