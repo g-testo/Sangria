@@ -1,15 +1,19 @@
-<% @activities.each do |activity| %>
-  <div class="activity">
-    <%= link_to activity.owner.user_name, activity.owner if activity.owner %>
-    <%= render_activity activity %>
-  </div>
-<% end %>
-<h1> Browse Other Users</h1>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= image_tag user.avatar, width:"50"%></li>
-    <li><%= user.user_name %></li>
-    <li>Recipes Created: <%= user.recipes.length %></li>
-  <br>
+<div class="feed_list">
+  <% @activities.each do |activity| %>
+    <div class="activity">
+      <%= link_to activity.owner.user_name, activity.owner if activity.owner %>
+      <%= render_activity activity %>
+    </div>
   <% end %>
-</ul>
+</div>
+<h1> Browse Other Users</h1>
+<div class="user_list">
+    <% @users.each do |user| %>
+    <div>
+      <%= image_tag user.avatar, width:"50"%>
+      <%= user.user_name %>
+      <p> Recipes Created:</p> <%= user.recipes.length %>
+      <br>
+    </div>
+    <% end %>
+</div>
