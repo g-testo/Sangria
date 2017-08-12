@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     @comment.create_activity :destroy, owner: current_user
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to recipe_url(@comment.recipe), notice: 'Commment was successfully removed.' }
+      format.html { redirect_to :back, notice: 'Commment was successfully removed.' }
       format.json { head :no_content }
     end
   end
