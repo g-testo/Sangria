@@ -60,6 +60,7 @@ class RecipesController < ApplicationController
 
   def show
     # Recipe.find(params[:id])
+    @recipes_sort = Recipe.includes(:comments).order("comments.created_at desc").find(params[:id])
     @ingredients = Ingredient.where( :recipe_id => @recipe.id )
     if current_user
       @rating = Rating.where(recipe_id: @recipe.id, user_id: current_user.id).first
