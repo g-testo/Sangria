@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
   respond_to :html, :js
+  # autocomplete :ingredient, :name, :full => true
   def index
     if params[:flavor]
       recipeFlavor = params[:flavor]

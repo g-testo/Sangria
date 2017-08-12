@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'jquery-turbolinks'
@@ -33,6 +34,8 @@ gem 'filterrific' #, path: '../filterrific'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'nested_form_fields'
 gem 'public_activity'
+gem 'rails4-autocomplete'
+
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'

@@ -12,8 +12,10 @@
 //
 // = require jquery
 // = require jquery_ujs
+// = require jquery-ui
 // = require bootstrap
 // = require tether
+// = require autocomplete-rails
 // = require turbolinks
 // = require editable/bootstrap-editable
 // = require editable/rails
