@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     resources :recipes, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  # resources :recipes do
-  #   get :autocomplete_ingredient_name, :on => :collection
-  # end
+  resources :recipes do
+    get :autocomplete_ingredient_name, :on => :collection
+  end
 
   resources :users, only: [:show, :destroy]
   resources :recipes
