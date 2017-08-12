@@ -13,30 +13,31 @@
           </div>
         </div>
 
-        <li><span class="recipe_show_title">Description: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :description) : @recipe.description %></li>
+        <li class="recipe_description"><span class="recipe_show_title">Description: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :description) : @recipe.description %></li>
 
         <div class="recipe_show_author_date">
           <span class="recipe_show_author_name"><%= link_to @recipe.user.user_name, user_path(@recipe.user.id) %></span>
           <span class="date_slashes"> // </span>
           <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
         </div>
-
-        <p>Averate rating</p>
-        <div id="star"></div>
-        <% if current_user && current_user != @recipe.user%>
-          <p>Your rating</p>
-          <div id="user_star"></div>
-        <% elsif !current_user %>
-          Please <%= link_to "login", new_user_session_path %> or <%= link_to "create", new_user_registration_path %> an account to rate this recipe.
-        <% end %>
-
+        <div class='recipe_rating'>
+          <p>Averate rating</p>
+          <div id="star"></div>
+          <% if current_user && current_user != @recipe.user%>
+            <p>Your rating</p>
+            <div id="user_star"></div>
+          <% elsif !current_user %>
+            Please <%= link_to "login", new_user_session_path %> or <%= link_to "create", new_user_registration_path %> an account to rate this recipe.
+          <% end %>
+        </div>
         <% if current_user && (@recipe.user.user_name == current_user.user_name || current_user.admin) %>
           <li><%= button_to "edit", edit_recipe_path(@recipe), :method => :get%></li>
           <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <% end %>
 
       </div>
-
+    </div>
+    <div class="recipe_show_bottom_content">
       <div class="recipe_info_container">
         <div class="recipe_show_recipe_info">
           <ul>
@@ -65,15 +66,14 @@
           </ul>
         </div>
       </div>
+      <div class="recipe_comments_container">
+        <div class="recipe_comments">
+          <h2>Comments</h2>
+          <%= render @recipe.comments %>
+          <%= render 'comments/form' %>
+        </div>
+      </div>
     </div>
-
-    <div class="recipe_show_bottom_content">
-      <h2>Comments</h2>
-      <%= render @recipe.comments %>
-
-      <%= render 'comments/form' %>
-    </div>
-
     <script>
     //Ability to quick edit using jquery and ajax
     $.fn.editable.defaults.mode = 'inline'
