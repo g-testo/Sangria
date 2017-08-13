@@ -1,5 +1,6 @@
 <div class="recipe_form_wrapper">
   <div class="recipe_form_content">
+    <div class="recipe_form_title"> <%= title %> </div>
     <%= bootstrap_form_for(@recipe) do |f| %>
       <%= f.text_field :name, autofocus: true, placeholder: "What's the name of your recipe?"%>
       <%= f.text_area :description, size: "25x2", placeholder: "What makes it special?"%>
