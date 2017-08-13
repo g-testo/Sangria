@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.create_activity :destroy, owner: current_user
     @comment.destroy
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Commment was successfully removed.' }

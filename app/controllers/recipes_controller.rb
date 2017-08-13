@@ -88,7 +88,6 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe.create_activity :destroy, owner: current_user
     @recipe.destroy
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully removed.' }
