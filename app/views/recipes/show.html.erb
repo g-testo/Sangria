@@ -59,7 +59,7 @@
                 </div>
               <% end %>
               <% if @ingredients.length > 2 %>
-                <a id="replaceOnClick" onclick="showIngredients()">Show more ingredients</a>
+                <a id="ingredReplaceOnClick" onclick="showIngredients()">Show more ingredients</a>
               <% end %>
             </div>
 
@@ -68,9 +68,11 @@
       </div>
       <div class="recipe_comments_container">
         <div class="recipe_comments">
-          <h2>Comments</h2>
           <%= render 'comments/form' %>
           <%= render @recipes_sort.comments %>
+          <% if @recipes_sort.comments.length > 2 %>
+            <a id="commentReplaceOnClick" onclick="showComments()">Show more comments</a>
+          <% end %>
         </div>
       </div>
     </div>
@@ -142,9 +144,14 @@
           });
         <% end %>
         function showIngredients() {
-          linkElement = document.getElementById("replaceOnClick")
+          linkElement = document.getElementById("ingredReplaceOnClick")
           linkElement.innerHTML != "Hide ingredients" ? linkElement.innerHTML = "Hide ingredients" : linkElement.innerHTML = "Show more ingredients"
           $( ".hide_add_ingredients" ).toggle();
+        }
+        function showComments() {
+          linkElement = document.getElementById("commentReplaceOnClick")
+          linkElement.innerHTML != "Hide comments" ? linkElement.innerHTML = "Hide comments" : linkElement.innerHTML = "Show more comments"
+          $( ".hide_add_comments" ).toggle();
         }
     </script>
 <style>
