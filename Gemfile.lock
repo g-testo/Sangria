@@ -7,6 +7,13 @@ GIT
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
+GIT
+  remote: git://github.com/lingceng/rails-jquery-autocomplete.git
+  revision: 2a613e72ccd1e6cfc723444a57373409027c0f25
+  specs:
+    rails-jquery-autocomplete (1.0.3)
+      rails (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -206,8 +213,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails4-autocomplete (1.1.1)
-      rails (>= 3.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -318,7 +323,7 @@ DEPENDENCIES
   pg (= 0.17.1)
   public_activity
   rails (= 4.2.5)
-  rails4-autocomplete
+  rails-jquery-autocomplete!
   rails_12factor (= 0.0.2)
   recaptcha
   sass-rails (~> 5.0)

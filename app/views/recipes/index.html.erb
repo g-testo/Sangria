@@ -18,7 +18,7 @@
             </div>
 
             <div style="display:none;" id="ingredient_search">
-              <%#= f.text_field(:search_query_ingredients, class: 'filterrific-periodically-observed') %>
+              <!-- <div class='search_by'>Ingredient name<%#= f.text_field(:search_query_ingredients, class: 'filterrific-periodically-observed') %></div> -->
               <div class='search_by'>Ingredient name<%= f.autocomplete_field(:search_query_ingredients, autocomplete_ingredient_name_recipes_path, class: 'filterrific-periodically-observed') %></div>
               <button onclick='toggleSearchTo("name", event)'>Search by recipe</button>
             </div>

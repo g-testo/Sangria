@@ -34,8 +34,7 @@ gem 'filterrific' #, path: '../filterrific'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'nested_form_fields'
 gem 'public_activity'
-gem 'rails4-autocomplete'
-
+gem 'rails-jquery-autocomplete', github: 'lingceng/rails-jquery-autocomplete'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'
