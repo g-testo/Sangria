@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <h2>Add a comment:</h2>
+  <div class='comment_title'>Add a comment:</div>
 
   <%= bootstrap_form_for([@recipe, @recipe.comments.build]) do |f| %>
       <%= f.hidden_field :user_id, :value => current_user.id if !current_user.blank? %>
