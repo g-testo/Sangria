@@ -1,5 +1,6 @@
 <div class="recipe_show_wrapper">
   <div class="recipe_show_content">
+
     <div class="recipe_show_heading">
       <div class="recipe_show_image_wrapper">
         <%= image_tag @recipe.recipe_image.url, :id => 'myImg', alt: @recipe.name, class: "img-responsive"%>
@@ -9,84 +10,85 @@
         </div>
       </div>
 
-        <div class="recipe_show_title_name"><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :name) : @recipe.name %></div>
+      <div class="recipe_show_title_name"><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :name) : @recipe.name %></div>
 
-        <div class="recipe_show_author_date">
-          <span class="recipe_show_author_name"><%= link_to @recipe.user.user_name, user_path(@recipe.user.id) %></span>
-          <span class="date_slashes"> // </span>
-          <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
-        </div>
-
-        <div class='recipe_rating'>
-          <p>Averate rating</p>
-          <div id="star"></div>
-          <% if current_user && current_user != @recipe.user%>
-            <p>Your rating</p>
-            <div id="user_star"></div>
-          <% elsif !current_user %>
-            Please <%= link_to "login", new_user_session_path %> or <%= link_to "create", new_user_registration_path %> an account to rate this recipe.
-          <% end %>
-        </div>
-        <div class='recipe_management'>
-          <% if current_user && (@recipe.user.user_name == current_user.user_name || current_user.admin) %>
-            <li><%= button_to "edit", edit_recipe_path(@recipe), :method => :get%></li>
-            <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
-          <% end %>
-        </div>
+      <div class="recipe_show_author_date">
+        <span class="recipe_show_author_name"><%= link_to @recipe.user.user_name, user_path(@recipe.user.id) %></span>
+        <span class="date_slashes"> // </span>
+        <span class="recipe_show_publish_date"><%= @recipe.created_at.strftime("%B %e, %Y") %></span>
       </div>
 
-      <div class="bottom_container">
-        <div class="align_left">
-          <ul class="recipe_details">
-            <li class="recipe_description">
-              <span class="recipe_show_title">Description: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :description) : @recipe.description %>
-            </li>
-            <br>
-            <li class="recipe_instructions">
-              <span class="recipe_show_title">Instructions: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :instructions) : @recipe.instructions %>
-            </li>
-            <br>
-            <li class="recipe_servings">
-              <span class="recipe_show_title">Servings:</span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %>
-            </li>
-            <br>
+      <div class='recipe_rating'>
+        <p>Averate rating</p>
+        <div id="star"></div>
+        <% if current_user && current_user != @recipe.user%>
+          <p>Your rating</p>
+          <div id="user_star"></div>
+        <% elsif !current_user %>
+          Please <%= link_to "login", new_user_session_path %> or <%= link_to "create", new_user_registration_path %> an account to rate this recipe.
+        <% end %>
+      </div>
 
-            <li class='ingredient_container'><span class="recipe_show_title">Ingredients:</span><br>
-              <% @ingredients.each_with_index do |ingredient, index| %>
-                <div class= <%= index > 1 ? "hide_add_ingredients" : "" %> >
-                  <ul>
-                    <li>Category: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :category) : ingredient.category %></li>
-                    <br>
-                    <li>Name: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
-                    <br>
-                    <li>Quantity: <%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
-                    <br>
-                  </ul>
-                </div>
-              <% end %>
-              <% if @ingredients.length > 2 %>
-              <a id="ingredReplaceOnClick" onclick="showIngredients()">Show more ingredients</a>
-              <% end %>
-            </li>
-          <ul>
-        </div>
+      <div class='recipe_management'>
+        <% if current_user && (@recipe.user.user_name == current_user.user_name || current_user.admin) %>
+          <li><%= button_to "edit", edit_recipe_path(@recipe), :method => :get %></li>
+          <li><%= button_to "delete", recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% end %>
+      </div>
+    </div>
 
-        <div class="align_right">
-          <div class="recipe_comments_container">
-            <div class="recipe_comments">
-              <%= render 'comments/form' %>
-              <%= @recipes_sort.comments.length > 0 ? (render @recipes_sort.comments) : "That are no comments for this recipe." %>
-              <% if @recipes_sort.comments.length > 2 %>
-                <a id="commentReplaceOnClick" onclick="showComments()">Show more comments</a>
-              <% end %>
-            </div>
+    <div class="bottom_container">
+      <div class="align_left">
+        <ul class="recipe_details">
+          <li class="recipe_description">
+            <span class="recipe_show_title">Description: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :description) : @recipe.description %>
+          </li>
+          <br>
+          <li class="recipe_instructions">
+            <span class="recipe_show_title">Instructions: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :instructions) : @recipe.instructions %>
+          </li>
+          <br>
+          <li class="recipe_servings">
+            <span class="recipe_show_title">Servings:</span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %>
+          </li>
+          <br>
+
+          <li class='ingredient_container'><span class="recipe_show_title">Ingredients: </span><br>
+            <% @ingredients.each_with_index do |ingredient, index| %>
+              <div class= <%= index > 1 ? "hide_add_ingredients" : "" %> >
+                <ul>
+                  <li><span class="ingred_title">Category: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :category) : ingredient.category %></li>
+                  <br>
+                  <li><span class="ingred_title">Name: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
+                  <br>
+                  <li><span class="ingred_title">Quantity: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
+                  <br>
+                </ul>
+              </div>
+            <% end %>
+            <% if @ingredients.length > 2 %>
+            <a id="ingredReplaceOnClick" onclick="showIngredients()">Show more ingredients</a>
+            <% end %>
+          </li>
+        <ul>
+      </div>
+
+      <div class="align_right">
+        <div class="recipe_comments_container">
+          <div class="recipe_comments">
+            <%= render 'comments/form' %>
+            <%= @recipes_sort.comments.length > 0 ? (render @recipes_sort.comments) : "There are no comments for this recipe." %>
+            <% if @recipes_sort.comments.length > 2 %>
+              <a id="commentReplaceOnClick" onclick="showComments()">Show more comments</a>
+            <% end %>
           </div>
         </div>
-        <div class='clear'>
-        </div>
       </div>
+      <div class='clear'>
+      </div>
+    </div>
 
-      <script>
+    <script>
       //Ability to quick edit using jquery and ajax
       $.fn.editable.defaults.mode = 'inline'
       $(document).ready(function() {

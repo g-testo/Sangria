@@ -1,19 +1,15 @@
 <% if comment.created_at %>
   <div class='<%= comment_counter > 1 ? 'hide_add_comments' : "" %>'>
-    <p>
-      <strong>Comment by:</strong>
-      <%= User.find_by(comment.user_id).user_name %>
-    </p>
+
     <small>Published <%= time_ago_in_words(comment.created_at) %> ago</small>
-    <p>
-      <%= visibility_auth(current_user, comment.user_id) ? (editable comment, :body) : comment.body %>
-    </p>
-    <p>
+    <div><%= link_to User.find_by(comment.user_id).user_name, user_path(User.find_by(comment.user_id).id) %></div>
+    <div><%= visibility_auth(current_user, comment.user_id) ? (editable comment, :body) : comment.body %></div>
+    <div>
       <% if visibility_auth(current_user, comment.user_id) %>
       <%= link_to 'Delete', [comment.recipe, comment],
                    method: :delete,
                    data: { confirm: 'Are you sure?' } %>
       <% end %>
-    </p>
+    </div>
   </div>
 <% end %>
