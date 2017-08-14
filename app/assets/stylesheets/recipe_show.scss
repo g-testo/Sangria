@@ -39,12 +39,16 @@
   padding: 20px 10px;
   display: inline-block;
   text-align: center;
-  // max-height: 200px;
-  // max-width: 200px;
 }
 .recipe_show_image_wrapper img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+#img01{
   max-width: 95%;
   max-height: 95%;
+
 }
 .recipe_show_recipe_info ul {
   cursor: default;

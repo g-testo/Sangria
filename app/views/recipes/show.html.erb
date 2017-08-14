@@ -2,7 +2,7 @@
   <div class="recipe_show_content">
     <div class="recipe_show_heading">
       <div class="recipe_show_image_wrapper">
-        <%= image_tag @recipe.recipe_image.url, :id => 'myImg', alt: @recipe.name%>
+        <%= image_tag @recipe.recipe_image.url, :id => 'myImg', alt: @recipe.name, class: "img-responsive"%>
         <div id="photoModal" class="modal">
           <img class="modal-content" id="img01">
           <div id="caption"></div>
@@ -75,7 +75,7 @@
           <div class="recipe_comments_container">
             <div class="recipe_comments">
               <%= render 'comments/form' %>
-              <%= render @recipes_sort.comments %>
+              <%= @recipes_sort.comments.length > 0 ? (render @recipes_sort.comments) : "That are no comments for this recipe." %>
               <% if @recipes_sort.comments.length > 2 %>
                 <a id="commentReplaceOnClick" onclick="showComments()">Show more comments</a>
               <% end %>
