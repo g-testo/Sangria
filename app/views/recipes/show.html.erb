@@ -49,7 +49,7 @@
           </li>
           <br>
           <li class="recipe_servings">
-            <span class="recipe_show_title">Servings:</span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %>
+            <span class="recipe_show_title">Servings: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %>
           </li>
           <br>
 

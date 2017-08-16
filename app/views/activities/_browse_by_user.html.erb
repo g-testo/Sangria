@@ -1,0 +1,11 @@
+<h1>Browse other users</h1>
+<div class="user_feed_list">
+    <% @users.each do |user| %>
+    <div>
+      <%= image_tag user.avatar, width:"50"%>
+      <%= user.user_name %>
+      <p> Recipes Created:</p> <%= user.recipes.length %>
+      <br>
+    </div>
+    <% end %>
+</div>

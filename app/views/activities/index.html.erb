@@ -1,31 +1,32 @@
-<h1>Browse all activities</h1>
-<div class="feed_list">
-  <% @activities.each do |activity| %>
-    <div class="activity">
-      <%= link_to activity.owner.user_name, activity.owner if activity.owner %>
-      <%= render_activity activity %>
-    </div>
-  <% end %>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="javascript:void(0)">Follower's Actvities</a></li>
+  <li><a href="javascript:void(0)">Browse All Activities</a></li>
+  <li><a href="javascript:void(0)">Browse Public Users</a></li>
+</ul>
+
+<div class='partials_list'>
+  <div class="following_partial"><%= render 'activities/browse_by_following' %></div>
+  <div class="hidden_partial all_users_partial"><%= render 'activities/browse_by_user' %></div>
+  <div class="hidden_partial all_activities_partial"><%= render 'activities/browse_by_all_activity' %></div>
 </div>
 
-<h1>Activities of followed users</h1>
-<div class="feed_list">
-  <% @following_activities.each do |activity| %>
-    <div class="activity">
-      <%= link_to activity.owner.user_name, activity.owner if activity.owner %>
-      <%= render_activity activity %>
-    </div>
-  <% end %>
-</div>
+<script>
+  $(".nav a").on("click", function(){
 
-<h1>Browse other users</h1>
-<div class="user_list">
-    <% @users.each do |user| %>
-    <div>
-      <%= image_tag user.avatar, width:"50"%>
-      <%= user.user_name %>
-      <p> Recipes Created:</p> <%= user.recipes.length %>
-      <br>
-    </div>
-    <% end %>
-</div>
+    $(".partials_list > div").removeClass("hidden_partial").addClass("hidden_partial");
+
+    $(".nav").find(".active").removeClass("active");
+    $(this).parent().addClass("active");
+
+    var html_text = $(this).parent().text()
+
+    if ( html_text == "Follower's Actvities" ) {
+      $(".following_partial").removeClass("hidden_partial");
+    } else if (html_text == "Browse All Activities") {
+      $(".all_activities_partial").removeClass("hidden_partial");
+    } else {
+      $(".all_users_partial").removeClass("hidden_partial");
+    }
+
+  });
+</script>
