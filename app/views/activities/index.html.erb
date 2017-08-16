@@ -1,13 +1,16 @@
-<ul class="nav nav-tabs">
-  <li class="active"><a href="javascript:void(0)">Follower's Actvities</a></li>
-  <li><a href="javascript:void(0)">Browse All Activities</a></li>
-  <li><a href="javascript:void(0)">Browse Public Users</a></li>
-</ul>
 
-<div class='partials_list'>
-  <div class="following_partial"><%= render 'activities/browse_by_following' %></div>
-  <div class="hidden_partial all_users_partial"><%= render 'activities/browse_by_user' %></div>
-  <div class="hidden_partial all_activities_partial"><%= render 'activities/browse_by_all_activity' %></div>
+<div class='feed_container'>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="javascript:void(0)">Follower's Actvities</a></li>
+    <li><a href="javascript:void(0)">Browse All Activities</a></li>
+    <li><a href="javascript:void(0)">Browse Public Users</a></li>
+  </ul>
+
+  <div class='partials_list'>
+    <div class="following_partial"><%= render 'activities/browse_by_following' %></div>
+    <div class="hidden_partial all_users_partial"><%= render 'activities/browse_by_user' %></div>
+    <div class="hidden_partial all_activities_partial"><%= render 'activities/browse_by_all_activity' %></div>
+  </div>
 </div>
 
 <script>
