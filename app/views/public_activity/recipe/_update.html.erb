@@ -1,9 +1,9 @@
-updated a recipe
+updated a recipe called
 
 <% if activity.trackable %>
-  <%= link_to (image_tag activity.trackable.recipe_image, height: "50"), activity.trackable %>
+  <%= link_to (image_tag activity.trackable.recipe_image, height: "30"), activity.trackable %>
   <%= link_to activity.trackable.name, activity.trackable %>
-  <%= time_ago_in_words(activity.created_at) %>
+  <span class="feed_time"><%= time_ago_in_words(activity.created_at)%> ago </span>
 <% else %>
-  This Recipe has been removed
+  This recipe has been removed
 <% end %>

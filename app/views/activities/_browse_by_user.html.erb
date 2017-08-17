@@ -1,11 +1,13 @@
-<h1>Users</h1>
-<div class="user_feed_list">
+<h3 class= "row" id="header">Users</h3>
+<div class="user_feed_list" >
+  <div class="col-md-12">
     <% @users.each do |user| %>
-    <div>
+    <div class="activity well">
       <%= image_tag user.avatar, width:"50"%>
       <%= user.user_name %>
-      <p> Recipes Created:</p> <%= user.recipes.length %>
+      <span> Recipes Created: <%= user.recipes.length %></span>
       <br>
     </div>
     <% end %>
+  </div>
 </div>

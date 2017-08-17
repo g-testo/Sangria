@@ -1,8 +1,8 @@
-added a comment
+added a comment that says
 
 <% if activity.trackable %>
   <%= link_to activity.trackable.body, activity.trackable.recipe %>
-  <%= time_ago_in_words(activity.created_at) %>
+  <span class="feed_time"><%= time_ago_in_words(activity.created_at) %> ago</span>
 <% else %>
   This comment has been removed
 <% end %>
