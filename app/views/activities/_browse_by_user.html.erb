@@ -2,12 +2,14 @@
 <div class="user_feed_list" >
   <div class="col-md-12">
     <% @users.each do |user| %>
-    <div class="activity well">
-      <%= image_tag user.avatar, width:"50"%>
-      <%= user.user_name %>
-      <span> Recipes Created: <%= user.recipes.length %></span>
-      <br>
-    </div>
+    <% unless current_user.id == user.id %>
+      <div class="activity well">
+        <%= link_to (image_tag user.avatar, width:"50"), user if user %>
+        <%= link_to user.user_name, user if user %>
+        <span> has created <%= (user.recipes.length == 0 ? "no" : user.recipes.length.to_s) + (user.recipes.length > 1 || user.recipes.length == 0 ? " recipes" : " recipe")%> </span>
+        <br>
+      </div>
+    <% end %>
     <% end %>
   </div>
 </div>
