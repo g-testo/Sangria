@@ -4,7 +4,6 @@
   padding: 0;
   font-family: 'Alegreya Sans SC', sans-serif;
   cursor: default;
-
 }
 .bottom_container {
   clear:left;
@@ -42,6 +41,14 @@
   max-height: 300px;
 }
 
+.recipe_comments_container{
+  padding: 15px;
+}
+
+.comment_form_container{
+  margin-bottom: 20px;
+}
+
 #img01{
   max-width: 95%;
   max-height: 95%;
@@ -61,7 +68,7 @@
   font-size: 1.5em;
 }
 .align_left{
-  float: left
+  float: left;
 }
 .align_right{
   float:right

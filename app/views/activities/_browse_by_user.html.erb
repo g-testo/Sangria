@@ -1,4 +1,5 @@
-<h3 class= "row" id="header">Users</h3>
+<h3 class= "row" id="header"><%= @users.length > 1 ? "Users" : "There are no other users" %></h3>
+
 <div class="user_feed_list" >
   <div class="col-md-12">
     <% @users.each do |user| %>
