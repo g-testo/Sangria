@@ -1,39 +1,31 @@
-<h1><%= current_user == @user ? "My Profile Page" : (@user.user_name + '\'s Profile Page') %></h1>
+<div class='user_container'>
+  <div class='user_contents'>
+    <h1><%= current_user == @user ? "My Profile Page" : (@user.user_name + '\'s Profile Page') %></h1>
 
-<ul>
-  <li> User Name: <%= @user.user_name %></li><br>
-  <li> User description: <%= @user.description %></li><br>
-  <li><%= image_tag @user.avatar, width: "128" %></li><br>
-</ul>
+    <ul>
+      <li><%= image_tag @user.avatar, width: "350" %></li><br>
+      <li><span>User description: </span><%= @user.description %></li><br>
+      <section class="stats"><%= render 'shared/stats' %></section>
+      <%= render 'follow_form' if current_user %>
+    </ul>
 
+    <h3>List of submitted recipes</h3>
 
-<h3>List of submitted recipes</h3>
-
-<table>
-    <thead>
-      <tr>
-        <th>Recipe image</th>
-        <th>Name</th>
-        <th>Average Rating</th>
-        <th>Recipe Created</th>
-      </tr>
-    </thead>
-
-    <tbody>
+    <div class="user_page_recipe_container">
       <% @user.recipes.each do |recipe| %>
-        <tr>
+        <ul class="user_page_recipe_thumb well">
           <%= link_to recipe_path(recipe.id) do %>
-            <td><%= image_tag recipe.recipe_image.url, width: "64" %></td>
-            <td><%= recipe.name %></td>
-            <td><%= recipe.avg_rating ? recipe.avg_rating : "No ratings yet"%></td>
-            <td><small>Published <%= time_ago_in_words(recipe.created_at) %> ago</small></td>
+            <li><%= image_tag recipe.recipe_image.url, height: "128" %></li>
+            <br>
+            <li><%= recipe.name %></li>
+            <br>
           <% end %>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-<%= render 'follow_form' if current_user %>
+          <li><%= recipe.avg_rating ? recipe.avg_rating : "No ratings yet"%></li>
+          <br>
+          <li><small>Published <%= time_ago_in_words(recipe.created_at) %> ago</small></li>
+          <br>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
