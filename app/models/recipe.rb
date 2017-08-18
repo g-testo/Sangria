@@ -14,10 +14,10 @@ class Recipe < ActiveRecord::Base
   validate :recipe_image_size
 
   def average_rating
-    if ratings.size > 0
-      (ratings.sum(:score) / ratings.size)
+    if ratings.size > 1
+      (ratings.sum(:score) / (ratings.size - 1))
     else
-      0
+      nil
     end
   end
 
