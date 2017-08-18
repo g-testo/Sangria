@@ -7,6 +7,7 @@
         <%= f.check_box :is_private, label: "Make Account Private"%>
         <br>
         <%= f.text_field :user_name%>
+        <%= f.text_area :description%>
         <%= f.password_field :password, autocomplete: "off", placeholder: "Required"%>
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Required" %>
         <%= f.file_field :avatar %>

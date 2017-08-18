@@ -2,8 +2,7 @@
 
 <ul>
   <li> User Name: <%= @user.user_name %></li><br>
-  <li> User email: <%= @user.email %></li><br>
-  <li></li><br>
+  <li> User description: <%= @user.description %></li><br>
   <li><%= image_tag @user.avatar, width: "128" %></li><br>
 </ul>
 
@@ -26,7 +25,7 @@
           <%= link_to recipe_path(recipe.id) do %>
             <td><%= image_tag recipe.recipe_image.url, width: "64" %></td>
             <td><%= recipe.name %></td>
-            <td><%= recipe.avg_rating %></td>
+            <td><%= recipe.avg_rating ? recipe.avg_rating : "No ratings yet"%></td>
             <td><small>Published <%= time_ago_in_words(recipe.created_at) %> ago</small></td>
           <% end %>
         </tr>
