@@ -1,0 +1,28 @@
+.follow_container {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  cursor: default;
+  width: 90%;
+  max-width: 800px;
+  background-color: white;
+  box-shadow: 2px 6px 3px #888888;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 30px;
+}
+.follow_contents{
+  text-align: center
+}
+.follow_page_user_thumb {
+  margin: 10px;
+  margin: .5vw;
+  width: 150px;
+  text-align: center;
+  display: inline-block;
+}
+.follow_page_user_thumb img {
+  width: 100%;
+  height: auto;
+}
+.follow_page_user_container {
+  padding: .5vw;
+}

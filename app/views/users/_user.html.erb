@@ -1,8 +1,10 @@
-<li>
-  <%#= gravatar_for user, size: 52 %>
-  <%= link_to user.user_name, user %>
-  <% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to 'delete', user, method: :delete,
-                                  data: { confirm: 'Are you sure?' } %>
+<div class="follow_page_user_thumb well">
+  <%= link_to user_path(user) do %>
+    <li><%= user.user_name %></li>
+    <li><%= image_tag user.avatar, height: "50" %></li>
   <% end %>
-</li>
+  <li><% if current_user.admin? && !current_user?(user) %>
+    | <%= link_to 'delete', user, method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+  <% end %></li>
+</div>
