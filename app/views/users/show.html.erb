@@ -12,6 +12,7 @@
     <h3>List of submitted recipes</h3>
 
     <div class="user_page_recipe_container">
+      <h3><%= @user.recipes.length == 0 ? "No recipes have been submitted" :  "" %></h3>
       <% @user.recipes.each do |recipe| %>
         <ul class="user_page_recipe_thumb well">
           <%= link_to recipe_path(recipe.id) do %>
