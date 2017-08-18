@@ -1,6 +1,6 @@
 <h3 class= "row" id="header"><%= @following_activities.length > 1 ? "Activities of users you are following" : "You are not following anyone yet" %></h3>
 <div class="following_feed_list">
-  <div class="col-md-12">
+  <div>
     <% @following_activities.each do |activity| %>
       <div class="activity well">
         <%= link_to activity.owner.user_name, activity.owner if activity.owner %>

@@ -1,6 +1,6 @@
 <h3 class= "row" id="header">All activities</h3>
 <div class="all_feed_list">
-  <div class="col-md-12">
+  <div>
     <% @activities.each do |activity| %>
       <div class="activity well">
         <%= link_to (activity.owner == current_user ? "You" : activity.owner.user_name), activity.owner if activity.owner %>

@@ -1,6 +1,6 @@
 <% if comment.created_at %>
-    <div class='<%= comment_counter > 1 ? 'hide_add_comments' : "" %>'>
-      <div class="well well-sm">
+  <div class='<%= comment_counter > 1 ? 'hide_add_comments' : "" %>'>
+    <div class="comment_container">
       <%= link_to User.find_by(comment.user_id).user_name, user_path(User.find_by(comment.user_id).id) %>
       wrote
       <%= visibility_auth(current_user, comment.user_id) ? (editable comment, :body) : comment.body %>

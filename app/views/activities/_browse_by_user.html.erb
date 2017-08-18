@@ -1,7 +1,7 @@
 <h3 class= "row" id="header"><%= @users.length > 1 ? "Users" : "There are no other users" %></h3>
 
 <div class="user_feed_list" >
-  <div class="col-md-12">
+  <div>
     <% @users.each do |user| %>
     <% unless current_user.id == user.id %>
       <div class="activity well">
