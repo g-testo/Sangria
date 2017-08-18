@@ -12,7 +12,9 @@
         <%= ingredient_field.hidden_field :recipe_id, :value => @recipe.id%>
         <%= ingredient_field.select :category,[ [ "Wine", "wine" ], [ "Liqour", "liqour" ], [ "Garnish", "garnish" ], [ "Other", "other"] ], label: "Ingredient Category"%>
         <%= ingredient_field.text_field :name, label: "Ingredient Name"%>
-        <%= ingredient_field.number_field :quantity %>
+        <%= ingredient_field.number_field :quantity%>
+        <%= ingredient_field.select :measurement, [ [ "Ounce(s)", "oz(s)" ], [ "Bottle(s)", "bottle(s)"], [ "Litre(s)", "litre(s)" ], [ "Millilitre(s)", "ml(s)" ], [ "Other", "other"] ], { label: "Measurement Amount", :include_blank => true}, { :onchange => "other_measurement()" } %>
+        <%#= ingredient_field.text_field :measurement, hide_label: true, style: 'display: none;',  class: "other_field"%>
       <% end %>
       <%= f.add_nested_fields_link :ingredients, 'Add another ingredient', class: 'btn btn-primary', role: 'button'%>
       <%= f.select :servings, ["2-6", "6-12", "12+"], placeholder: "How many people does it serve?"%>
@@ -24,3 +26,14 @@
     <% end %>
   </div>
 </div>
+<script>
+  function other_measurement() {
+      $.each(document.getElementsByClassName('other_field'), function( i, v ) {
+        if (document.getElementById('recipe_ingredients_attributes_0_measurement').value == 'other') {
+          document.getElementsByClassName('other_field')[i].style.display = 'block';
+        } else {
+          document.getElementsByClassName('other_field')[i].style.display = 'none';
+        }
+      })
+  }
+</script>
