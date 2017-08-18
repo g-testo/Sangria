@@ -289,12 +289,12 @@ font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 // media query for roulette and youtube
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 700px) {
   .recipe_roulette {
     float: none;
     margin: 0 auto;
     padding: auto;
-    padding-bottom: 30px;
+    padding: 170px 0 30px;
     width: 250px;
     }
 
