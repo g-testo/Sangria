@@ -3,6 +3,7 @@ updated a recipe called
 <% if activity.trackable %>
   <%= link_to (image_tag activity.trackable.recipe_image, height: "30"), activity.trackable %>
   <%= link_to activity.trackable.name, activity.trackable %>
+  <br>
   <span class="feed_time"><%= time_ago_in_words(activity.created_at)%> ago </span>
 <% else %>
   This recipe has been removed

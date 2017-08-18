@@ -2,6 +2,7 @@
   <%= (current_user.id == activity.trackable.recipe.user.id) ? "added a comment to your recipe that says" : "added a comment that says" %>
   <% if activity.trackable %>
     <%= link_to activity.trackable.body, activity.trackable.recipe %>
+    <br>
     <span class="feed_time"><%= time_ago_in_words(activity.created_at) %> ago</span>
   <% else %>
     This comment has been removed

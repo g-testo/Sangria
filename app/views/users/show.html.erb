@@ -1,21 +1,38 @@
 <h1><%= current_user == @user ? "My Profile Page" : (@user.user_name + '\'s Profile Page') %></h1>
-<h3>User Information</h3>
 
 <ul>
-  <li> User email: <%= @user.email %></li>
-  <li><%= image_tag @user.avatar, width: "128" %></li>
+  <li> User Name: <%= @user.user_name %></li><br>
+  <li> User email: <%= @user.email %></li><br>
+  <li></li><br>
+  <li><%= image_tag @user.avatar, width: "128" %></li><br>
 </ul>
+
+
 <h3>List of submitted recipes</h3>
-<ul>
-  <% @user.recipes.each do |recipe| %>
-    <%= link_to recipe_path(recipe.id) do %>
-      <li><%= image_tag recipe.recipe_image.url, width: "64" %></li>
-      <li><span class="index_name"><%= recipe.name %></span></li>
-      <small>Published <%= time_ago_in_words(recipe.created_at) %> ago</small>
 
-    <% end %>
-  <% end %>
-</ul>
+<table>
+    <thead>
+      <tr>
+        <th>Recipe image</th>
+        <th>Name</th>
+        <th>Average Rating</th>
+        <th>Recipe Created</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @user.recipes.each do |recipe| %>
+        <tr>
+          <%= link_to recipe_path(recipe.id) do %>
+            <td><%= image_tag recipe.recipe_image.url, width: "64" %></td>
+            <td><%= recipe.name %></td>
+            <td><%= recipe.avg_rating %></td>
+            <td><small>Published <%= time_ago_in_words(recipe.created_at) %> ago</small></td>
+          <% end %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
 
 <section class="stats">
   <%= render 'shared/stats' %>
