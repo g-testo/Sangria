@@ -62,7 +62,7 @@
                   <li><span class="ingred_title">Name: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
                   <br>
                   <li><span class="ingred_title">Quantity: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
-                  (<li><span class="ingred_title"></span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :measurement) : ingredient.measurement %></li>)
+                  -<li><span class="ingred_title"></span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :measurement) : ingredient.measurement %></li>
                 </ul>
               </div>
             <% end %>
