@@ -41,6 +41,8 @@ csv.each do |row|
 end
 
 puts "There are now #{Recipe.count} rows in the transactions table"
-(1..10).each do |num|
-  User.create! :user_name => ('John Doe' + num.to_s), :email => ('john@gmail.com' + num.to_s), :password => 'topsecret', :password_confirmation => 'topsecret'
+nameArr = ["Patty Puterbaugh", "Enedina Esterlin", "Arturo Abe", "Angeline Asberry", "Natalia Nickles", "Matilde Miranda", "Gerard Geissler", "Tyree Taul", "Elbert Eastin", "Mistie Mack", "Latoya Lenzen", "Keri Kincade", "Nana Natal", "Temple Thor", "Mitsue Mahi", "Eileen Escobedo", "Jacklyn Jeffery", "Stefan Snavely", "Ilana Illingworth", "Chadwick Canela" ]
+
+nameArr.each do |name|
+  User.create! :user_name => (name), :email => ( name.delete(' ') + '@gmail.com'), :password => (name + "123"), :password_confirmation => (name + '123')
 end
