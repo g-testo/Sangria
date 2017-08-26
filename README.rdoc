@@ -1,28 +1,27 @@
-== README
+== Sangria New York City
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a community recipe database website. It features:
 
-Things you may want to cover:
+- Full authentication system using Devise with modifications for admin access, Facebook omni-auth and Recaptcha
+- User and recipe photo uploading using Carrierwave and Amazon Web Services
+- Styling tools include bootstrap for forms and SASS for general CSS
+- Recipe/ingredient search, filter and sort system with pagination and autocomplete
+- User following and activity feed with the help of Public Activity
+- On the fly recipe editing with AJAX using x-editable
+- Contact form synced with private email using Mailgun
+- Users are able to rate and comment on recipes
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+devise
+bootstrap
+x-editable
+mailgun
+AWS
+carrierwave
+jquery
+jquery-autocomplete
+SASS
+omniauth-facebook
+filterrific
+recaptcha
+public_activity
+pagination
