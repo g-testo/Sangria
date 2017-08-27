@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818163957) do
+ActiveRecord::Schema.define(version: 20170826223920) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20170818163957) do
   create_table "ingredients", force: :cascade do |t|
     t.string   "recipe_id"
     t.string   "name"
-    t.integer  "quantity"
+    t.float    "quantity"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "category"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170818163957) do
     t.integer  "avg_rating"
     t.integer  "ingredient_id"
     t.string   "description"
+    t.string   "source"
   end
 
   add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id"

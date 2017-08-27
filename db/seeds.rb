@@ -19,23 +19,26 @@ csv.each do |row|
   t.description = row['description']
   t.instructions = row['instructions']
   t.servings = row['servings']
+  t.ratings.build
 
   t.recipe_image = Rails.root.join("db/images/" + row['recipe_image']).open
 
   t.user_id = row['user_id']
   t.flavor = row['flavor']
-  # t.source = row['recipe_source']
+  t.source = row['recipe_source']
 
-  # i = t.ingredients.build
-    # t.ingredient_id = row['ingredient_id']
-    # row['ingredients_name'].each_with_index do |ingredient, index|
-    #   i.name = row['ingredients_name'][index]
-    #   i.recipe_id = t.id
-    #   i.quantity = row['ingredients_quantity'][index]
-    #   i.measurement = row['ingredient_measurement'][index]
-    #   i.category = row['ingredients_category'][index]
-    # end
+  ingArrName = row['ingredients_name'].strip.split(",")
+  ingArrQuant = row['ingredients_quantity'].strip.split(",")
+  ingArrMeas = row['ingredient_measurement'].strip.split(",")
+  ingArrCat = row['ingredients_category'].strip.split(",")
 
+  ingArrName.each_with_index do |ingredient, index|
+    i = t.ingredients.build
+      i.name = ingArrName[index]
+      i.quantity = ingArrQuant[index]
+      i.measurement = ingArrMeas[index]
+      i.category = ingArrCat[index]
+  end
   t.save!
   puts "#{t.name} saved"
 end

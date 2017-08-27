@@ -52,7 +52,12 @@
             <span class="recipe_show_title">Servings: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :servings) : @recipe.servings %>
           </li>
           <br>
-
+          <% if @recipe.source %>
+            <li class="recipe_source">
+              <span class="recipe_show_title">Recipe Source: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable @recipe, :source) : (link_to "Source Website", @recipe.source) %>
+            </li>
+            <br>
+          <% end %>
           <li class='ingredient_container'><span class="recipe_show_title">Ingredients: </span><br>
             <% @ingredients.each_with_index do |ingredient, index| %>
               <div class= <%= index > 1 ? "hide_add_ingredients" : "" %> >
@@ -61,8 +66,8 @@
                   <br>
                   <li><span class="ingred_title">Name: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :name) : ingredient.name %></li>
                   <br>
-                  <li><span class="ingred_title">Quantity: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : ingredient.quantity %></li>
-                  -<li><span class="ingred_title"></span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :measurement) : ingredient.measurement %></li>
+                  <li><span class="ingred_title">Quantity: </span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :quantity) : number_with_precision(ingredient.quantity, precision: 2, strip_insignificant_zeros: true)%></li>
+                  <li><span class="ingred_title"></span><%= visibility_auth(current_user, @recipe.user_id) ? (editable ingredient, :measurement) : ingredient.measurement %></li>
                 </ul>
               </div>
             <% end %>
