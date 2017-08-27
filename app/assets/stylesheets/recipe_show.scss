@@ -42,10 +42,30 @@
   max-height: 300px;
 }
 
+
+@media (max-width: 650px) {
+  .recipe_show_content{
+    padding: 20px;
+  }
+  .recipe_show_image_wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .recipe_show_image_wrapper img{
+    width: 100%;
+    max-width: none;
+    max-height: none;
+  }
+  .bottom_container {
+    display: block;
+  }
+}
+
+
 .recipe_comments_container{
   min-width: 200px;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
 }
 .comment_container{
   padding: 5px;
