@@ -7,6 +7,7 @@
 }
 .bottom_container {
   clear:left;
+  display: flex;
 }
 .recipe_rating {
   text-align: center;
@@ -42,7 +43,9 @@
 }
 
 .recipe_comments_container{
-  padding: 15px;
+  min-width: 200px;
+  margin: 20px;
+  padding: 20px;
 }
 .comment_container{
   padding: 5px;
@@ -67,26 +70,15 @@
 .ingred_title{
   font-weight: bold;
 }
-.recipe_show_title, .comment_title{
+.recipe_show_title, .comment_title {
   font-size: 1.5em;
-}
-.align_left{
-  float: left;
-}
-.align_right{
-  float:right
-}
-.clear{
-  clear: both
 }
 .hide_add_ingredients, .hide_add_comments {
   display: none;
 }
-
-.recipe_comments{
-  width: 250px
+.recipe_comments {
+  max-width: 250px;
 }
-
-.recipe_management{
+.recipe_management {
   text-align: center;
 }
