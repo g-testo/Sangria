@@ -13,7 +13,6 @@ if ! csv_text.valid_encoding?
 end
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
-  # t = Recipe.new
   t = Recipe.new
   t.name = row['name']
   t.description = row['description']
@@ -44,6 +43,7 @@ csv.each do |row|
 end
 
 puts "There are now #{Recipe.count} rows in the transactions table"
+
 nameArr = ["Patty Puterbaugh", "Enedina Esterlin", "Arturo Abe", "Angeline Asberry", "Natalia Nickles", "Matilde Miranda", "Gerard Geissler", "Tyree Taul", "Elbert Eastin", "Mistie Mack", "Latoya Lenzen", "Keri Kincade", "Nana Natal", "Temple Thor", "Mitsue Mahi", "Eileen Escobedo", "Jacklyn Jeffery", "Stefan Snavely", "Ilana Illingworth", "Chadwick Canela" ]
 
 nameArr.each do |name|

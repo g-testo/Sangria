@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170826223920) do
+ActiveRecord::Schema.define(version: 20170827052734) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -26,9 +29,9 @@ ActiveRecord::Schema.define(version: 20170826223920) do
     t.datetime "updated_at"
   end
 
-  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
+  add_index "activities", ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "activities", ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "activities", ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
@@ -39,11 +42,11 @@ ActiveRecord::Schema.define(version: 20170826223920) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["recipe_id"], name: "index_comments_on_recipe_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["recipe_id"], name: "index_comments_on_recipe_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "ingredients", force: :cascade do |t|
-    t.string   "recipe_id"
+    t.integer  "recipe_id"
     t.string   "name"
     t.float    "quantity"
     t.datetime "created_at",  null: false
@@ -65,8 +68,8 @@ ActiveRecord::Schema.define(version: 20170826223920) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "ratings", ["recipe_id"], name: "index_ratings_on_recipe_id"
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
+  add_index "ratings", ["recipe_id"], name: "index_ratings_on_recipe_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20170826223920) do
     t.string   "source"
   end
 
-  add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id"
+  add_index "recipes", ["ingredient_id"], name: "index_recipes_on_ingredient_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -93,9 +96,9 @@ ActiveRecord::Schema.define(version: 20170826223920) do
     t.datetime "updated_at"
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -119,7 +122,7 @@ ActiveRecord::Schema.define(version: 20170826223920) do
     t.string   "description"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
